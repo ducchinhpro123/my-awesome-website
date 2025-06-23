@@ -10,6 +10,7 @@ class DefaultController extends Controller
         $args = [];
         print $this->twig->render($template, $args);
     }
+
 }
 
 ?>
