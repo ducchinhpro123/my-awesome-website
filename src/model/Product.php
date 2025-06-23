@@ -5,6 +5,7 @@ namespace MyAwesomeWebsite\model;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
+#[ORM\Table(name: 'products')]
 class Product
 {
     #[ORM\Id]
@@ -18,7 +19,7 @@ class Product
     #[ORM\Column(type: 'string')]
     private string $name;
 
-    #[ORM\Column(type: 'decimal', precision: 10, nullable: true)]
+    #[ORM\Column(type: 'decimal', precision: 10, nullable: true, scale: 2)]
     private ?string $price;
 
     #[ORM\Column(type: 'string', nullable: true, name: 'image_url')]
