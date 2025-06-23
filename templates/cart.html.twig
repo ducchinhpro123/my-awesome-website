@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - ShopHub</title>
+    {# <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> #}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-red fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fas fa-leaf me-2 text-golden"></i>Truyền Thống
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="products.html?category=electronics">Electronics</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=clothing">Clothing</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=home">Home & Garden</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=sports">Sports</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <form class="d-flex me-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
+                        <button class="btn btn-outline-light" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <a href="cart.html" class="btn btn-outline-light me-2 position-relative active">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
+                            3
+                        </span>
+                    </a>
+                    <a href="login.html" class="btn btn-light">
+                        <i class="fas fa-user me-1"></i>Login
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="bg-light py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="display-5 fw-bold mb-3 text-red">Giỏ Hàng</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Cart Items -->
+                <div class="col-lg-8 mb-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Cart Items (3)</h5>
+                        </div>
+                        <div class="card-body p-0">
+                            <!-- Cart Item 1 -->
+                            <div class="cart-item border-bottom p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2">
+                                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" 
+                                             class="img-fluid rounded" alt="Wireless Headphones">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="mb-1">Wireless Headphones</h6>
+                                        <p class="text-muted mb-1">Color: Black</p>
+                                        <small class="text-success">In Stock</small>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="input-group">
+                                            <button class="btn btn-outline-secondary btn-sm" type="button">-</button>
+                                            <input type="number" class="form-control form-control-sm text-center" value="1" min="1">
+                                            <button class="btn btn-outline-secondary btn-sm" type="button">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="text-center">
+                                            <span class="h6 text-primary">$99.99</span>
+                                            <div class="text-muted text-decoration-line-through small">$129.99</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 text-center">
+                                        <button class="btn btn-outline-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button class="btn btn-outline-secondary btn-sm ms-1">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cart Item 2 -->
+                            <div class="cart-item border-bottom p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2">
+                                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" 
+                                             class="img-fluid rounded" alt="Smart Watch">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="mb-1">Smart Watch</h6>
+                                        <p class="text-muted mb-1">Color: Silver</p>
+                                        <small class="text-success">In Stock</small>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="input-group">
+                                            <button class="btn btn-outline-secondary btn-sm" type="button">-</button>
+                                            <input type="number" class="form-control form-control-sm text-center" value="1" min="1">
+                                            <button class="btn btn-outline-secondary btn-sm" type="button">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="text-center">
+                                            <span class="h6 text-primary">$199.99</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 text-center">
+                                        <button class="btn btn-outline-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button class="btn btn-outline-secondary btn-sm ms-1">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cart Item 3 -->
+                            <div class="cart-item p-4">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2">
+                                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" 
+                                             class="img-fluid rounded" alt="Running Shoes">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="mb-1">Running Shoes</h6>
+                                        <p class="text-muted mb-1">Size: 10, Color: Blue</p>
+                                        <small class="text-success">In Stock</small>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="input-group">
+                                            <button class="btn btn-outline-secondary btn-sm" type="button">-</button>
+                                            <input type="number" class="form-control form-control-sm text-center" value="2" min="1">
+                                            <button class="btn btn-outline-secondary btn-sm" type="button">+</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="text-center">
+                                            <span class="h6 text-primary">$79.99</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 text-center">
+                                        <button class="btn btn-outline-danger btn-sm">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <button class="btn btn-outline-secondary btn-sm ms-1">
+                                            <i class="far fa-heart"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="d-flex justify-content-between">
+                                <a href="products.html" class="btn btn-outline-primary">
+                                    <i class="fas fa-arrow-left me-2"></i>Continue Shopping
+                                </a>
+                                <button class="btn btn-outline-secondary">
+                                    <i class="fas fa-sync me-2"></i>Update Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mb-0">Order Summary</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Subtotal (4 items):</span>
+                                <span>$459.97</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Shipping:</span>
+                                <span class="text-success">Free</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Tax:</span>
+                                <span>$36.80</span>
+                            </div>
+                            <div class="d-flex justify-content-between mb-2">
+                                <span>Discount:</span>
+                                <span class="text-success">-$30.00</span>
+                            </div>
+                            <hr>
+                            <div class="d-flex justify-content-between mb-3">
+                                <strong>Total:</strong>
+                                <strong class="text-primary">$466.77</strong>
+                            </div>
+                            
+                            <!-- Promo Code -->
+                            <div class="mb-3">
+                                <label for="promoCode" class="form-label">Promo Code</label>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" id="promoCode" placeholder="Enter code">
+                                    <button class="btn btn-outline-secondary" type="button">Apply</button>
+                                </div>
+                            </div>
+
+                            <button class="btn btn-primary w-100 mb-3">
+                                <i class="fas fa-lock me-2"></i>Proceed to Checkout
+                            </button>
+                            
+                            <div class="text-center">
+                                <small class="text-muted">
+                                    <i class="fas fa-shield-alt me-1"></i>
+                                    Secure checkout with SSL encryption
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shipping Info -->
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <h6 class="mb-0">Shipping Information</h6>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mb-0">
+                                <li class="mb-2">
+                                    <i class="fas fa-truck text-primary me-2"></i>
+                                    Free shipping on orders over $50
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-clock text-primary me-2"></i>
+                                    Estimated delivery: 3-5 business days
+                                </li>
+                                <li class="mb-2">
+                                    <i class="fas fa-undo text-primary me-2"></i>
+                                    30-day return policy
+                                </li>
+                                <li>
+                                    <i class="fas fa-headset text-primary me-2"></i>
+                                    24/7 customer support
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <h6 class="mb-0">We Accept</h6>
+                        </div>
+                        <div class="card-body text-center">
+                            <img src="https://via.placeholder.com/50x30/007bff/ffffff?text=VISA" alt="Visa" class="me-2 mb-2">
+                            <img src="https://via.placeholder.com/50x30/ff6b35/ffffff?text=MC" alt="Mastercard" class="me-2 mb-2">
+                            <img src="https://via.placeholder.com/50x30/009cde/ffffff?text=AMEX" alt="American Express" class="me-2 mb-2">
+                            <img src="https://via.placeholder.com/50x30/009cde/ffffff?text=PP" alt="PayPal" class="mb-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recently Viewed -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h4 class="mb-4">Recently Viewed</h4>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card product-card h-100 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                             class="card-img-top" alt="Gaming Laptop">
+                        <div class="card-body">
+                            <h6 class="card-title">Gaming Laptop</h6>
+                            <div class="text-primary fw-bold">$899.99</div>
+                            <button class="btn btn-primary btn-sm mt-2 w-100">
+                                <i class="fas fa-cart-plus me-1"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card product-card h-100 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                             class="card-img-top" alt="Sunglasses">
+                        <div class="card-body">
+                            <h6 class="card-title">Designer Sunglasses</h6>
+                            <div class="text-primary fw-bold">$49.99</div>
+                            <button class="btn btn-primary btn-sm mt-2 w-100">
+                                <i class="fas fa-cart-plus me-1"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card product-card h-100 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                             class="card-img-top" alt="Backpack">
+                        <div class="card-body">
+                            <h6 class="card-title">Travel Backpack</h6>
+                            <div class="text-primary fw-bold">$69.99</div>
+                            <button class="btn btn-primary btn-sm mt-2 w-100">
+                                <i class="fas fa-cart-plus me-1"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="card product-card h-100 shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
+                             class="card-img-top" alt="Bluetooth Speaker">
+                        <div class="card-body">
+                            <h6 class="card-title">Bluetooth Speaker</h6>
+                            <div class="text-primary fw-bold">$39.99</div>
+                            <button class="btn btn-primary btn-sm mt-2 w-100">
+                                <i class="fas fa-cart-plus me-1"></i>Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">ShopHub</h5>
+                    <p class="text-muted">Your trusted online shopping destination with quality products and excellent service.</p>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-muted text-decoration-none">Home</a></li>
+                        <li><a href="products.html" class="text-muted text-decoration-none">Products</a></li>
+                        <li><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
+                        <li><a href="contact.html" class="text-muted text-decoration-none">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">Customer Service</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">FAQ</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Shipping Info</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Returns</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <h5 class="mb-3">Contact Info</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><i class="fas fa-map-marker-alt me-2"></i>123 Shopping St, City, State 12345</li>
+                        <li><i class="fas fa-phone me-2"></i>(555) 123-4567</li>
+                        <li><i class="fas fa-envelope me-2"></i>info@shophub.com</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0 text-muted">&copy; 2025 ShopHub. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <img src="https://via.placeholder.com/40x25/007bff/ffffff?text=VISA" alt="Visa" class="me-2">
+                    <img src="https://via.placeholder.com/40x25/ff6b35/ffffff?text=MC" alt="Mastercard" class="me-2">
+                    <img src="https://via.placeholder.com/40x25/009cde/ffffff?text=PP" alt="PayPal">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

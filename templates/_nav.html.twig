@@ -1,0 +1,37 @@
+    <nav class="navbar navbar-expand-lg fixed-top bg-red navbar-dark">
+        <div class="container"><a class="navbar-brand fw-bold" href="index.html"><i
+                        class="fas fa-leaf me-1"></i>VietShop</a>
+            <button data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler" type="button"><span
+                        class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link {% if active_page == 'home' %} active {% endif %}" href="/">Trang Chủ</a></li>
+                    <li class="nav-item"><a class="nav-link {% if active_page == 'products' %} active {% endif %}" href="/?action=products">Sản Phẩm</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                                                     role="button"> Danh Mục </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="products.html?category=handicrafts">Đồ Thủ Công Mỹ Nghệ</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=textiles">Dệt May Truyền Thống</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=ceramics">Gốm Sứ</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=woodcrafts">Đồ Gỗ Mỹ Nghệ</a></li>
+                            <li><a class="dropdown-item" href="products.html?category=tea">Trà & Ẩm Thực</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link {% if active_page == 'introduction' %} active {% endif %}" href="about.html">Giới Thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link {% if active_page == 'contact' %} active {% endif %}" href="contact.html">Liên Hệ</a></li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <form class="d-flex me-3" role="search"><input class="form-control me-2" type="search"
+                                                                   aria-label="Search" placeholder="Tìm kiếm sản phẩm...">
+                        <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
+                    </form>
+                    <a class="btn btn-outline-light position-relative me-2" role="button" href="cart.html">
+                        <i class="fas fa-shopping-cart"></i><span
+                                class="badge rounded-pill bg-red position-absolute top-0 start-100 translate-middle"
+                                id="cart-count"> 0 </span>
+                    </a>
+                    <a class="btn btn-light" role="button" href="login.html"><i class="fas fa-user me-1"></i>Đăng Nhập </a>
+                </div>
+            </div>
+        </div>
+    </nav>

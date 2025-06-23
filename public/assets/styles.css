@@ -1,0 +1,1446 @@
+/* Custom Styles for ShopHub E-commerce Website */
+
+/* Root Variables - Vietnamese Color Scheme */
+:root {
+    --primary-color: #da020e;
+    --secondary-color: #6c757d;
+    --success-color: #228b22;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --border-radius: 8px;
+    --box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --transition: all 0.3s ease;
+    
+    /* Vietnamese Theme Colors */
+    --red: #da020e;
+    --golden: #d4af37;
+    --green: #228b22;
+    --blue: #4169e1;
+    --red-soft: rgba(218, 2, 14, 0.1);
+    --golden-soft: rgba(212, 175, 55, 0.1);
+    --green-soft: rgba(34, 139, 34, 0.1);
+    --blue-soft: rgba(65, 105, 225, 0.1);
+}
+
+/* Global Styles */
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--dark-color);
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--red);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b8020c;
+}
+
+/* Navigation Enhancements */
+.navbar {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+}
+
+.navbar-nav .nav-link:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.navbar-nav .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(135deg, #fff8f0 0%, #fdf2e9 100%);
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 100%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(218, 2, 14, 0.05) 0%, transparent 50%);
+    transform: rotate(15deg);
+}
+
+.hero-section h1 {
+    background: linear-gradient(135deg, var(--red), #b8020c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Feature Boxes */
+.feature-box {
+    transition: var(--transition);
+    border-radius: var(--border-radius);
+    height: 100%;
+}
+
+.feature-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.feature-box i {
+    transition: var(--transition);
+}
+
+.feature-box:hover i {
+    transform: scale(1.1);
+    color: #0056b3 !important;
+}
+
+/* Product Cards */
+.product-card {
+    transition: var(--transition);
+    border: none;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.product-card .card-img-top {
+    transition: var(--transition);
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.product-card .card-body {
+    padding: 1.5rem;
+}
+
+.product-card .card-title {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.product-card .card-text {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Product Overlay */
+.product-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.wishlist-btn {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.wishlist-btn:hover {
+    background-color: var(--danger-color) !important;
+    color: white !important;
+    transform: scale(1.1);
+}
+
+/* Buttons */
+.btn {
+    border-radius: var(--border-radius);
+    font-weight: 500;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--red), #b8020c);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #b8020c, #a0020a);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(218, 2, 14, 0.3);
+}
+
+.btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(25, 135, 84, 0.3);
+}
+
+.btn-outline-primary:hover {
+    transform: translateY(-2px);
+}
+
+/* Add to Cart Button Animation */
+.add-to-cart {
+    position: relative;
+}
+
+.add-to-cart.added {
+    background-color: var(--success-color) !important;
+    border-color: var(--success-color) !important;
+}
+
+.add-to-cart.added::after {
+    content: '✓ Added';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--success-color);
+    color: white;
+    border-radius: var(--border-radius);
+}
+
+/* Cart Badge Animation */
+#cart-count {
+    animation: pulse 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* Product Detail Page */
+.main-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+}
+
+.thumbnail-img {
+    cursor: pointer;
+    transition: var(--transition);
+    opacity: 0.7;
+}
+
+.thumbnail-img:hover,
+.thumbnail-img.active {
+    opacity: 1;
+    border-color: var(--red) !important;
+    border-width: 2px !important;
+}
+
+.price-section {
+    padding: 1rem 0;
+    border-top: 1px solid #dee2e6;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.product-options .btn {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.stock-status .badge {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+}
+
+/* Quantity Input */
+.input-group .btn {
+    border-radius: 0;
+}
+
+.input-group .btn:first-child {
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+}
+
+.input-group .btn:last-child {
+    border-top-right-radius: var(--border-radius);
+    border-bottom-right-radius: var(--border-radius);
+}
+
+/* Cart Page */
+.cart-item {
+    transition: var(--transition);
+}
+
+.cart-item:hover {
+    background-color: #f8f9fa;
+}
+
+.cart-item img {
+    border-radius: var(--border-radius);
+}
+
+/* Filters Sidebar */
+.card-header {
+    background-color: var(--light-color);
+    border-bottom: 1px solid #dee2e6;
+    font-weight: 600;
+}
+
+.form-check-input:checked {
+    background-color: var(--red);
+    border-color: var(--red);
+}
+
+/* Pagination */
+.pagination .page-link {
+    border-radius: var(--border-radius);
+    margin: 0 2px;
+    border: 1px solid #dee2e6;
+    /* color: var(--red); */
+    transition: var(--transition);
+}
+
+.pagination .page-link:hover {
+    background-color: var(--red);
+    border-color: var(--red);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--red);
+    border-color: var(--red);
+}
+
+/* Footer */
+footer {
+    margin-top: auto;
+}
+
+footer a {
+    transition: var(--transition);
+}
+
+footer a:hover {
+    color: var(--red) !important;
+    transform: translateY(-2px);
+}
+
+footer .fab {
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+}
+
+footer .fab:hover {
+    background-color: var(--red);
+    transform: translateY(-3px) scale(1.1);
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+}
+
+.breadcrumb-item a {
+    color: var(--red);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.breadcrumb-item a:hover {
+    color: #b8020c;
+    text-decoration: underline;
+}
+
+/* Tabs */
+.nav-tabs .nav-link {
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--secondary-color);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-tabs .nav-link:hover {
+    border-bottom-color: var(--red);
+    color: var(--red);
+}
+
+.nav-tabs .nav-link.active {
+    border-bottom-color: var(--red);
+    color: var(--red);
+    background-color: transparent;
+}
+
+/* Review Stars */
+.text-warning i {
+    transition: var(--transition);
+}
+
+.text-warning:hover i {
+    transform: scale(1.1);
+}
+
+/* Progress Bars */
+.progress {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, var(--red), #b8020c);
+    transition: width 0.6s ease;
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    background: linear-gradient(135deg, var(--red), #b8020c);
+}
+
+/* Stats Section Styling */
+.stat-card {
+    transition: var(--transition);
+    border: 1px solid rgba(218, 2, 14, 0.1);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(218, 2, 14, 0.1);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Why Choose Us Section */
+.why-choose-content .feature-item {
+    transition: var(--transition);
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.why-choose-content .feature-item:hover {
+    background-color: rgba(218, 2, 14, 0.02);
+    transform: translateX(5px);
+}
+
+.feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(218, 2, 14, 0.1);
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.floating-badge {
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-badge .badge {
+    backdrop-filter: blur(10px);
+}
+
+/* Partners Grid */
+.partners-grid {
+    padding: 2rem 0;
+}
+
+.partner-logo {
+    transition: var(--transition);
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.partner-logo:hover {
+    opacity: 1 !important;
+    transform: scale(1.05);
+    background-color: rgba(218, 2, 14, 0.05);
+}
+
+.partner-logo .brand-logo {
+    margin-bottom: 0.5rem;
+}
+
+/* Local Trust Section */
+.local-trust {
+    padding: 2rem 0;
+}
+
+.trust-item {
+    transition: var(--transition);
+    padding: 1rem;
+    border-radius: 8px;
+    min-width: 120px;
+}
+
+.trust-item:hover {
+    opacity: 1 !important;
+    transform: translateY(-3px);
+    background-color: rgba(218, 2, 14, 0.05);
+}
+
+.trust-item i {
+    transition: var(--transition);
+}
+
+.trust-item:hover i {
+    transform: scale(1.1);
+}
+
+/* Humble styling adjustments */
+.stat-card {
+    background: rgba(218, 2, 14, 0.03) !important;
+}
+
+.why-choose-content .lead {
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments for new sections */
+@media (max-width: 768px) {
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .why-choose-content {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    
+    .feature-item {
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .feature-icon {
+        margin-right: 0 !important;
+        margin-bottom: 1rem;
+    }
+    
+    .partners-grid {
+        justify-content: center !important;
+        gap: 2rem !important;
+    }
+    
+    .partner-logo {
+        min-width: 120px;
+    }
+}
+
+@media (max-width: 576px) {
+    .stat-card {
+        margin-bottom: 1rem;
+    }
+    
+    .partners-grid .partner-logo {
+        font-size: 0.8rem !important;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dark-color: #f8f9fa;
+        --light-color: #212529;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .footer,
+    .btn,
+    .pagination {
+        display: none !important;
+    }
+    
+    .container {
+        max-width: none !important;
+    }
+}
+
+/* Accessibility improvements */
+.btn:focus,
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(218, 2, 14, 0.25);
+    border-color: var(--red);
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .btn-outline-primary {
+        border-width: 2px;
+    }
+    
+    .card {
+        border-width: 2px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+/* Utility classes */
+.text-gradient {
+    background: linear-gradient(135deg, var(--red), #b8020c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.shadow-hover {
+    transition: var(--transition);
+}
+
+.shadow-hover:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.border-gradient {
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--red), #b8020c) 1;
+}
+
+/* Custom scrollbar for specific elements */
+.overflow-auto::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 3px;
+}
+
+/* Loading states */
+.btn.loading {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.btn.loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Success states */
+.success-message {
+    background-color: var(--success-color);
+    color: white;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Error states */
+.error-message {
+    background-color: var(--danger-color);
+    color: white;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Vietnamese Color Scheme Classes */
+.text-red { color: var(--red) !important; }
+.text-golden { color: var(--golden) !important; }
+.text-green { color: var(--green) !important; }
+.text-blue { color: var(--blue) !important; }
+
+.bg-red { background-color: var(--red) !important; }
+.bg-golden { background-color: var(--golden) !important; }
+.bg-green { background-color: var(--green) !important; }
+.bg-blue { background-color: var(--blue) !important; }
+
+.bg-red-soft { background-color: var(--red-soft) !important; }
+.bg-golden-soft { background-color: var(--golden-soft) !important; }
+.bg-green-soft { background-color: var(--green-soft) !important; }
+.bg-blue-soft { background-color: var(--blue-soft) !important; }
+
+/* Vietnamese Theme Buttons */
+.btn-red {
+    background-color: var(--red);
+    border-color: var(--red);
+    color: white;
+    transition: var(--transition);
+}
+
+.btn-red:hover {
+    background-color: #b8020c;
+    border-color: #b8020c;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(218, 2, 14, 0.3);
+}
+
+.btn-outline-red {
+    border-color: var(--red);
+    color: var(--red);
+    background-color: transparent;
+}
+
+.btn-outline-red:hover {
+    background-color: var(--red);
+    border-color: var(--red);
+    color: white;
+}
+
+.border-red {
+    border-color: var(--red) !important;
+}
+
+/* Vietnamese Background Gradients */
+.bg-gradient-light {
+    background: linear-gradient(135deg, #fff8f0 0%, #fdf2e9 100%);
+}
+
+.bg-gradient-soft {
+    background: linear-gradient(135deg, #fff8f0 0%, #ffffff 50%, #fdf6ed 100%);
+}
+
+/* Text Decoration SVG Fix */
+.text-red.position-relative svg {
+    width: 100%;
+    height: 12px;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+}
+
+.text-red.position-relative {
+    display: inline-block;
+    position: relative;
+}
+
+/* Newsletter Section Vietnamese Style */
+.newsletter-section {
+    background: linear-gradient(135deg, var(--red) 0%, #b8020c 100%);
+}
+
+.decoration-pattern {
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 2px, transparent 2px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+}
+
+/* Vietnamese Cultural Elements */
+.stat-item {
+    border-radius: 12px;
+    padding: 0.5rem;
+    background: rgba(218, 2, 14, 0.05);
+    transition: var(--transition);
+}
+
+.feature-icon {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.feature-card {
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(218, 2, 14, 0.1) !important;
+}
+
+/* Product Cards Vietnamese Style */
+.product-card {
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 2rem 4rem rgba(218, 2, 14, 0.15) !important;
+}
+
+.product-image {
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.product-overlay {
+    background: rgba(218, 2, 14, 0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+/* Utility Classes */
+.min-vh-75 { min-height: 75vh; }
+.py-6 { padding-top: 4rem; padding-bottom: 4rem; }
+
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+.hover-shadow:hover {
+    box-shadow: 0 1rem 3rem rgba(218, 2, 14, 0.175) !important;
+}
+
+.shadow-xl {
+    box-shadow: 0 2rem 4rem rgba(218, 2, 14, 0.15) !important;
+}
+
+/* Floating Animations */
+.floating-card {
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-discount {
+    animation: float 3s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Brand Logo Styling */
+.brand-logo {
+    transition: all 0.3s ease;
+    color: var(--red);
+}
+
+.brand-logo:hover {
+    opacity: 1 !important;
+    transform: scale(1.1);
+}
+
+/* Form Focus States - Vietnamese Theme */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 0 0.2rem rgba(218, 2, 14, 0.25);
+}
+
+.newsletter-form input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.5);
+}
+
+/* Vietnamese Typography */
+.display-3, .display-5, .display-6 {
+    font-family: 'Arial', 'Segoe UI', 'Roboto', sans-serif;
+}
+
+/* Responsive adjustments for Vietnamese theme */
+@media (max-width: 768px) {
+    .hero-section {
+        text-align: center;
+        padding: 3rem 0;
+    }
+    
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+    
+    .product-card .card-img-top {
+        height: 200px;
+    }
+    
+    .navbar-nav {
+        text-align: center;
+    }
+    
+    .d-flex.align-items-center {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .cart-item .row {
+        text-align: center;
+    }
+    
+    .cart-item .col-md-2,
+    .cart-item .col-md-4 {
+        margin-bottom: 1rem;
+    }
+
+    .hero-stats {
+        justify-content: center !important;
+    }
+    
+    .display-3 {
+        font-size: 2.5rem;
+    }
+    
+    .py-6 {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    .brand-logo {
+        font-size: 0.9rem !important;
+    }
+
+    /* SVG text decoration responsive fix */
+    .text-red.position-relative svg {
+        height: 8px;
+        bottom: -5px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .feature-box {
+        margin-bottom: 2rem;
+    }
+    
+    .btn-lg {
+        font-size: 1rem;
+        padding: 0.75rem 1.5rem;
+    }
+    
+    .main-image img {
+        height: 300px;
+        object-fit: cover;
+    }
+    
+    .thumbnail-images .col-3 {
+        margin-bottom: 0.5rem;
+    }
+
+    /* SVG text decoration mobile fix */
+    .text-red.position-relative svg {
+        height: 6px;
+        bottom: -3px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dark-color: #f8f9fa;
+        --light-color: #212529;
+    }
+}
+
+/* Print styles */
+@media print {
+    .navbar,
+    .footer,
+    .btn,
+    .pagination {
+        display: none !important;
+    }
+    
+    .container {
+        max-width: none !important;
+    }
+}
+
+/* Accessibility improvements */
+.btn:focus,
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(218, 2, 14, 0.25);
+    border-color: var(--red);
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .btn-outline-primary {
+        border-width: 2px;
+    }
+    
+    .card {
+        border-width: 2px;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+/* Utility classes */
+.text-gradient {
+    background: linear-gradient(135deg, var(--red), #b8020c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.shadow-hover {
+    transition: var(--transition);
+}
+
+.shadow-hover:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+}
+
+.border-gradient {
+    border: 2px solid;
+    border-image: linear-gradient(135deg, var(--red), #b8020c) 1;
+}
+
+/* Custom scrollbar for specific elements */
+.overflow-auto::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 3px;
+}
+
+/* Loading states */
+.btn.loading {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.btn.loading::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Success states */
+.success-message {
+    background-color: var(--success-color);
+    color: white;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Error states */
+.error-message {
+    background-color: var(--danger-color);
+    color: white;
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    margin: 1rem 0;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+/* Vietnamese Color Scheme Classes */
+.text-red { color: var(--red) !important; }
+.text-golden { color: var(--golden) !important; }
+.text-green { color: var(--green) !important; }
+.text-blue { color: var(--blue) !important; }
+
+.bg-red { background-color: var(--red) !important; }
+.bg-golden { background-color: var(--golden) !important; }
+.bg-green { background-color: var(--green) !important; }
+.bg-blue { background-color: var(--blue) !important; }
+
+.bg-red-soft { background-color: var(--red-soft) !important; }
+.bg-golden-soft { background-color: var(--golden-soft) !important; }
+.bg-green-soft { background-color: var(--green-soft) !important; }
+.bg-blue-soft { background-color: var(--blue-soft) !important; }
+
+/* Vietnamese Theme Buttons */
+.btn-red {
+    background-color: var(--red);
+    border-color: var(--red);
+    color: white;
+    transition: var(--transition);
+}
+
+.btn-red:hover {
+    background-color: #b8020c;
+    border-color: #b8020c;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(218, 2, 14, 0.3);
+}
+
+.btn-outline-red {
+    border-color: var(--red);
+    color: var(--red);
+    background-color: transparent;
+}
+
+.btn-outline-red:hover {
+    background-color: var(--red);
+    border-color: var(--red);
+    color: white;
+}
+
+.border-red {
+    border-color: var(--red) !important;
+}
+
+/* Vietnamese Background Gradients */
+.bg-gradient-light {
+    background: linear-gradient(135deg, #fff8f0 0%, #fdf2e9 100%);
+}
+
+.bg-gradient-soft {
+    background: linear-gradient(135deg, #fff8f0 0%, #ffffff 50%, #fdf6ed 100%);
+}
+
+/* Text Decoration SVG Fix */
+.text-red.position-relative svg {
+    width: 100%;
+    height: 12px;
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    right: 0;
+}
+
+.text-red.position-relative {
+    display: inline-block;
+    position: relative;
+}
+
+/* Newsletter Section Vietnamese Style */
+.newsletter-section {
+    background: linear-gradient(135deg, var(--red) 0%, #b8020c 100%);
+}
+
+.decoration-pattern {
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, rgba(255,255,255,0.1) 2px, transparent 2px);
+    background-size: 50px 50px;
+    background-position: 0 0, 25px 25px;
+}
+
+/* Vietnamese Cultural Elements */
+.stat-item {
+    border-radius: 12px;
+    padding: 0.5rem;
+    background: rgba(218, 2, 14, 0.05);
+    transition: var(--transition);
+}
+
+.feature-icon {
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.feature-card {
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(218, 2, 14, 0.1) !important;
+}
+
+/* Product Cards Vietnamese Style */
+.product-card {
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 2rem 4rem rgba(218, 2, 14, 0.15) !important;
+}
+
+.product-image {
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-image img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.product-overlay {
+    background: rgba(218, 2, 14, 0.8);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+/* Utility Classes */
+.min-vh-75 { min-height: 75vh; }
+.py-6 { padding-top: 4rem; padding-bottom: 4rem; }
+
+.transition-all {
+    transition: all 0.3s ease;
+}
+
+.hover-shadow:hover {
+    box-shadow: 0 1rem 3rem rgba(218, 2, 14, 0.175) !important;
+}
+
+.shadow-xl {
+    box-shadow: 0 2rem 4rem rgba(218, 2, 14, 0.15) !important;
+}
+
+/* Floating Animations */
+.floating-card {
+    animation: float 3s ease-in-out infinite;
+}
+
+.floating-discount {
+    animation: float 3s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Brand Logo Styling */
+.brand-logo {
+    transition: all 0.3s ease;
+    color: var(--red);
+}
+
+.brand-logo:hover {
+    opacity: 1 !important;
+    transform: scale(1.1);
+}
+
+/* Form Focus States - Vietnamese Theme */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 0 0.2rem rgba(218, 2, 14, 0.25);
+}
+
+.newsletter-form input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(255,255,255,0.25);
+    border-color: rgba(255,255,255,0.5);
+}
+
+/* Vietnamese Typography */
+.display-3, .display-5, .display-6 {
+    font-family: 'Arial', 'Segoe UI', 'Roboto', sans-serif;
+}
+
+
