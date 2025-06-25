@@ -1,0 +1,151 @@
+{% extends 'base.html.twig'%}
+{% set active_page = 'login' %}
+{% block title %} VietShop - Đăng Nhập {% endblock %}
+
+{% block body %}
+<section class="py-5 mt-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-8">
+                <div class="card border-0 shadow-lg rounded-4 overflow-hidden">
+                    <div class="row g-0">
+                        <!-- Left side image -->
+                        <div class="col-md-5 d-none d-md-block">
+                            <div class="bg-red h-100 d-flex align-items-center justify-content-center p-4">
+                                <div class="text-center text-white">
+                                    <i class="fas fa-leaf fa-3x mb-4 text-golden"></i>
+                                    <h4 class="fw-bold mb-3">Chào Mừng Trở Lại</h4>
+                                    <p class="mb-4 opacity-75">Đăng nhập để tiếp tục hành trình mua sắm cùng VietShop</p>
+                                    <div class="d-flex justify-content-center gap-3 mt-4">
+                                        <i class="fab fa-facebook-f text-white"></i>
+                                        <i class="fab fa-instagram text-white"></i>
+                                        <i class="fab fa-tiktok text-white"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Login form -->
+                        <div class="col-md-7">
+                            <div class="card-body p-4 p-lg-5">
+                                <div class="text-center d-md-none mb-4">
+                                    <i class="fas fa-leaf fa-3x text-red mb-3"></i>
+                                    <h4 class="fw-bold">Chào Mừng Trở Lại</h4>
+                                </div>
+                                
+                                <h2 class="fw-bold mb-4 text-center text-md-start">Đăng Nhập</h2>
+                                
+                                {% if error is defined and error %}
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <i class="fas fa-exclamation-circle me-2"></i>{{ error }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                </div>
+                                {% endif %}
+                                
+                                <form action="/?action=login-process" method="post">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label">Tên đăng nhập</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light border-end-0">
+                                                <i class="fas fa-user text-muted"></i>
+                                            </span>
+                                            <input type="text" class="form-control border-start-0" id="username" name="username" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <label for="password" class="form-label mb-0">Mật khẩu</label>
+                                            <a href="#" class="text-decoration-none small text-red">Quên mật khẩu?</a>
+                                        </div>
+                                        <div class="input-group">
+                                            <span class="input-group-text bg-light border-end-0">
+                                                <i class="fas fa-lock text-muted"></i>
+                                            </span>
+                                            <input type="password" class="form-control border-start-0" id="password" name="password" required>
+                                            <button class="btn btn-outline-secondary border-start-0" type="button" id="togglePassword">
+                                                <i class="far fa-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="mb-4 form-check">
+                                        <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
+                                        <label class="form-check-label" for="rememberMe">Ghi nhớ đăng nhập</label>
+                                    </div>
+                                    
+                                    <div class="d-grid mb-4">
+                                        <button type="submit" class="btn btn-red py-2 rounded-pill">
+                                            <i class="fas fa-sign-in-alt me-2"></i>Đăng Nhập
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="text-center">
+                                        <span class="text-muted">Chưa có tài khoản?</span>
+                                        <a href="/?action=register" class="text-decoration-none text-red ms-1">Đăng ký ngay</a>
+                                    </div>
+                                    
+                                    <div class="separator my-4">
+                                        <span class="bg-white px-3 text-muted">hoặc đăng nhập với</span>
+                                    </div>
+                                    
+                                    <div class="row g-2">
+                                        <div class="col">
+                                            <button type="button" class="btn btn-outline-secondary w-100">
+                                                <i class="fab fa-google me-2"></i>Google
+                                            </button>
+                                        </div>
+                                        <div class="col">
+                                            <button type="button" class="btn btn-outline-secondary w-100">
+                                                <i class="fab fa-facebook-f me-2"></i>Facebook
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <p class="text-muted small">
+                        <i class="fas fa-shield-alt me-1"></i>
+                        Đăng nhập an toàn với mã hóa SSL
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const togglePassword = document.getElementById('togglePassword');
+        const password = document.getElementById('password');
+        
+        togglePassword.addEventListener('click', function() {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            
+            // Toggle eye icon
+            this.querySelector('i').classList.toggle('fa-eye');
+            this.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+    });
+</script>
+
+<style>
+    .separator {
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .separator::before,
+    .separator::after {
+        content: '';
+        flex: 1;
+        border-bottom: 1px solid #dee2e6;
+    }
+</style>
+{% endblock %}

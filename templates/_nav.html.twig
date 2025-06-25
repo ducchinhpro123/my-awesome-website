@@ -25,12 +25,58 @@
                                                                    aria-label="Search" placeholder="Tìm kiếm sản phẩm...">
                         <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
                     </form>
-                    <a class="btn btn-outline-light position-relative me-2" role="button" href="cart.html">
-                        <i class="fas fa-shopping-cart"></i><span
-                                class="badge rounded-pill bg-red position-absolute top-0 start-100 translate-middle"
-                                id="cart-count"> 0 </span>
+                    <a class="btn btn-outline-light position-relative me-2" role="button" href="/?action=cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill text-dark" 
+                              id="cart-count" 
+                              style="background-color: var(--golden); z-index: 1000; min-width: 20px; height: 20px; font-size: 0.75rem; line-height: 1.2; display: flex; align-items: center; justify-content: center;">
+                            0
+                        </span>
                     </a>
-                    <a class="btn btn-light" role="button" href="login.html"><i class="fas fa-user me-1"></i>Đăng Nhập </a>
+
+                    {% if username is defined %}
+                        <!-- User Dropdown Menu -->
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center" 
+                                    type="button" 
+                                    id="userDropdown" 
+                                    data-bs-toggle="dropdown" 
+                                    aria-expanded="false">
+                                <i class="fas fa-user-circle me-2"></i>
+                                <span class="d-none d-md-inline">Xin chào, {{ username }}</span>
+                                <span class="d-md-none">{{ username }}</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="/?action=profile">
+                                        <i class="fas fa-user me-2"></i>Thông Tin Cá Nhân
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/?action=orders">
+                                        <i class="fas fa-shopping-bag me-2"></i>Đơn Hàng Của Tôi
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/?action=wishlist">
+                                        <i class="fas fa-heart me-2"></i>Sản Phẩm Yêu Thích
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item text-danger" href="/?action=logout">
+                                        <i class="fas fa-sign-out-alt me-2"></i>Đăng Xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    {% else %}
+                        <a class="btn btn-light" role="button" href="/?action=login">
+                            <i class="fas fa-user me-1"></i>Đăng Nhập
+                        </a>
+                    {% endif %}
+
+
                 </div>
             </div>
         </div>

@@ -1,69 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Detail - ShopHub</title>
-    {# <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> #}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-red fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
-                <i class="fas fa-leaf me-2 text-golden"></i>VietShop
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/?action=home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="products.html">Products</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Categories
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="products.html?category=electronics">Electronics</a></li>
-                            <li><a class="dropdown-item" href="products.html?category=clothing">Clothing</a></li>
-                            <li><a class="dropdown-item" href="products.html?category=home">Home & Garden</a></li>
-                            <li><a class="dropdown-item" href="products.html?category=sports">Sports</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center">
-                    <form class="d-flex me-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
-                        <button class="btn btn-outline-light" type="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </form>
-                    <a href="cart.html" class="btn btn-outline-light me-2 position-relative">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
-                            0
-                        </span>
-                    </a>
-                    <a href="login.html" class="btn btn-light">
-                        <i class="fas fa-user me-1"></i>Login
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
+{% extends 'base.html.twig'%}
+{% block body %}
 
     <!-- Breadcrumb -->
     <section class="bg-light py-3 mt-5">
@@ -72,8 +8,8 @@
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item"><a href="products.html">Products</a></li>
-                    <li class="breadcrumb-item"><a href="products.html?category=electronics">Electronics</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Wireless Headphones</li>
+                    <li class="breadcrumb-item"><a href="products.html?category=electronics">{{ product.category.name }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
                 </ol>
             </nav>
         </div>
@@ -87,7 +23,7 @@
                 <div class="col-lg-6 mb-4">
                     <div class="product-images">
                         <div class="main-image mb-3">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                            <img src="{{ product.imageUrl }}" 
                                  class="img-fluid rounded shadow" alt="Wireless Headphones" id="main-product-image">
                             <span class="badge bg-danger position-absolute top-0 end-0 m-3">Sale</span>
                         </div>
@@ -117,7 +53,7 @@
                 <!-- Product Info -->
                 <div class="col-lg-6">
                     <div class="product-info">
-                        <h1 class="h2 mb-3">Premium Wireless Headphones</h1>
+                        <h1 class="h2 mb-3 text-muted">{{ product.name }}</h1>
                         
                         <!-- Rating -->
                         <div class="d-flex align-items-center mb-3">
@@ -140,8 +76,8 @@
                         </div>
 
                         <!-- Product Description -->
-                        <div class="product-description mb-4">
-                            <p class="lead">Experience premium sound quality with our wireless headphones featuring advanced noise cancellation technology.</p>
+                        <div class="product-description mb-4 text-muted">
+                            <p class="lead">{{ product.description }}</p>
                             <ul class="list-unstyled">
                                 <li><i class="fas fa-check text-success me-2"></i>Active Noise Cancellation</li>
                                 <li><i class="fas fa-check text-success me-2"></i>30-hour Battery Life</li>
@@ -154,7 +90,7 @@
                         <!-- Product Options -->
                         <div class="product-options mb-4">
                             <div class="mb-3">
-                                <label class="form-label fw-bold">Color:</label>
+                                <label class="form-label fw-bold text-muted">Color:</label>
                                 <div class="d-flex gap-2">
                                     <button class="btn btn-outline-secondary active" data-color="black">Black</button>
                                     <button class="btn btn-outline-secondary" data-color="white">White</button>
@@ -175,18 +111,18 @@
                         <!-- Stock Status -->
                         <div class="stock-status mb-4">
                             <span class="badge bg-success fs-6">
-                                <i class="fas fa-check-circle me-1"></i>In Stock
+                                <i class="fas fa-check-circle me-1"></i>Còn hàng
                             </span>
-                            <span class="text-muted ms-2">Only 5 left in stock</span>
+                            <span class="text-muted ms-2">Chỉ còn 5 sản phẩm trong kho</span>
                         </div>
 
                         <!-- Action Buttons -->
                         <div class="action-buttons mb-4">
-                            <button class="btn btn-primary btn-lg me-3 add-to-cart" data-product-id="1">
-                                <i class="fas fa-cart-plus me-2"></i>Add to Cart
+                            <button class="btn btn-primary btn-lg me-3 add-to-cart" data-product-id="{{ product.id }}">
+                                <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ hàng
                             </button>
                             <button class="btn btn-success btn-lg me-3">
-                                <i class="fas fa-bolt me-2"></i>Buy Now
+                                <i class="fas fa-bolt me-2"></i>Mua ngay
                             </button>
                             <button class="btn btn-outline-secondary btn-lg wishlist-btn">
                                 <i class="far fa-heart"></i>
@@ -238,11 +174,11 @@
                 </li>
             </ul>
             
-            <div class="tab-content bg-white p-4" id="productTabsContent">
+            <div class="tab-content bg-white p-4 text-muted" id="productTabsContent">
                 <!-- Description Tab -->
                 <div class="tab-pane fade show active" id="description" role="tabpanel">
                     <h5>Product Description</h5>
-                    <p>Immerse yourself in superior sound quality with our Premium Wireless Headphones. Engineered with cutting-edge technology, these headphones deliver an exceptional audio experience whether you're listening to music, taking calls, or enjoying multimedia content.</p>
+                    <p>{{ product.description }}</p>
                     
                     <h6>Key Features:</h6>
                     <ul>
@@ -488,63 +424,5 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5 class="mb-3">ShopHub</h5>
-                    <p class="text-muted">Your trusted online shopping destination with quality products and excellent service.</p>
-                    <div class="d-flex gap-2">
-                        <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5 class="mb-3">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-muted text-decoration-none">Home</a></li>
-                        <li><a href="products.html" class="text-muted text-decoration-none">Products</a></li>
-                        <li><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
-                        <li><a href="contact.html" class="text-muted text-decoration-none">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5 class="mb-3">Customer Service</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-muted text-decoration-none">FAQ</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none">Shipping Info</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none">Returns</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none">Size Guide</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5 class="mb-3">Contact Info</h5>
-                    <ul class="list-unstyled text-muted">
-                        <li><i class="fas fa-map-marker-alt me-2"></i>123 Shopping St, City, State 12345</li>
-                        <li><i class="fas fa-phone me-2"></i>(555) 123-4567</li>
-                        <li><i class="fas fa-envelope me-2"></i>info@shophub.com</li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="my-4">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0 text-muted">&copy; 2025 ShopHub. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <img src="https://via.placeholder.com/40x25/007bff/ffffff?text=VISA" alt="Visa" class="me-2">
-                    <img src="https://via.placeholder.com/40x25/ff6b35/ffffff?text=MC" alt="Mastercard" class="me-2">
-                    <img src="https://via.placeholder.com/40x25/009cde/ffffff?text=PP" alt="PayPal">
-                </div>
-            </div>
-        </div>
-    </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
-
+{% endblock %}
