@@ -15,6 +15,15 @@ class User
     #[ORM\GeneratedValue]
     private int $id;
 
+    #[ORM\Column(type: 'string')]
+    private string $firstName;
+
+    #[ORM\Column(type: 'string')]
+    private string $lastName;
+
+    #[ORM\Column(type: 'string', length: 20)]
+    private int $phoneNumber;
+
     #[ORM\Column(type: 'string', unique: true)]
     private string $username;
 
@@ -30,12 +39,50 @@ class User
     #[ORM\OneToOne(mappedBy: 'user', targetEntity: Cart::class, cascade: ['persist', 'remove'])]
     private ?Cart $cart;
 
-    public function __construct(string $username, string $password)
+    public function __construct(string $username, string $password, string $firstName, string $lastName, string $phoneNumber)
     {
         $this->username = $username;
         $this->password = $password;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
+        $this->phoneNumber = $phoneNumber;
         $this->createdAt = new \DateTime();
         $this->orders = new ArrayCollection();
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setFirstName(string $firstName)
+    {
+        $this->firstName = $firstName;
+    }
+
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+    }
+
+    public function getPhoneNumber()
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setPhoneNumber($phoneNumber)
+    {
+        $this->phoneNumber = $phoneNumber;
     }
 
     public function setPassword(string $password)
