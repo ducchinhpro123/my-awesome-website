@@ -8,6 +8,7 @@ class Application
 {
     private DefaultController $defaultController;
     private ProductController $productController;
+    private CartController $cartController;
     private UserController $userController;
 
     public function __construct()
@@ -15,6 +16,7 @@ class Application
         $this->defaultController = new DefaultController();
         $this->productController = new ProductController();
         $this->userController = new UserController();
+        $this->cartController = new CartController();
     }
 
     public function run()
@@ -54,6 +56,36 @@ class Application
             case 'register-process':
                 $this->userController->registerProcess();
                 break;
+            case 'profile':
+                $this->userController->profilePage();
+                break;
+            case 'orders':
+                $this->userController->orderPage();
+                break;
+            case 'wishlist':
+                $this->userController->wishlistPage();
+                break;
+            case 'logout':
+                $this->userController->logout();
+                break;
+
+            case 'cart':
+                $this->cartController->cart();
+                break;
+            case 'updateProfile':
+                $isSubmitted = ($_SERVER['REQUEST_METHOD'] === 'POST');
+
+                if ($isSubmitted) {
+                    $firstName = filter_input(INPUT_POST, 'firstName');
+                    $lastName = filter_input(INPUT_POST, 'lastName');
+
+                    $this->userController->updateProfile($firstName, $lastName);
+                } else {
+                    $this->userController->profilePage();
+
+                }
+                break;
+
 
             default:
                 $this->defaultController->homePage();

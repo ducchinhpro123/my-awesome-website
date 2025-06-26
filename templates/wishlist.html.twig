@@ -1,0 +1,43 @@
+{% extends "base.html.twig" %}
+
+{% block title %}My Wishlist{% endblock %}
+
+{% block body %}
+<div class="container mt-5 pt-5">
+    <div class="row">
+        {% include '_account_menu.html.twig' with { 'active_page': active_page|default('wishlist') } %}
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">My Wishlist</h5>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Product Name</h5>
+                                    <p class="card-text">$49.99</p>
+                                    <button class="btn btn-sm btn-outline-danger">Remove</button>
+                                    <button class="btn btn-sm btn-primary">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <img src="https://via.placeholder.com/150" class="card-img-top" alt="Product Image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Another Product</h5>
+                                    <p class="card-text">$29.99</p>
+                                    <button class="btn btn-sm btn-outline-danger">Remove</button>
+                                    <button class="btn btn-sm btn-primary">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

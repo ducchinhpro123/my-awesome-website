@@ -1,0 +1,53 @@
+{% extends "base.html.twig" %}
+
+{% block title %}My Orders{% endblock %}
+
+{% block body %}
+<div class="container mt-5 pt-5">
+    <div class="row">
+        {% include '_account_menu.html.twig' with { 'active_page': active_page|default('orders') } %}
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">My Orders</h5>
+                    <hr>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Order ID</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Total</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">12345</th>
+                                <td>2025-06-20</td>
+                                <td><span class="badge bg-success">Shipped</span></td>
+                                <td>$120.00</td>
+                                <td><a href="#" class="btn btn-sm btn-outline-primary">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">67890</th>
+                                <td>2025-06-15</td>
+                                <td><span class="badge bg-warning text-dark">Processing</span></td>
+                                <td>$85.50</td>
+                                <td><a href="#" class="btn btn-sm btn-outline-primary">View Details</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">54321</th>
+                                <td>2025-06-10</td>
+                                <td><span class="badge bg-danger">Cancelled</span></td>
+                                <td>$200.00</td>
+                                <td><a href="#" class="btn btn-sm btn-outline-primary">View Details</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -17,7 +17,6 @@ class ProductController extends Controller
         $template = 'products.html.twig';
         $products = $this->productRepository->findAll();
         $this->args['products'] = $products;
-
         print $this->twig->render($template, $this->args);
     }
 

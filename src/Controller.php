@@ -15,8 +15,8 @@ abstract class Controller
     {
         $loader = new FilesystemLoader(self::PATH_TO_TEMPLATES);
         $this->twig = new Environment($loader);
-        if (isset($_SESSION['username'])) {
-            $this->args['username'] = $_SESSION['username'];
+        if (isset($_SESSION['user'])) {
+            $this->args['user'] = $_SESSION['user'];
         }
     }
 }

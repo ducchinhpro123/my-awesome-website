@@ -1,71 +1,10 @@
+{% extends 'base.html.twig'%}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping Cart - ShopHub</title>
-    {# <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> #}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-red fixed-top">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">
-                <i class="fas fa-leaf me-2 text-golden"></i>Truyền Thống
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="products.html">Products</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                            Categories
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="products.html?category=electronics">Electronics</a></li>
-                            <li><a class="dropdown-item" href="products.html?category=clothing">Clothing</a></li>
-                            <li><a class="dropdown-item" href="products.html?category=home">Home & Garden</a></li>
-                            <li><a class="dropdown-item" href="products.html?category=sports">Sports</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
-                <div class="d-flex align-items-center">
-                    <form class="d-flex me-3" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search products..." aria-label="Search">
-                        <button class="btn btn-outline-light" type="submit">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </form>
-                    <a href="cart.html" class="btn btn-outline-light me-2 position-relative active">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cart-count">
-                            3
-                        </span>
-                    </a>
-                    <a href="login.html" class="btn btn-light">
-                        <i class="fas fa-user me-1"></i>Login
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
+{% set active_page = 'cart' %}
 
+{% block title %} Giỏ hàng {% endblock %}
+
+{% block body %} 
     <!-- Page Header -->
     <section class="bg-light py-5 mt-5">
         <div class="container">
@@ -75,7 +14,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+                            <li class="breadcrumb-item active" aria-current="page">Giỏ Hàng</li>
                         </ol>
                     </nav>
                 </div>
@@ -84,7 +23,7 @@
     </section>
 
     <!-- Cart Section -->
-    <section class="py-5">
+    <section class="">
         <div class="container">
             <div class="row">
                 <!-- Cart Items -->
@@ -202,7 +141,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="d-flex justify-content-between">
-                                <a href="products.html" class="btn btn-outline-primary">
+                                <a href="/?action=products" class="btn btn-outline-primary">
                                     <i class="fas fa-arrow-left me-2"></i>Continue Shopping
                                 </a>
                                 <button class="btn btn-outline-secondary">
@@ -368,64 +307,4 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5 class="mb-3">ShopHub</h5>
-                    <p class="text-muted">Your trusted online shopping destination with quality products and excellent service.</p>
-                    <div class="d-flex gap-2">
-                        <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5 class="mb-3">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="index.html" class="text-muted text-decoration-none">Home</a></li>
-                        <li><a href="products.html" class="text-muted text-decoration-none">Products</a></li>
-                        <li><a href="about.html" class="text-muted text-decoration-none">About Us</a></li>
-                        <li><a href="contact.html" class="text-muted text-decoration-none">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5 class="mb-3">Customer Service</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-muted text-decoration-none">FAQ</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none">Shipping Info</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none">Returns</a></li>
-                        <li><a href="#" class="text-muted text-decoration-none">Size Guide</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6 mb-4">
-                    <h5 class="mb-3">Contact Info</h5>
-                    <ul class="list-unstyled text-muted">
-                        <li><i class="fas fa-map-marker-alt me-2"></i>123 Shopping St, City, State 12345</li>
-                        <li><i class="fas fa-phone me-2"></i>(555) 123-4567</li>
-                        <li><i class="fas fa-envelope me-2"></i>info@shophub.com</li>
-                    </ul>
-                </div>
-            </div>
-            <hr class="my-4">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0 text-muted">&copy; 2025 ShopHub. All rights reserved.</p>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <img src="https://via.placeholder.com/40x25/007bff/ffffff?text=VISA" alt="Visa" class="me-2">
-                    <img src="https://via.placeholder.com/40x25/ff6b35/ffffff?text=MC" alt="Mastercard" class="me-2">
-                    <img src="https://via.placeholder.com/40x25/009cde/ffffff?text=PP" alt="PayPal">
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
-
+{% endblock %}
