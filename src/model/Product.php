@@ -25,15 +25,29 @@ class Product
     #[ORM\Column(type: 'string', nullable: true, name: 'image_url')]
     private ?string $imageUrl;
 
+    #[ORM\Column(type: 'integer', nullable: false)]
+    private int $rating = 0;
+
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'products')]
     #[ORM\JoinColumn(name: 'category_id', referencedColumnName: 'id', nullable: true)]
     private Category $category;
 
-    public function __construct(string $name, string $price, Category $category)
+    public function __construct(string $name, string $price, Category $category, $rating)
     {
         $this->name = $name;
         $this->price = $price;
         $this->category = $category;
+        $this->rating = $rating;
+    }
+
+    public function getRating()
+    {
+        return $this->rating;
+    }
+
+    public function setRating($rating)
+    {
+        $this->rating = $rating;
     }
 
     public function getCategory()
