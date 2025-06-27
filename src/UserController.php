@@ -84,9 +84,7 @@ class UserController extends Controller
         } else {
             $location = '/?action=login';
             header("Location: $location");
-
         }
-
     }
 
     public function orderPage()

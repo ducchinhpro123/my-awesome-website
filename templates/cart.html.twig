@@ -13,7 +13,7 @@
                     <h1 class="display-5 fw-bold mb-3 text-red">Giỏ Hàng</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/?action=home">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Giỏ Hàng</li>
                         </ol>
                     </nav>
@@ -33,116 +33,62 @@
                             <h5 class="mb-0">Cart Items (3)</h5>
                         </div>
                         <div class="card-body p-0">
-                            <!-- Cart Item 1 -->
-                            <div class="cart-item border-bottom p-4">
-                                <div class="row align-items-center">
-                                    <div class="col-md-2">
-                                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" 
-                                             class="img-fluid rounded" alt="Wireless Headphones">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h6 class="mb-1">Wireless Headphones</h6>
-                                        <p class="text-muted mb-1">Color: Black</p>
-                                        <small class="text-success">In Stock</small>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="input-group">
-                                            <button class="btn btn-outline-secondary btn-sm" type="button">-</button>
-                                            <input type="number" class="form-control form-control-sm text-center" value="1" min="1">
-                                            <button class="btn btn-outline-secondary btn-sm" type="button">+</button>
+                            {% for cartItem in cartItems %}
+                                <div class="cart-item border-bottom p-4">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-2">
+                                            <img src="{{cartItem.product.imageUrl }}"
+                                                 class="img-fluid rounded" alt="Wireless Headphones">
                                         </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="text-center">
-                                            <span class="h6 text-primary">$99.99</span>
-                                            <div class="text-muted text-decoration-line-through small">$129.99</div>
+                                        <div class="col-md-4">
+                                            <h6 class="mb-1"> {{ cartItem.product.name }} </h6>
+                                            <p class="text-muted mb-1">Color: Black</p>
+                                            <small class="text-success">In Stock</small>
                                         </div>
-                                    </div>
-                                    <div class="col-md-2 text-center">
-                                        <button class="btn btn-outline-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                        <button class="btn btn-outline-secondary btn-sm ms-1">
-                                            <i class="far fa-heart"></i>
-                                        </button>
+                                        <div class="col-md-2">
+                                            <div class="input-group">
+                                                <button class="btn btn-outline-secondary btn-sm" type="button">-</button>
+                                                    <input type="number" class="form-control form-control-sm text-center" value="{{ cartItem.quantity }}" min="1">
+                                                <button class="btn btn-outline-secondary btn-sm" type="button">+</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="text-center">
+                                                <span class="h6 text-primary">{{ cartItem.product.price }}</span>
+                                                <div class="text-muted text-decoration-line-through small">$129.99</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 text-center">
+                                            <button class="btn btn-outline-danger btn-sm">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                            <button class="btn btn-outline-secondary btn-sm ms-1">
+                                                <i class="far fa-heart"></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                                {% else %}
+                                    <div class="d-flex flex-column align-items-center justify-content-center p-5 bg-light rounded-3 m-4">
+                                        <i class="fas fa-dolly-flatbed fa-3x text-secondary mb-4"></i>
+                                        <h5 class="mb-3">
+                                            Giỏ hàng của bạn đang chờ!
+                                        </h5>
+                                        <p class="text-center text-muted mb-4">
+                                            Hãy lấp đầy với những sản phẩm tuyệt vời. Hành trình mua sắm tuyệt vời của bạn bắt đầu tại đây.
+                                        </p>
+                                        <a href="/?action=products" class="btn btn-outline-primary">
+                                            <i class="fas fa-search me-2"></i>Lướt Sắm
+                                        </a>
+                                    </div>
+                            {% endfor %}
 
-                            <!-- Cart Item 2 -->
-                            <div class="cart-item border-bottom p-4">
-                                <div class="row align-items-center">
-                                    <div class="col-md-2">
-                                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" 
-                                             class="img-fluid rounded" alt="Smart Watch">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h6 class="mb-1">Smart Watch</h6>
-                                        <p class="text-muted mb-1">Color: Silver</p>
-                                        <small class="text-success">In Stock</small>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="input-group">
-                                            <button class="btn btn-outline-secondary btn-sm" type="button">-</button>
-                                            <input type="number" class="form-control form-control-sm text-center" value="1" min="1">
-                                            <button class="btn btn-outline-secondary btn-sm" type="button">+</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="text-center">
-                                            <span class="h6 text-primary">$199.99</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 text-center">
-                                        <button class="btn btn-outline-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                        <button class="btn btn-outline-secondary btn-sm ms-1">
-                                            <i class="far fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <!-- Cart Item 3 -->
-                            <div class="cart-item p-4">
-                                <div class="row align-items-center">
-                                    <div class="col-md-2">
-                                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80" 
-                                             class="img-fluid rounded" alt="Running Shoes">
-                                    </div>
-                                    <div class="col-md-4">
-                                        <h6 class="mb-1">Running Shoes</h6>
-                                        <p class="text-muted mb-1">Size: 10, Color: Blue</p>
-                                        <small class="text-success">In Stock</small>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="input-group">
-                                            <button class="btn btn-outline-secondary btn-sm" type="button">-</button>
-                                            <input type="number" class="form-control form-control-sm text-center" value="2" min="1">
-                                            <button class="btn btn-outline-secondary btn-sm" type="button">+</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="text-center">
-                                            <span class="h6 text-primary">$79.99</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2 text-center">
-                                        <button class="btn btn-outline-danger btn-sm">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                        <button class="btn btn-outline-secondary btn-sm ms-1">
-                                            <i class="far fa-heart"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="card-footer">
                             <div class="d-flex justify-content-between">
                                 <a href="/?action=products" class="btn btn-outline-primary">
-                                    <i class="fas fa-arrow-left me-2"></i>Continue Shopping
+                                    <i class="fas fa-arrow-left me-2"></i>Tiếp tục mua sắm
                                 </a>
                                 <button class="btn btn-outline-secondary">
                                     <i class="fas fa-sync me-2"></i>Update Cart
@@ -233,13 +179,13 @@
                     <!-- Payment Methods -->
                     <div class="card mt-4">
                         <div class="card-header">
-                            <h6 class="mb-0">We Accept</h6>
+                            <h6 class="mb-0 text-white">We Accept</h6>
                         </div>
                         <div class="card-body text-center">
-                            <img src="https://via.placeholder.com/50x30/007bff/ffffff?text=VISA" alt="Visa" class="me-2 mb-2">
-                            <img src="https://via.placeholder.com/50x30/ff6b35/ffffff?text=MC" alt="Mastercard" class="me-2 mb-2">
-                            <img src="https://via.placeholder.com/50x30/009cde/ffffff?text=AMEX" alt="American Express" class="me-2 mb-2">
-                            <img src="https://via.placeholder.com/50x30/009cde/ffffff?text=PP" alt="PayPal" class="mb-2">
+
+                            <img class="me-2 mb-2" style="height: 50px;" src="/assets/icons/visa-svgrepo-com.png" alt="Visa">
+                            <img class="me-2 mb-2" style="height: 50px;" src="/assets/icons/mastercard-full-svgrepo-com.png" alt="Mastercard">
+                            <img style="height: 50px;" src="/assets/icons/paypal-svgrepo-com.png" alt="PayPal">
                         </div>
                     </div>
                 </div>

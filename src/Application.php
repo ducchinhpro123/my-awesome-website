@@ -72,6 +72,7 @@ class Application
             case 'cart':
                 $this->cartController->cart();
                 break;
+
             case 'updateProfile':
                 $isSubmitted = ($_SERVER['REQUEST_METHOD'] === 'POST');
 
@@ -86,6 +87,10 @@ class Application
                 }
                 break;
 
+            case 'add-to-cart':
+                $product_id = filter_input(INPUT_GET, 'product_id');
+                $this->cartController->addToCart($product_id);
+                break;
 
             default:
                 $this->defaultController->homePage();
