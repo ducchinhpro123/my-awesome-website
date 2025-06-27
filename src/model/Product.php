@@ -32,6 +32,11 @@ class Product
     #[ORM\JoinColumn(name: 'category_id', referencedColumnName: 'id', nullable: true)]
     private Category $category;
 
+    public function __toString()
+    {
+        return "\nproduct_id: " . $this->id . "\ndescription: " . $this->description;
+    }
+
     public function __construct(string $name, string $price, Category $category, $rating)
     {
         $this->name = $name;
@@ -82,7 +87,7 @@ class Product
 
     public function getPrice()
     {
-        return $this->price;
+        return number_format($this->price, 0, '.', ',') . '₫';
     }
 
     public function setPrice(?string $price)

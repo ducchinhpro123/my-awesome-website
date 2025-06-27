@@ -55,6 +55,16 @@ class CartItem
     {
         return $this->product;
     }
+
+    public function setQuantity($quantity)
+    {
+        $this->quantity = $quantity;
+    }
+
+    public function getQuantity()
+    {
+        return $this->quantity;
+    }
 }
 
 ?>

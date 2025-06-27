@@ -25,7 +25,22 @@ class Cart
     public function __construct(User $user)
     {
         $this->user = $user;
-        $this->cartItem = new ArrayCollection();
+        $this->cartItems = new ArrayCollection();
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function setUser(User $user)
+    {
+        $this->user = $user;
+    }
+
+    public function setCartItems(Collection $cartItems)
+    {
+        $this->cartItems = $cartItems;
     }
 
     public function getUser()
@@ -36,6 +51,14 @@ class Cart
     public function getCartItems()
     {
         return $this->cartItems;
+    }
+
+    public function addCartItem(CartItem $cartItem)
+    {
+        if (!$this->cartItems->contains($cartItem)) {
+            $this->cartItems[] = $cartItem;
+            $cartItem->setCart($this);
+        }
     }
 
 }
