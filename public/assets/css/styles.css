@@ -1,0 +1,518 @@
+/* Vietnamese Marketplace Colors */
+.bg-pink { background-color: #e91e63 !important; }
+.bg-orange { background-color: #ff9800 !important; }
+.text-pink { color: #e91e63 !important; }
+.text-orange { color: #ff9800 !important; }
+
+/* Category Icons Hover Effects */
+.category-item:hover .category-icon {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.category-item:hover {
+    cursor: pointer;
+}
+
+/* Product Card Hover Effects */
+.product-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+}
+
+/* Flash Timer Animation */
+.flash-timer .badge {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+/* Promotion Badge Styles */
+.promotion-badge {
+    font-size: 0.7rem;
+    max-width: 80px;
+    line-height: 1.2;
+}
+
+.import-badge {
+    font-size: 0.6rem;
+}
+
+/* Banner Gradient Enhancements */
+.bg-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+.bg-gradient-soft {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%) !important;
+}
+
+/* Responsive Category Grid */
+@media (max-width: 768px) {
+    .category-nav {
+        display: grid !important;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+    }
+    
+    .category-item {
+        padding: 0.5rem;
+    }
+    
+    .category-icon {
+        width: 40px !important;
+        height: 40px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .category-nav {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Product Grid Responsive */
+@media (max-width: 576px) {
+    .product-card img {
+        height: 100px !important;
+    }
+    
+    .product-card h6 {
+        font-size: 0.9rem;
+    }
+}
+
+/* Main Banner Responsive */
+@media (max-width: 768px) {
+    .main-banner {
+        min-height: 250px !important;
+    }
+    
+    .main-banner .display-6 {
+        font-size: 1.5rem !important;
+    }
+    
+    .main-banner .display-5 {
+        font-size: 1.8rem !important;
+    }
+}
+
+/* Enhanced Sophisticated Marketplace Styles */
+
+/* Hover Effects */
+.hover-lift {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+
+/* Carousel Enhancements */
+.carousel-inner .carousel-item {
+    transition: transform 0.6s ease-in-out;
+}
+
+.carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 4px;
+}
+
+/* Side Banner Hover Effects */
+.side-banner {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.side-banner:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+/* Product Card Enhancements */
+.product-card {
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.product-card:hover {
+    border-color: #dc3545;
+    transform: translateY(-3px);
+}
+
+/* Progress Bar Animations */
+.progress-bar {
+    transition: width 1.5s ease-in-out;
+    animation: progressFill 2s ease-in-out;
+}
+
+@keyframes progressFill {
+    0% { width: 0%; }
+    100% { width: var(--progress-width, 50%); }
+}
+
+/* Brand Showcase Hover */
+.brand-showcase img:hover {
+    filter: grayscale(0%) !important;
+    transform: scale(1.1);
+}
+
+/* Flash Timer Animation */
+.flash-timer .time-box {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Category Promotion Cards */
+.category-promo-card {
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.category-promo-card:hover {
+    border-color: #ffc107;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* Deal Cards */
+.deal-card {
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.deal-card:hover {
+    border-left-color: #dc3545;
+    transform: translateX(5px);
+}
+
+/* Info Cards */
+.info-card {
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Review Items */
+.review-item {
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.review-item:hover {
+    background-color: #f8f9fa;
+    transform: translateX(5px);
+}
+
+/* Stat Items Animation */
+.stat-item h3 {
+    animation: countUp 2s ease-out;
+}
+
+@keyframes countUp {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Badge Animations */
+.badge {
+    transition: all 0.3s ease;
+}
+
+.badge:hover {
+    transform: scale(1.05);
+}
+
+/* Button Enhancements */
+.btn {
+    transition: all 0.3s ease;
+    border-width: 2px;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Color Variations */
+.bg-red-light {
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+.bg-warning-light {
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.bg-info-light {
+    background-color: rgba(13, 202, 240, 0.1);
+}
+
+.bg-success-light {
+    background-color: rgba(25, 135, 84, 0.1);
+}
+
+/* Gradient Backgrounds */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+.bg-gradient-success {
+    background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+
+.bg-gradient-warning {
+    background: linear-gradient(135deg, #ffc107, #e0a800);
+}
+
+.bg-gradient-danger {
+    background: linear-gradient(135deg, #dc3545, #bd2130);
+}
+
+/* Text Effects */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Image Filters */
+.img-hover-zoom {
+    transition: transform 0.3s ease;
+}
+
+.img-hover-zoom:hover {
+    transform: scale(1.1);
+}
+
+/* Custom Scrollbar for Rich Content */
+.scrollable-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+    background: #dc3545;
+    border-radius: 3px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+    background: #bd2130;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    .category-nav {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .category-item {
+        flex: 0 0 auto;
+        min-width: 80px;
+    }
+    
+    .flash-timer {
+        display: none;
+    }
+    
+    .deal-card .row {
+        text-align: center;
+    }
+    
+    .deal-card .col-5,
+    .deal-card .col-7 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+}
+
+/* Loading Animations */
+.skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+/* Advanced Button Styles */
+.btn-glow {
+    box-shadow: 0 0 20px rgba(220, 53, 69, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from { box-shadow: 0 0 20px rgba(220, 53, 69, 0.5); }
+    to { box-shadow: 0 0 30px rgba(220, 53, 69, 0.8); }
+}
+
+/* Rich Typography */
+.display-title {
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #dc3545, #fd7e14);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Sophisticated Shadows */
+.shadow-subtle {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.shadow-medium {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.shadow-strong {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+/* Interactive Elements */
+.interactive-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.interactive-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.interactive-card:hover::before {
+    left: 100%;
+}
+
+/* Main Background Color Scheme */
+body {
+    background-color: #f5f7fa !important;
+}
+
+/* Sophisticated Background Colors */
+.bg-marketplace {
+    background-color: #f5f7fa;
+}
+
+.bg-content-light {
+    background-color: #fafbfc;
+}
+
+.bg-content-white {
+    background-color: #ffffff;
+    border: 1px solid #e8ecef;
+}
+
+/* Section Spacing and Backgrounds */
+section {
+    position: relative;
+}
+
+/* White Content Sections */
+.content-section {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    margin-bottom: 20px;
+}
+
+/* Enhanced Card Backgrounds */
+.product-card, 
+.deal-card, 
+.category-promo-card, 
+.info-card,
+.brand-showcase {
+    background-color: #ffffff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border: 1px solid #f0f2f5;
+}
+
+.product-card:hover,
+.deal-card:hover,
+.category-promo-card:hover {
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    border-color: #e8ecef;
+}
+
+/* Gradient Overlays for Depth */
+.section-overlay {
+    background: linear-gradient(180deg, rgba(245,247,250,0) 0%, rgba(245,247,250,0.3) 100%);
+}
+
+/* Enhanced Shadows for Depth */
+.shadow-marketplace {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.shadow-marketplace-hover {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+/* Content Separation */
+.content-divider {
+    height: 20px;
+    background-color: #f5f7fa;
+}
+
+/* Newsletter Section Enhancement */
+.newsletter-section {
+    background: linear-gradient(135deg, #dc3545, #fd7e14);
+    position: relative;
+}
+
+.newsletter-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.05)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    opacity: 0.3;
+}
+
+/* Responsive Background Adjustments */
+@media (max-width: 768px) {
+    .bg-marketplace {
+        background-color: #fafbfc;
+    }
+    
+    .content-section {
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+}

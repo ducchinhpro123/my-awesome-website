@@ -4,62 +4,467 @@
 {% block title %} VietShop - Cửa Hàng Trực Tuyến Của Bạn {% endblock %}
 
 {% block body %}
-    <section class="bg-gradient-light mt-5 py-5 hero-section">
+<div style="background-color: #f5f7fa; min-height: 100vh;">
+    <!-- Categories Section -->
+    <section class="py-3 bg-white shadow-sm mt-5">
         <div class="container">
-            <div class="row align-items-center min-vh-75">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="hero-content">
-                        <span class="badge bg-red-soft text-red mb-3 px-3 py-2">
-                            <i class="fas fa-star me-2"></i>Thương hiệu Việt Nam tin cậy
-                        </span>
-                        <h1 class="display-3 fw-bold text-dark mb-4 lh-1">
-                            Chào Mừng Đến Với 
-                            <span class="text-red position-relative">
-                                VietShop
-                                <svg class="position-absolute" style="bottom: -10px; left: 0; height: 12px;" viewBox="0 0 200 12">
-                                    <path d="M0,8 Q50,0 100,8 T200,8" stroke="#ffc107" stroke-width="3" fill="none"/>
-                                </svg>
+            <div class="row">
+                <div class="col-12">
+                    <div class="category-nav d-flex justify-content-between align-items-center flex-wrap">
+                        <div class="category-item text-center p-2">
+                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
+                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/menuheader/icon_202503080042045961.png" class='img-fluid'/>
+    
+                            </div>
+                            <small class="text-muted fw-medium">Dỉ chợ<br>Online</small>
+                        </div>
+                        <div class="category-item text-center p-2">
+                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
+                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/menuheader/frame-3476208_202504171359310072.png" class='img-fluid'/>
+                            </div>
+                            <small class="text-muted fw-medium">Chăm da<br>sáng mịn</small>
+                        </div>
+                        <div class="category-item text-center p-2">
+                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
+                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/menuheader/2465_202506201525589477.png" class='img-fluid'/>
+                            </div>
+                            <small class="text-muted fw-medium">Nước giặt</small>
+                        </div>
+                        <div class="category-item text-center p-2">
+                            <div class="category-icon text-dark rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
+                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/menuheader/icon-cate-gao-1_202409162319347446.png" class='img-fluid'/>
+                            </div>
+                            <small class="text-muted fw-medium">Gạo, nếp<br>các loại</small>
+                        </div>
+                        <div class="category-item text-center p-2">
+                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
+                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/menuheader/frame-3476164_202503181618276472.png" class='img-fluid'/>
+                            </div>
+                            <small class="text-muted fw-medium">Sữa tươi</small>
+                        </div>
+                        <div class="category-item text-center p-2">
+                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
+                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/menuheader/frame-3476174_202503191402125535.png" class='img-fluid'/>
+                            </div>
+                            <small class="text-muted fw-medium">Nước ngọt</small>
+                        </div>
+                        <div class="category-item text-center p-2">
+                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
+                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/Category/Images/8820/rau-la-202212161540248870_202505091455135513.png" class='img-fluid'/>
+                            </div>
+                            <small class="text-muted fw-medium">Rau lá</small>
+                        </div>
+                        <div class="category-item text-center p-2">
+                            <div class="category-icon text-dark rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
+                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/Category/Images/8788/image-2461_202410151408000050.png" class='img-fluid'/>
+                            </div>
+                            <small class="text-muted fw-medium">Trái cây</small>
+                        </div>
+                        <div class="category-item text-center p-2">
+                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
+                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/Category/Images/8785/image-2463_202410151407419129.png" class='img-fluid'/>
+                            </div>
+                            <small class="text-muted fw-medium">Củ, quả</small>
+                        </div>
+                        <div class="category-item text-center p-2">
+                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
+                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/Category/Images/8781/image-1202410181218245372_202412161434503628.png" class='img-fluid'/>
+                            </div>
+                            <small class="text-muted fw-medium">Thịt heo</small>
+                        </div>
+                        <div class="category-item text-center p-2">
+                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
+                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/Category/Images/2565/frame-3476165_202503181622093844.png" class='img-fluid'/>
+                            </div>
+                            <small class="text-muted fw-medium">Mì ăn liền</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Banner Carousel -->
+    <section class="py-3">
+        <div class="container px-4">
+            <div class="row g-3">
+                <!-- Main Carousel -->
+                <div class="col-lg-8 col-md-7">
+                    <div id="mainCarousel" class="carousel slide rounded-4 overflow-hidden shadow-lg" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+                            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+                            <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <a href="/?action=products">
+                                    <div class="position-relative" style="height: 400px; background: linear-gradient(135deg, #dc3545, #fd7e14); overflow: hidden;">
+                                        <img src="https://images.unsplash.com/photo-1556909114-b7f4d2e08d3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                                             class="position-absolute w-100 h-100" style="object-fit: cover; opacity: 0.3;">
+                                        <div class="position-absolute top-50 start-0 translate-middle-y text-white p-5">
+                                            <h2 class="display-4 fw-bold mb-3">SIÊU SALE 7.7</h2>
+                                            <h5 class="mb-3">Giảm đến 70% + Freeship 0đ</h5>
+                                            <div class="d-flex gap-3 mb-4">
+                                                <span class="badge bg-warning text-dark px-3 py-2 fs-6">Voucher 500K</span>
+                                                <span class="badge bg-success px-3 py-2 fs-6">Miễn phí vận chuyển</span>
+                                            </div>
+                                            <p class="fs-5 opacity-90">Hàng ngàn sản phẩm chất lượng cao</p>
+                                        </div>
+                                        <div class="position-absolute bottom-0 end-0 p-4">
+                                            <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                                 class="rounded-3" style="width: 150px; height: 100px; object-fit: cover;">
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="/?action=products">
+                                    <div class="position-relative" style="height: 400px; background: linear-gradient(135deg, #28a745, #20c997);">
+                                        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                                             class="position-absolute w-100 h-100" style="object-fit: cover; opacity: 0.4;">
+                                        <div class="position-absolute top-50 start-0 translate-middle-y text-white p-5">
+                                            <h2 class="display-4 fw-bold mb-3">THỰC PHẨM SẠCH</h2>
+                                            <h5 class="mb-3">Tươi ngon từ nông trại</h5>
+                                            <div class="d-flex gap-3 mb-4">
+                                                <span class="badge bg-warning text-dark px-3 py-2 fs-6">Organic 100%</span>
+                                                <span class="badge bg-info px-3 py-2 fs-6">Giao trong 2h</span>
+                                            </div>
+                                            <p class="fs-5 opacity-90">Cam kết chất lượng và an toàn</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="/?action=products">
+                                    <div class="position-relative" style="height: 400px; background: linear-gradient(135deg, #6f42c1, #e83e8c);">
+                                        <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
+                                             class="position-absolute w-100 h-100" style="object-fit: cover; opacity: 0.3;">
+                                        <div class="position-absolute top-50 start-0 translate-middle-y text-white p-5">
+                                            <h2 class="display-4 fw-bold mb-3">THỜI TRANG MÙA HÈ</h2>
+                                            <h5 class="mb-3">Bộ sưu tập mới 2025</h5>
+                                            <div class="d-flex gap-3 mb-4">
+                                                <span class="badge bg-warning text-dark px-3 py-2 fs-6">Giảm 50%</span>
+                                                <span class="badge bg-light text-dark px-3 py-2 fs-6">Xu hướng Hot</span>
+                                            </div>
+                                            <p class="fs-5 opacity-90">Phong cách trẻ trung, năng động</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Side Banners -->
+                <div class="col-lg-4 col-md-5">
+                    <div class="row g-3 h-100">
+                        <div class="col-12">
+                            <a href="/?action=products" class="text-decoration-none">
+                                <div class="side-banner position-relative rounded-3 overflow-hidden shadow" style="height: 195px; background: linear-gradient(45deg, #ffc107, #fd7e14);">
+                                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
+                                         class="position-absolute w-100 h-100" style="object-fit: cover; opacity: 0.7;">
+                                    <div class="position-absolute bottom-0 start-0 p-3 text-white">
+                                        <h6 class="fw-bold mb-1">ĐIỆN TỬ - CÔNG NGHỆ</h6>
+                                        <small class="opacity-90">Giảm đến 40% các sản phẩm hot</small>
+                                    </div>
+                                    <div class="position-absolute top-0 end-0 p-2">
+                                        <span class="badge bg-red">HOT</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-12">
+                            <a href="/?action=products" class="text-decoration-none">
+                                <div class="side-banner position-relative rounded-3 overflow-hidden shadow" style="height: 195px; background: linear-gradient(45deg, #20c997, #17a2b8);">
+                                    <img src="https://pngimg.com/uploads/house/house_PNG67.png" 
+                                         class="position-absolute w-100 h-100" style="object-fit: cover; opacity: 0.8;">
+                                    <div class="position-absolute bottom-0 start-0 p-3 text-white">
+                                        <h6 class="fw-bold mb-1">NHÀ CỬA - ĐỜI SỐNG</h6>
+                                        <small class="opacity-90">Siêu ưu đãi cho ngôi nhà bạn</small>
+                                    </div>
+                                    <div class="position-absolute top-0 end-0 p-2">
+                                        <span class="badge bg-success">NEW</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Services Bar -->
+    <section class="py-2 bg-white border-top border-bottom">
+        <div class="container px-4">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="d-flex flex-wrap gap-4 align-items-center text-muted">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-shipping-fast text-red me-2"></i>
+                            <small class="fw-medium">Giao hàng nhanh 2H</small>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-shield-alt text-success me-2"></i>
+                            <small class="fw-medium">Bảo hành chính hãng</small>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-undo text-warning me-2"></i>
+                            <small class="fw-medium">Đổi trả trong 30 ngày</small>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-headset text-info me-2"></i>
+                            <small class="fw-medium">Hỗ trợ 24/7</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <div class="d-flex align-items-center justify-content-end gap-3">
+                        <small class="text-muted">Hotline:</small>
+                        <strong class="text-red">1900-1234</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flash Sale & Promotion Section -->
+    <section class="py-4" style="background-color: #f5f7fa;">
+        <div class="container px-4">
+            <!-- Promotion Header -->
+            <div class="row mb-4">
+                <div class="col-12">
+                    <div class="d-flex align-items-center justify-content-between bg-gradient" style="background: linear-gradient(90deg, #dc3545, #fd7e14); border-radius: 15px; padding: 20px; box-shadow: 0 8px 25px rgba(220,53,69,0.3);">
+                        <div class="d-flex align-items-center">
+                            <div class="me-4">
+                                <span class="badge bg-white text-red px-4 py-3 fs-5 fw-bold shadow-sm" style="border-radius: 25px;">
+                                    <i class="fas fa-fire me-2 text-warning"></i>FLASH SALE - KHUYẾN MÃI SỐC
+                                </span>
+                            </div>
+                            <div class="">
+                                <h5 class="fw-bold mb-1 text-red">⚡ Giảm đến 70% - Chỉ diễn ra 12H-18H hôm nay!</h5>
+                                <p class="mb-0 opacity-90 text-muted">🔥 Hàng ngàn sản phẩm hot - Số lượng có hạn</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center gap-4 text-white">
+                            <div class="flash-timer text-center">
+                                <div class="d-flex gap-2 mb-2">
+                                    <div class="time-box bg-dark text-white px-3 py-2 rounded fw-bold">00</div>
+                                    <div class="time-box bg-dark text-white px-3 py-2 rounded fw-bold">01</div>
+                                    <div class="time-box bg-dark text-white px-3 py-2 rounded fw-bold">16</div>
+                                    <div class="time-box bg-dark text-white px-3 py-2 rounded fw-bold">45</div>
+                                </div>
+                                <small class="text-black opacity-75">Giờ : Phút : Giây</small>
+                            </div>
+                            <div class="text-center">
+                                <a href="/?action=products" class="btn btn-white btn-lg px-4 fw-bold text-red rounded-pill shadow">
+                                    <i class="fas fa-arrow-right me-2"></i>Xem Tất Cả
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flash Sale Products Grid -->
+            <div class="row g-3 mb-5">
+                <!-- Product 1 -->
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div class="product-card bg-white rounded-4 p-3 text-center border-0 shadow-sm position-relative h-100 hover-lift">
+                        <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between p-2">
+                            <span class="badge bg-red text-white px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                                🎁 TẶNG 100G THỊT XAY
                             </span>
-                        </h1>
-                        <p class="lead text-muted mb-4 fs-5 lh-lg">
-                            Khám phá bộ sưu tập sản phẩm chất lượng Việt Nam được tuyển chọn kỹ lưỡng. 
-                            Trải nghiệm mua sắm uy tín với dịch vụ tận tâm và giao hàng nhanh chóng.
-                        </p>
-                        <div class="d-flex flex-column flex-sm-row gap-3 mb-4">
-                            <a class="btn btn-red btn-lg px-4 py-3 rounded-pill shadow-lg" href="products.html">
-                                <i class="fas fa-shopping-bag me-2"></i>
-                                Mua Sắm Ngay
-                                <i class="fas fa-arrow-right ms-2"></i>
-                            </a>
-                            <a class="btn btn-outline-red btn-lg px-4 py-3 rounded-pill" href="#featured">
-                                <i class="fas fa-heart me-2"></i>
-                                Sản Phẩm Yêu Thích
-                            </a>
+                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                                -50%
+                            </span>
                         </div>
-                        <div class="hero-stats d-flex gap-4 mt-4">
-                            <div class="stat-item text-center">
-                                <div class="fw-bold fs-4 text-red">100K+</div>
-                                <small class="text-muted">Khách hàng tin tưởng</small>
-                            </div>
-                            <div class="stat-item text-center">
-                                <div class="fw-bold fs-4 text-red">5 năm</div>
-                                <small class="text-muted">Phục vụ tận tâm</small>
-                            </div>
-                            <div class="stat-item text-center">
-                                <div class="fw-bold fs-4 text-red">24/7</div>
-                                <small class="text-muted">Hỗ trợ nhiệt tình</small>
-                            </div>
+                        <div class="mt-4">
+                            <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/Products/Images/8781/233782/bhx/thumb-233782-thit-xay_202506131650018398.jpg" 
+                                 alt="Thịt heo xay C.P" class="img-fluid mb-3 rounded-3" style="height: 120px; object-fit: cover; width: 100%;">
                         </div>
+                        <h6 class="fw-bold text-dark mb-2" style="height: 40px; display: flex; align-items: center; justify-content: center;">Thịt heo xay C.P Premium</h6>
+                        <div class="price-info mb-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2">
+                                <span class="text-red fw-bold fs-5">40.800₫</span>
+                                <small class="text-muted text-decoration-line-through">81.600₫</small>
+                            </div>
+                            <small class="text-success fw-medium">Tiết kiệm 40.800₫</small>
+                            <div><small class="text-muted">/300g - Giao trong 2h</small></div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="progress mb-1" style="height: 8px;">
+                                <div class="progress-bar bg-red" style="width: 75%"></div>
+                            </div>
+                            <small class="text-muted">Đã bán 156/200</small>
+                        </div>
+                        <button class="btn btn-outline-red btn-sm w-100 add-to-cart rounded-pill fw-bold" data-product-id="1">
+                            <i class="fas fa-plus me-1"></i>Thêm Vào Giỏ
+                        </button>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="hero-image position-relative">
-                        <img class="rounded-4 img-fluid shadow-xl" 
-                             src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-                             alt="ShopHub - Mua sắm trực tuyến uy tín tại Việt Nam">
-                        <div class="floating-discount position-absolute bottom-0 start-0 bg-red text-white p-3 rounded-3 shadow">
-                            <div class="fw-bold">GIẢM ĐẾN 50%</div>
-                            <small>Tuần lễ khuyến mãi</small>
+
+                <!-- Product 2 -->
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div class="product-card bg-white rounded-4 p-3 text-center border-0 shadow-sm position-relative h-100 hover-lift">
+                        <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between p-2">
+                            <span class="badge bg-success text-white px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                                🌟 BEST SELLER
+                            </span>
+                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                                -35%
+                            </span>
+                        </div>
+                        <div class="mt-4">
+                            <img src="https://images.unsplash.com/photo-1594221708779-94832f4320d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                 alt="Ức gà phi lê có da" class="img-fluid mb-3 rounded-3" style="height: 120px; object-fit: cover; width: 100%;">
+                        </div>
+                        <h6 class="fw-bold text-dark mb-2" style="height: 40px; display: flex; align-items: center; justify-content: center;">Ức gà phi lê có da CP</h6>
+                        <div class="price-info mb-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2">
+                                <span class="text-red fw-bold fs-5">44.000₫</span>
+                                <small class="text-muted text-decoration-line-through">67.700₫</small>
+                            </div>
+                            <small class="text-success fw-medium">Tiết kiệm 23.700₫</small>
+                            <div><small class="text-muted">/500g - Tươi ngon</small></div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="progress mb-1" style="height: 8px;">
+                                <div class="progress-bar bg-red" style="width: 90%"></div>
+                            </div>
+                            <small class="text-muted">Đã bán 234/260</small>
+                        </div>
+                        <button class="btn btn-outline-red btn-sm w-100 add-to-cart rounded-pill fw-bold" data-product-id="2">
+                            <i class="fas fa-plus me-1"></i>Thêm Vào Giỏ
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div class="product-card bg-white rounded-4 p-3 text-center border-0 shadow-sm position-relative h-100 hover-lift">
+                        <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between p-2">
+                            <span class="badge bg-info text-white px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                                🌍 NHẬP KHẨU
+                            </span>
+                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                                -25%
+                            </span>
+                        </div>
+                        <div class="mt-4">
+                            <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/Products/Images/8820/335480/bhx/335480optimized_202506131007320723.jpg" 
+                                 alt="Rau murc nhập khẩu" class="img-fluid mb-3 rounded-3" style="height: 120px; object-fit: cover; width: 100%;">
+                        </div>
+                        <h6 class="fw-bold text-dark mb-2" style="height: 40px; display: flex; align-items: center; justify-content: center;">Rau murc organic nhập khẩu</h6>
+                        <div class="price-info mb-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2">
+                                <span class="text-red fw-bold fs-5">68.000₫</span>
+                                <small class="text-muted text-decoration-line-through">90.700₫</small>
+                            </div>
+                            <small class="text-success fw-medium">Tiết kiệm 22.700₫</small>
+                            <div><small class="text-muted">/500g - Hữu cơ</small></div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="progress mb-1" style="height: 8px;">
+                                <div class="progress-bar bg-red" style="width: 45%"></div>
+                            </div>
+                            <small class="text-muted">Đã bán 89/200</small>
+                        </div>
+                        <button class="btn btn-outline-red btn-sm w-100 add-to-cart rounded-pill fw-bold" data-product-id="3">
+                            <i class="fas fa-plus me-1"></i>Thêm Vào Giỏ
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div class="product-card bg-white rounded-4 p-3 text-center border-0 shadow-sm position-relative h-100 hover-lift">
+                        <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between p-2">
+                            <span class="badge bg-success text-white px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                                🥬 TƯƠI NGON
+                            </span>
+                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                                -20%
+                            </span>
+                        </div>
+                        <div class="mt-4">
+                            <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                 alt="Cải ngot" class="img-fluid mb-3 rounded-3" style="height: 120px; object-fit: cover; width: 100%;">
+                        </div>
+                        <h6 class="fw-bold text-dark mb-2" style="height: 40px; display: flex; align-items: center; justify-content: center;">Cải ngot sạch VietGAP</h6>
+                        <div class="price-info mb-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2">
+                                <span class="text-red fw-bold fs-5">5.000₫</span>
+                                <small class="text-muted text-decoration-line-through">6.250₫</small>
+                            </div>
+                            <small class="text-success fw-medium">Tiết kiệm 1.250₫</small>
+                            <div><small class="text-muted">/300g - VietGAP</small></div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="progress mb-1" style="height: 8px;">
+                                <div class="progress-bar bg-red" style="width: 80%"></div>
+                            </div>
+                            <small class="text-muted">Đã bán 320/400</small>
+                        </div>
+                        <button class="btn btn-outline-red btn-sm w-100 add-to-cart rounded-pill fw-bold" data-product-id="4">
+                            <i class="fas fa-plus me-1"></i>Thêm Vào Giỏ
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div class="product-card bg-white rounded-4 p-3 text-center border-0 shadow-sm position-relative h-100 hover-lift">
+                        <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between p-2">
+                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                                🎃 MÙA VỤ
+                            </span>
+                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                                -30%
+                            </span>
+                        </div>
+                        <div class="mt-4">
+                            <img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
+                                 alt="Bí đỏ hồ lô" class="img-fluid mb-3 rounded-3" style="height: 120px; object-fit: cover; width: 100%;">
+                        </div>
+                        <h6 class="fw-bold text-dark mb-2" style="height: 40px; display: flex; align-items: center; justify-content: center;">Bí đỏ hồ lô (1 trái)</h6>
+                        <div class="price-info mb-3">
+                            <div class="d-flex justify-content-center align-items-center gap-2">
+                                <span class="text-red fw-bold fs-5">16.000₫</span>
+                                <small class="text-muted text-decoration-line-through">22.900₫</small>
+                            </div>
+                            <small class="text-success fw-medium">Tiết kiệm 6.900₫</small>
+                            <div><small class="text-muted">/1kg - Ngọt tự nhiên</small></div>
+                        </div>
+                        <div class="mb-2">
+                            <div class="progress mb-1" style="height: 8px;">
+                                <div class="progress-bar bg-red" style="width: 60%"></div>
+                            </div>
+                            <small class="text-muted">Đã bán 120/200</small>
+                        </div>
+                        <button class="btn btn-outline-red btn-sm w-100 add-to-cart rounded-pill fw-bold" data-product-id="5">
+                            <i class="fas fa-plus me-1"></i>Thêm Vào Giỏ
+                        </button>
+                    </div>
+                </div>
+
+                <!-- View More Card -->
+                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                    <div class="product-card bg-gradient-primary rounded-4 p-3 text-center border-0 shadow-sm h-100 d-flex flex-column justify-content-center" style="background: linear-gradient(135deg, #ffc107, #fd7e14);">
+                        <div class="text-center text-white">
+                            <i class="fas fa-fire fa-3x mb-3 opacity-75"></i>
+                            <h6 class="fw-bold mb-2">999+ SẢN PHẨM KHÁC</h6>
+                            <p class="small mb-3 opacity-90">Khám phá thêm nhiều deal hot khác</p>
+                            <a href="/?action=products" class="btn btn-white text-dark fw-bold rounded-pill px-4">
+                                <i class="fas fa-arrow-right me-2"></i>Xem Tất Cả
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -67,124 +472,164 @@
         </div>
     </section>
 
-    <section class="py-6">
-        <div class="container">
-            <!-- Simple Stats Section -->
-            <div class="text-center mb-5">
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="stat-card p-4 rounded-4 bg-red-soft">
-                            <div class="stat-number display-4 fw-bold text-red mb-2">500+</div>
-                            <h6 class="stat-label text-muted mb-0">Khách Hàng Tin Tưởng</h6>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="stat-card p-4 rounded-4 bg-golden-soft">
-                            <div class="stat-number display-4 fw-bold text-golden mb-2">2+</div>
-                            <h6 class="stat-label text-muted mb-0">Năm Phục Vụ</h6>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="stat-card p-4 rounded-4 bg-green-soft">
-                            <div class="stat-number display-4 fw-bold text-green mb-2">1-3</div>
-                            <h6 class="stat-label text-muted mb-0">Ngày Giao Hàng</h6>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 mb-4">
-                        <div class="stat-card p-4 rounded-4 bg-blue-soft">
-                            <div class="stat-number display-4 fw-bold text-blue mb-2">4.5★</div>
-                            <h6 class="stat-label text-muted mb-0">Đánh Giá Khách Hàng</h6>
-                        </div>
-                    </div>
+    <!-- Category Promotions -->
+    <section class="py-4" style="background-color: #f5f7fa;">
+        <div class="container px-4">
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h3 class="fw-bold text-center mb-1 text-red">🏷️ DANH MỤC HOT - ƯU ĐÃI KHỦNG</h3>
+                    <p class="text-muted text-center">Khám phá các danh mục sản phẩm với ưu đãi đặc biệt</p>
                 </div>
             </div>
-
-            <!-- Why Choose Us -->
-            <div class="row align-items-center mb-5">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="why-choose-content">
-                        <span class="badge bg-red-soft text-red mb-3 px-3 py-2">
-                            <i class="fas fa-heart me-2"></i>Cam kết của chúng tôi
-                        </span>
-                        <h2 class="text-muted display-6 fw-bold mb-4">
-                            Dịch Vụ <span class="text-red">Tận Tâm</span>
-                        </h2>
-                        <p class="lead text-muted mb-4">
-                            Chúng tôi là một cửa hàng nhỏ với mong muốn mang đến những sản phẩm chất lượng 
-                            và dịch vụ chăm sóc khách hàng tận tình nhất có thể.
-                        </p>
-                        
-                        <div class="feature-list">
-                            <div class="feature-item d-flex align-items-start mb-3">
-                                <div class="feature-icon me-3 mt-1">
-                                    <i class="fas fa-handshake text-red fa-lg"></i>
-                                </div>
-                                <div>
-                                    <h6 class="text-muted fw-bold mb-1">Tư Vấn Tận Tình</h6>
-                                    <p class="text-muted mb-0 small">Chúng tôi luôn lắng nghe và tư vấn phù hợp nhất</p>
-                                </div>
+            <div class="row g-3">
+                <div class="col-lg-3 col-md-6">
+                    <div class="category-promo-card bg-white rounded-4 p-4 shadow-sm h-100 position-relative overflow-hidden">
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <span class="badge bg-red px-2 py-1 rounded-pill">Giảm 60%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="category-icon bg-red-light rounded-circle p-3 me-3">
+                                <i class="fas fa-utensils text-red fa-2x"></i>
                             </div>
-                            
-                            <div class="feature-item d-flex align-items-start mb-3">
-                                <div class="feature-icon me-3 mt-1">
-                                    <i class="fas fa-box text-golden fa-lg"></i>
-                                </div>
-                                <div>
-                                    <h6 class="fw-bold mb-1 text-muted">Đóng Gói Cẩn Thận</h6>
-                                    <p class="text-muted mb-0 small">Mỗi đơn hàng đều được đóng gói kỹ càng</p>
-                                </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-dark">Thực Phẩm Tươi Sống</h5>
+                                <small class="text-muted">2,847+ sản phẩm</small>
                             </div>
-                            
-                            <div class="feature-item d-flex align-items-start mb-3">
-                                <div class="feature-icon me-3 mt-1">
-                                    <i class="fas fa-smile text-green fa-lg"></i>
-                                </div>
-                                <div>
-                                    <h6 class="fw-bold mb-1 text-muted">Hỗ Trợ Nhiệt Tình</h6>
-                                    <p class="text-muted mb-0 small">Sẵn sàng hỗ trợ khi bạn cần</p>
-                                </div>
+                        </div>
+                        <div class="row g-2 mb-3">
+                            <div class="col-4">
+                                <img src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
                             </div>
+                            <div class="col-4">
+                                <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                            </div>
+                            <div class="col-4">
+                                <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <small class="text-success fw-bold">Từ 5.000₫</small>
+                                <div><small class="text-muted">Giao trong 2h</small></div>
+                            </div>
+                            <a href="/?action=products" class="btn btn-red btn-sm rounded-pill px-3">Xem ngay</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="why-choose-image position-relative">
-                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
-                             class="img-fluid rounded-4 shadow-lg" 
-                             alt="Dịch vụ khách hàng thân thiện">
-                        <div class="floating-badge position-absolute top-0 start-0 m-3">
-                            <div class="badge bg-red text-white p-3 rounded-3 shadow">
-                                <i class="fas fa-heart fa-lg"></i>
-                                <div class="fw-bold mt-1">Tận Tâm</div>
-                                <small>Phục vụ</small>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="category-promo-card bg-white rounded-4 p-4 shadow-sm h-100 position-relative overflow-hidden">
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill">Giảm 40%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="category-icon bg-warning-light rounded-circle p-3 me-3">
+                                <i class="fas fa-tshirt text-warning fa-2x"></i>
                             </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-dark">Thời Trang</h5>
+                                <small class="text-muted">5,692+ sản phẩm</small>
+                            </div>
+                        </div>
+                        <div class="row g-2 mb-3">
+                            <div class="col-4">
+                                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                            </div>
+                            <div class="col-4">
+                                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                            </div>
+                            <div class="col-4">
+                                <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <small class="text-success fw-bold">Từ 99.000₫</small>
+                                <div><small class="text-muted">Phong cách trendy</small></div>
+                            </div>
+                            <a href="/?action=products" class="btn btn-warning btn-sm rounded-pill px-3">Xem ngay</a>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Local Trust -->
-            <div class="text-center">
-                <h3 class="h5 text-muted mb-4">Được khách hàng địa phương tin tưởng</h3>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8">
-                        <div class="local-trust d-flex justify-content-center align-items-center opacity-60 flex-wrap gap-4">
-                            <div class="trust-item text-center">
-                                <i class="fas fa-users text-red fa-2x mb-2"></i>
-                                <div class="small text-muted">Khách hàng thân thiết</div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="category-promo-card bg-white rounded-4 p-4 shadow-sm h-100 position-relative overflow-hidden">
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <span class="badge bg-info px-2 py-1 rounded-pill">Giảm 50%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="category-icon bg-info-light rounded-circle p-3 me-3">
+                                <i class="fas fa-laptop text-info fa-2x"></i>
                             </div>
-                            <div class="trust-item text-center">
-                                <i class="fas fa-store text-red fa-2x mb-2"></i>
-                                <div class="small text-muted">Cửa hàng uy tín</div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-dark">Điện Tử</h5>
+                                <small class="text-muted">3,421+ sản phẩm</small>
                             </div>
-                            <div class="trust-item text-center">
-                                <i class="fas fa-shipping-fast text-red fa-2x mb-2"></i>
-                                <div class="small text-muted">Giao hàng nhanh</div>
+                        </div>
+                        <div class="row g-2 mb-3">
+                            <div class="col-4">
+                                <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
                             </div>
-                            <div class="trust-item text-center">
-                                <i class="fas fa-medal text-red fa-2x mb-2"></i>
-                                <div class="small text-muted">Chất lượng tốt</div>
+                            <div class="col-4">
+                                <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
                             </div>
+                            <div class="col-4">
+                                <img src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <small class="text-success fw-bold">Từ 299.000₫</small>
+                                <div><small class="text-muted">Chính hãng bảo hành</small></div>
+                            </div>
+                            <a href="/?action=products" class="btn btn-info btn-sm rounded-pill px-3">Xem ngay</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="category-promo-card bg-white rounded-4 p-4 shadow-sm h-100 position-relative overflow-hidden">
+                        <div class="position-absolute top-0 end-0 m-3">
+                            <span class="badge bg-success px-2 py-1 rounded-pill">Giảm 35%</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="category-icon bg-success-light rounded-circle p-3 me-3">
+                                <i class="fas fa-home text-success fa-2x"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold mb-1 text-dark">Nhà Cửa & Đời Sống</h5>
+                                <small class="text-muted">4,156+ sản phẩm</small>
+                            </div>
+                        </div>
+                        <div class="row g-2 mb-3">
+                            <div class="col-4">
+                                <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                            </div>
+                            <div class="col-4">
+                                <img src="https://images.unsplash.com/photo-1556909114-4f6e78316a0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                            </div>
+                            <div class="col-4">
+                                <img src="https://images.unsplash.com/photo-1556909132-d81ec17de271?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <small class="text-success fw-bold">Từ 49.000₫</small>
+                                <div><small class="text-muted">Decor hiện đại</small></div>
+                            </div>
+                            <a href="/?action=products" class="btn btn-success btn-sm rounded-pill px-3">Xem ngay</a>
                         </div>
                     </div>
                 </div>
@@ -192,193 +637,252 @@
         </div>
     </section>
 
-    <section class="bg-gradient-soft" id="featured">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-8 text-center">
-                    <span class="badge bg-red-soft text-red mb-3 px-3 py-2">
-                        <i class="fas fa-gem me-2"></i>Sản phẩm chọn lọc
-                    </span>
-                    <h2 class="text-muted display-5 fw-bold mb-4">
-                        Sản Phẩm <span class="text-red">Nổi Bật</span>
-                    </h2>
-                    <p class="lead text-muted">
-                        Những sản phẩm được lựa chọn cẩn thận từ các thương hiệu uy tín, 
-                        mang đến giá trị tốt nhất cho gia đình Việt Nam.
-                    </p>
-                </div>
-            </div>
-            
+    <!-- Additional Promotions & Information Rich Section -->
+    <section class="py-5" style="background-color: #f5f7fa;">
+        <div class="container px-4">
             <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="product-card card h-100 border-0 shadow-lg rounded-4 overflow-hidden position-relative">
-                        <div class="product-image position-relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 class="card-img-top" alt="Tai Nghe Bluetooth Chất Lượng Cao">
-                            <div class="product-badges position-absolute top-0 end-0 p-3">
-                                <span class="badge bg-red rounded-pill mb-2">-30%</span>
-                                <span class="badge bg-golden text-dark rounded-pill">Bán chạy</span>
+                <!-- Left Column - Main Promotions -->
+                <div class="col-lg-8">
+                    <!-- Daily Deals Section -->
+                    <div class="mb-5">
+                        <div class="d-flex align-items-center justify-content-between mb-4">
+                            <div class="d-flex align-items-center">
+                                <h3 class="fw-bold mb-0 me-3 text-red">🔥 DEAL TRONG NGÀY</h3>
+                                <span class="badge bg-red text-white px-3 py-2 fs-6">Mỗi ngày một deal hot</span>
                             </div>
-                            <div class="product-overlay position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
-                                <a href="product-detail.html?id=1" class="btn btn-light rounded-pill px-4">
-                                    <i class="fas fa-eye me-2"></i>Xem Chi Tiết
-                                </a>
-                            </div>
+                            <a href="/?action=products" class="btn btn-outline-red rounded-pill">Xem tất cả deals</a>
                         </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <span class="badge bg-red-soft text-red">Điện tử</span>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span class="text-muted ms-1">(4.8)</span>
+                        
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="deal-card bg-white rounded-4 p-4 shadow-sm border-0 position-relative overflow-hidden">
+                                    <div class="position-absolute top-0 start-0 bg-red text-white px-3 py-1 rounded-bottom-end">
+                                        <small class="fw-bold">🎯 DEAL SỐC HÔM NAY</small>
+                                    </div>
+                                    <div class="row align-items-center mt-3">
+                                        <div class="col-5">
+                                            <img src="https://product.hstatic.net/200000522611/product/drink-machine-advace_a9cef49548a343ac891b1518cf82b6bd_master.png" 
+                                                 class="img-fluid rounded-3" style="height: 150px; object-fit: cover; width: 100%;">
+                                        </div>
+                                        <div class="col-7">
+                                            <h5 class="fw-bold text-dark mb-2">Máy Xay Sinh Tố Cao Cấp</h5>
+                                            <div class="mb-2">
+                                                <span class="text-red fw-bold fs-4">1.299.000₫</span>
+                                                <small class="text-muted text-decoration-line-through ms-2">2.590.000₫</small>
+                                            </div>
+                                            <div class="mb-2">
+                                                <span class="badge bg-success me-2">Tiết kiệm 1.291.000₫</span>
+                                                <span class="badge bg-warning text-dark">-50%</span>
+                                            </div>
+                                            <div class="progress mb-2" style="height: 10px;">
+                                                <div class="progress-bar bg-red" style="width: 85%"></div>
+                                            </div>
+                                            <small class="text-muted">Đã bán 420/500 - Còn lại 80 sản phẩm</small>
+                                            <div class="mt-3">
+                                                <button class="btn btn-red btn-sm rounded-pill px-4 fw-bold">
+                                                    <i class="fas fa-shopping-cart me-2"></i>Mua Ngay
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <h5 class="card-title fw-bold mb-2">Tai Nghe Bluetooth Cao Cấp</h5>
-                            <p class="text-muted small mb-3">Âm thanh trong trẻo với pin sử dụng lên đến 24 giờ</p>
-                            <div class="price-section mb-3">
-                                <span class="h5 text-red fw-bold mb-0">699.000₫</span>
-                                <span class="text-decoration-line-through text-muted ms-2">999.000₫</span>
+                            
+                            <div class="col-md-6">
+                                <div class="deal-card bg-white rounded-4 p-4 shadow-sm border-0 position-relative overflow-hidden">
+                                    <div class="position-absolute top-0 start-0 bg-warning text-dark px-3 py-1 rounded-bottom-end">
+                                        <small class="fw-bold">⭐ SIÊU PHẨM</small>
+                                    </div>
+                                    <div class="row align-items-center mt-3">
+                                        <div class="col-5">
+                                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
+                                                 class="img-fluid rounded-3" style="height: 150px; object-fit: cover; width: 100%;">
+                                        </div>
+                                        <div class="col-7">
+                                            <h5 class="fw-bold text-dark mb-2">Tai Nghe Bluetooth Premium</h5>
+                                            <div class="mb-2">
+                                                <span class="text-red fw-bold fs-4">899.000₫</span>
+                                                <small class="text-muted text-decoration-line-through ms-2">1.499.000₫</small>
+                                            </div>
+                                            <div class="mb-2">
+                                                <span class="badge bg-success me-2">Tiết kiệm 600.000₫</span>
+                                                <span class="badge bg-warning text-dark">-40%</span>
+                                            </div>
+                                            <div class="progress mb-2" style="height: 10px;">
+                                                <div class="progress-bar bg-warning" style="width: 65%"></div>
+                                            </div>
+                                            <small class="text-muted">Đã bán 195/300 - Còn lại 105 sản phẩm</small>
+                                            <div class="mt-3">
+                                                <button class="btn btn-warning btn-sm rounded-pill px-4 fw-bold">
+                                                    <i class="fas fa-shopping-cart me-2"></i>Mua Ngay
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-red rounded-pill add-to-cart" data-product-id="1">
-                                    <i class="fas fa-cart-plus me-2"></i>Thêm Vào Giỏ
-                                </button>
+                        </div>
+                    </div>
+
+                    <!-- Brand Showcase -->
+                    <div class="mb-5">
+                        <h3 class="fw-bold mb-4" style="color: var(--golden)">🏆 THƯƠNG HIỆU UY TÍN</h3>
+                        <div class="brand-showcase bg-white rounded-4 p-4 shadow-sm">
+                            <div class="row g-3 align-items-center">
+                                <div class="col-6 col-md-2 text-center">
+                                    <img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                         class="img-fluid" style="height: 60px; object-fit: contain; filter: grayscale(100%); transition: all 0.3s;">
+                                    <small class="d-block mt-2 text-muted fw-medium">Samsung</small>
+                                </div>
+                                <div class="col-6 col-md-2 text-center">
+                                    <img src="https://images.unsplash.com/photo-1621768216002-5ac171876625?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                         class="img-fluid" style="height: 60px; object-fit: contain; filter: grayscale(100%); transition: all 0.3s;">
+                                    <small class="d-block mt-2 text-muted fw-medium">Apple</small>
+                                </div>
+                                <div class="col-6 col-md-2 text-center">
+                                    <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                         class="img-fluid" style="height: 60px; object-fit: contain; filter: grayscale(100%); transition: all 0.3s;">
+                                    <small class="d-block mt-2 text-muted fw-medium">Sony</small>
+                                </div>
+                                <div class="col-6 col-md-2 text-center">
+                                    <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                         class="img-fluid" style="height: 60px; object-fit: contain; filter: grayscale(100%); transition: all 0.3s;">
+                                    <small class="d-block mt-2 text-muted fw-medium">LG</small>
+                                </div>
+                                <div class="col-6 col-md-2 text-center">
+                                    <img src="https://images.unsplash.com/photo-1598662779094-110c2bad80b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                         class="img-fluid" style="height: 60px; object-fit: contain; filter: grayscale(100%); transition: all 0.3s;">
+                                    <small class="d-block mt-2 text-muted fw-medium">Nike</small>
+                                </div>
+                                <div class="col-6 col-md-2 text-center">
+                                    <img src="https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
+                                         class="img-fluid" style="height: 60px; object-fit: contain; filter: grayscale(100%); transition: all 0.3s;">
+                                    <small class="d-block mt-2 text-muted fw-medium">Adidas</small>
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                <p class="text-muted mb-3">Và hơn 1000+ thương hiệu uy tín khác</p>
+                                <a href="/?action=products" class="btn btn-outline-dark rounded-pill px-4">Khám phá thương hiệu</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-3">
-                    <div class="product-card card h-100 border-0 shadow-lg rounded-4 overflow-hidden position-relative">
-                        <div class="product-image position-relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 class="card-img-top" alt="Áo Sơ Mi Nam Công Sở">
-                            <div class="product-badges position-absolute top-0 end-0 p-3">
-                                <span class="badge bg-green rounded-pill">Hàng Việt</span>
-                            </div>
-                            <div class="product-overlay position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
-                                <a href="product-detail.html?id=2" class="btn btn-light rounded-pill px-4">
-                                    <i class="fas fa-eye me-2"></i>Xem Chi Tiết
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <span class="badge bg-green-soft text-green">Thời trang</span>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <span class="text-muted ms-1">(4.5)</span>
+                <!-- Right Sidebar - Info Cards -->
+                <div class="col-lg-4">
+                    <!-- Customer Reviews -->
+                    <div class="info-card bg-white rounded-4 p-4 shadow-sm mb-4">
+                        <h5 class="fw-bold mb-3 d-flex align-items-center text-muted">
+                            <i class="fas fa-star text-warning me-2"></i>
+                            Đánh Giá Khách Hàng
+                        </h5>
+                        <div class="review-item border-bottom pb-3 mb-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" 
+                                     class="rounded-circle me-3" style="width: 40px; height: 40px; object-fit: cover;">
+                                <div>
+                                    <h6 class="mb-0 fw-bold text-muted">Nguyễn Thị Lan</h6>
+                                    <div class="text-warning small">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
                                 </div>
                             </div>
-                            <h5 class="card-title fw-bold mb-2">Áo Sơ Mi Nam Công Sở</h5>
-                            <p class="text-muted small mb-3">Chất liệu cotton thoáng mát, phù hợp khí hậu Việt Nam</p>
-                            <div class="price-section mb-3">
-                                <span class="h5 text-red fw-bold mb-0">299.000₫</span>
+                            <p class="small text-muted mb-0">"Sản phẩm chất lượng tuyệt vời, giao hàng nhanh. Tôi rất hài lòng với dịch vụ của VietShop!"</p>
+                        </div>
+                        <div class="review-item border-bottom pb-3 mb-3">
+                            <div class="d-flex align-items-center mb-2">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=50&q=80" 
+                                     class="rounded-circle me-3" style="width: 40px; height: 40px; object-fit: cover;">
+                                <div>
+                                    <h6 class="mb-0 fw-bold text-muted">Trần Văn Minh</h6>
+                                    <div class="text-warning small">
+                                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-red rounded-pill add-to-cart" data-product-id="2">
-                                    <i class="fas fa-cart-plus me-2"></i>Thêm Vào Giỏ
-                                </button>
-                            </div>
+                            <p class="small text-muted mb-0">"Giá cả hợp lý, đóng gói cẩn thận. Tôi sẽ tiếp tục mua sắm tại đây!"</p>
+                        </div>
+                        <div class="text-center">
+                            <a href="#" class="btn btn-outline-warning btn-sm rounded-pill">Xem thêm đánh giá</a>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-md-6 col-lg-3">
-                    <div class="product-card card h-100 border-0 shadow-lg rounded-4 overflow-hidden position-relative">
-                        <div class="product-image position-relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 class="card-img-top" alt="Nồi Cơm Điện Gia Đình">
-                            <div class="product-badges position-absolute top-0 end-0 p-3">
-                                <span class="badge bg-blue rounded-pill">Tiết kiệm</span>
-                            </div>
-                            <div class="product-overlay position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
-                                <a href="product-detail.html?id=3" class="btn btn-light rounded-pill px-4">
-                                    <i class="fas fa-eye me-2"></i>Xem Chi Tiết
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <span class="badge bg-blue-soft text-blue">Gia dụng</span>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <span class="text-muted ms-1">(4.9)</span>
+                    <!-- Statistics -->
+                    <div class="info-card bg-gradient text-white rounded-4 p-4 shadow-sm mb-4" style="background: linear-gradient(135deg, #dc3545, #fd7e14);">
+                        <h5 class="fw-bold mb-3" style="color: var(--golden)">📊 Thống Kê Ấn Tượng</h5>
+                        <div class="row g-3 text-center text-muted">
+                            <div class="col-6">
+                                <div class="stat-item">
+                                    <h3 class="fw-bold mb-1">2.5M+</h3>
+                                    <small class="opacity-90">Khách hàng tin tưởng</small>
                                 </div>
                             </div>
-                            <h5 class="card-title fw-bold mb-2">Nồi Cơm Điện Gia Đình</h5>
-                            <p class="text-muted small mb-3">Công nghệ nấu 3D, nấu cơm ngon như cơm niêu đất</p>
-                            <div class="price-section mb-3">
-                                <span class="h5 text-red fw-bold mb-0">1.299.000₫</span>
+                            <div class="col-6">
+                                <div class="stat-item">
+                                    <h3 class="fw-bold mb-1">150K+</h3>
+                                    <small class="opacity-90">Sản phẩm chính hãng</small>
+                                </div>
                             </div>
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-red rounded-pill add-to-cart" data-product-id="3">
-                                    <i class="fas fa-cart-plus me-2"></i>Thêm Vào Giỏ
-                                </button>
+                            <div class="col-6">
+                                <div class="stat-item">
+                                    <h3 class="fw-bold mb-1">99.9%</h3>
+                                    <small class="opacity-90">Khách hàng hài lòng</small>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="stat-item">
+                                    <h3 class="fw-bold mb-1">24/7</h3>
+                                    <small class="opacity-90">Hỗ trợ khách hàng</small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="col-md-6 col-lg-3">
-                    <div class="product-card card h-100 border-0 shadow-lg rounded-4 overflow-hidden position-relative">
-                        <div class="product-image position-relative overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" 
-                                 class="card-img-top" alt="Túi Xách Nữ Da Thật">
-                            <div class="product-badges position-absolute top-0 end-0 p-3">
-                                <span class="badge bg-golden rounded-pill">Cao cấp</span>
+                    <!-- App Download -->
+                    <div class="info-card bg-dark text-white rounded-4 p-4 shadow-sm mb-4">
+                        <h5 class="fw-bold mb-3" style="color: var(--golden)">📱 Tải App VietShop</h5>
+                        <p class="small mb-3 opacity-90">Trải nghiệm mua sắm tối ưu trên điện thoại với nhiều ưu đãi độc quyền</p>
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <a href="#" class="btn btn-light btn-sm w-100 rounded-pill">
+                                    <i class="fab fa-apple me-1"></i>App Store
+                                </a>
                             </div>
-                            <div class="product-overlay position-absolute w-100 h-100 d-flex align-items-center justify-content-center">
-                                <a href="product-detail.html?id=4" class="btn btn-light rounded-pill px-4">
-                                    <i class="fas fa-eye me-2"></i>Xem Chi Tiết
+                            <div class="col-6">
+                                <a href="#" class="btn btn-success btn-sm w-100 rounded-pill">
+                                    <i class="fab fa-google-play me-1"></i>Google Play
                                 </a>
                             </div>
                         </div>
-                        <div class="card-body p-4">
-                            <div class="d-flex justify-content-between align-items-start mb-2">
-                                <span class="badge bg-golden-soft text-golden">Phụ kiện</span>
-                                <div class="text-warning">
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="fas fa-star"></i>
-                                    <i class="far fa-star"></i>
-                                    <span class="text-muted ms-1">(4.3)</span>
-                                </div>
-                            </div>
-                            <h5 class="card-title fw-bold mb-2">Túi Xách Nữ Da Thật</h5>
-                            <p class="text-muted small mb-3">Thiết kế sang trọng, chất liệu da bò thật 100%</p>
-                            <div class="price-section mb-3">
-                                <span class="h5 text-red fw-bold mb-0">899.000₫</span>
-                            </div>
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-red rounded-pill add-to-cart" data-product-id="4">
-                                    <i class="fas fa-cart-plus me-2"></i>Thêm Vào Giỏ
-                                </button>
-                            </div>
+                        <div class="text-center mt-3">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://vietshop.com/app" 
+                                 class="img-fluid rounded" style="width: 80px; height: 80px;">
+                            <small class="d-block mt-2 opacity-75">Quét mã QR để tải</small>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="info-card bg-white rounded-4 p-4 shadow-sm">
+                        <h5 class="fw-bold mb-3" style="color: var(--golden)">🔗 Liên Kết Nhanh</h5>
+                        <div class="d-grid gap-2">
+                            <a href="#" class="btn btn-outline-primary btn-sm text-start rounded-pill">
+                                <i class="fas fa-gift me-2"></i>Khuyến mãi đặc biệt
+                            </a>
+                            <a href="#" class="btn btn-outline-success btn-sm text-start rounded-pill">
+                                <i class="fas fa-truck me-2"></i>Theo dõi đơn hàng
+                            </a>
+                            <a href="#" class="btn btn-outline-warning btn-sm text-start rounded-pill">
+                                <i class="fas fa-medal me-2"></i>Chương trình tích điểm
+                            </a>
+                            <a href="#" class="btn btn-outline-info btn-sm text-start rounded-pill">
+                                <i class="fas fa-headset me-2"></i>Hỗ trợ khách hàng
+                            </a>
+                            <a href="#" class="btn btn-outline-danger btn-sm text-start rounded-pill">
+                                <i class="fas fa-newspaper me-2"></i>Tin tức & Sự kiện
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="text-center m-5">
-                <a class="btn btn-red btn-lg px-5 py-3 rounded-pill shadow-lg" href="products.html">
-                    <i class="fas fa-th-large me-2"></i>
-                    Xem Tất Cả Sản Phẩm
-                    <i class="fas fa-arrow-right ms-2"></i>
-                </a>
             </div>
         </div>
     </section>
@@ -419,5 +923,6 @@
             </div>
         </div>
     </section>
+</div>
 
 {% endblock %}
