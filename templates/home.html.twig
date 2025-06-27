@@ -4,7 +4,7 @@
 {% block title %} VietShop - Cửa Hàng Trực Tuyến Của Bạn {% endblock %}
 
 {% block body %}
-<div style="background-color: #f5f7fa; min-height: 100vh;">
+<div class="bg-marketplace" style="min-height: 100vh;">
     <!-- Categories Section -->
     <section class="py-3 bg-white shadow-sm mt-5">
         <div class="container">
@@ -85,13 +85,13 @@
     </section>
 
     <!-- Main Banner Carousel -->
-    <section class="py-3">
-        <div class="container px-4">
-            <div class="row g-3">
+    <section class="py-2 py-md-3">
+        <div class="container px-2 px-md-4">
+            <div class="row g-2 g-md-3">
                 <!-- Main Carousel -->
-                <div class="col-lg-8 col-md-7">
-                    <div id="mainCarousel" class="carousel slide rounded-4 overflow-hidden shadow-lg" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
+                <div class="col-12 col-md-7 col-lg-8">
+                    <div id="mainCarousel" class="carousel slide   overflow-hidden shadow-lg" data-bs-ride="carousel">
+                        <div class="carousel-indicators d-none d-md-flex">
                             <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
                             <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
                             <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
@@ -99,98 +99,98 @@
                         <div class="carousel-inner">
                             <div class="carousel-item active">
                                 <a href="/?action=products">
-                                    <div class="position-relative" style="height: 400px; background: linear-gradient(135deg, #dc3545, #fd7e14); overflow: hidden;">
+                                    <div class="position-relative" style="height: 200px; background: linear-gradient(135deg, #dc3545, #fd7e14); overflow: hidden;">
                                         <img src="https://images.unsplash.com/photo-1556909114-b7f4d2e08d3c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
                                              class="position-absolute w-100 h-100" style="object-fit: cover; opacity: 0.3;">
-                                        <div class="position-absolute top-50 start-0 translate-middle-y text-white p-5">
-                                            <h2 class="display-4 fw-bold mb-3">SIÊU SALE 7.7</h2>
-                                            <h5 class="mb-3">Giảm đến 70% + Freeship 0đ</h5>
-                                            <div class="d-flex gap-3 mb-4">
-                                                <span class="badge bg-warning text-dark px-3 py-2 fs-6">Voucher 500K</span>
-                                                <span class="badge bg-success px-3 py-2 fs-6">Miễn phí vận chuyển</span>
+                                        <div class="position-absolute top-50 start-0 translate-middle-y text-white p-3 p-md-5">
+                                            <h2 class="h4 h-md-2 fw-bold mb-2 mb-md-3">SIÊU SALE 7.7</h2>
+                                            <h6 class="h5 mb-2 mb-md-3 d-none d-sm-block">Giảm đến 70% + Freeship 0đ</h6>
+                                            <div class="d-flex flex-wrap gap-2 gap-md-3 mb-2 mb-md-4">
+                                                <span class="badge bg-warning text-dark px-2 px-md-3 py-1 py-md-2 small">Voucher 500K</span>
+                                                <span class="badge bg-success px-2 px-md-3 py-1 py-md-2 small">Miễn phí vận chuyển</span>
                                             </div>
-                                            <p class="fs-5 opacity-90">Hàng ngàn sản phẩm chất lượng cao</p>
+                                            <p class="small d-none d-md-block opacity-90">Hàng ngàn sản phẩm chất lượng cao</p>
                                         </div>
-                                        <div class="position-absolute bottom-0 end-0 p-4">
+                                        <div class="position-absolute bottom-0 end-0 p-2 p-md-4 d-none d-md-block">
                                             <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-                                                 class="rounded-3" style="width: 150px; height: 100px; object-fit: cover;">
+                                                 class="" style="width: 100px; height: 70px; object-fit: cover;">
                                         </div>
                                     </div>
                                 </a>
                             </div>
                             <div class="carousel-item">
                                 <a href="/?action=products">
-                                    <div class="position-relative" style="height: 400px; background: linear-gradient(135deg, #28a745, #20c997);">
+                                    <div class="position-relative" style="height: 200px; background: linear-gradient(135deg, #28a745, #20c997);">
                                         <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
                                              class="position-absolute w-100 h-100" style="object-fit: cover; opacity: 0.4;">
-                                        <div class="position-absolute top-50 start-0 translate-middle-y text-white p-5">
-                                            <h2 class="display-4 fw-bold mb-3">THỰC PHẨM SẠCH</h2>
-                                            <h5 class="mb-3">Tươi ngon từ nông trại</h5>
-                                            <div class="d-flex gap-3 mb-4">
-                                                <span class="badge bg-warning text-dark px-3 py-2 fs-6">Organic 100%</span>
-                                                <span class="badge bg-info px-3 py-2 fs-6">Giao trong 2h</span>
+                                        <div class="position-absolute top-50 start-0 translate-middle-y text-white p-3 p-md-5">
+                                            <h2 class="h4 h-md-2 fw-bold mb-2 mb-md-3">THỰC PHẨM SẠCH</h2>
+                                            <h6 class="h5 mb-2 mb-md-3 d-none d-sm-block">Tươi ngon từ nông trại</h6>
+                                            <div class="d-flex flex-wrap gap-2 gap-md-3 mb-2 mb-md-4">
+                                                <span class="badge bg-warning text-dark px-2 px-md-3 py-1 py-md-2 small">Organic 100%</span>
+                                                <span class="badge bg-info px-2 px-md-3 py-1 py-md-2 small">Giao trong 2h</span>
                                             </div>
-                                            <p class="fs-5 opacity-90">Cam kết chất lượng và an toàn</p>
+                                            <p class="small d-none d-md-block opacity-90">Cam kết chất lượng và an toàn</p>
                                         </div>
                                     </div>
                                 </a>
                             </div>
                             <div class="carousel-item">
                                 <a href="/?action=products">
-                                    <div class="position-relative" style="height: 400px; background: linear-gradient(135deg, #6f42c1, #e83e8c);">
+                                    <div class="position-relative" style="height: 200px; background: linear-gradient(135deg, #6f42c1, #e83e8c);">
                                         <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" 
                                              class="position-absolute w-100 h-100" style="object-fit: cover; opacity: 0.3;">
-                                        <div class="position-absolute top-50 start-0 translate-middle-y text-white p-5">
-                                            <h2 class="display-4 fw-bold mb-3">THỜI TRANG MÙA HÈ</h2>
-                                            <h5 class="mb-3">Bộ sưu tập mới 2025</h5>
-                                            <div class="d-flex gap-3 mb-4">
-                                                <span class="badge bg-warning text-dark px-3 py-2 fs-6">Giảm 50%</span>
-                                                <span class="badge bg-light text-dark px-3 py-2 fs-6">Xu hướng Hot</span>
+                                        <div class="position-absolute top-50 start-0 translate-middle-y text-white p-3 p-md-5">
+                                            <h2 class="h4 h-md-2 fw-bold mb-2 mb-md-3">THỜI TRANG MÙA HÈ</h2>
+                                            <h6 class="h5 mb-2 mb-md-3 d-none d-sm-block">Bộ sưu tập mới 2025</h6>
+                                            <div class="d-flex flex-wrap gap-2 gap-md-3 mb-2 mb-md-4">
+                                                <span class="badge bg-warning text-dark px-2 px-md-3 py-1 py-md-2 small">Giảm 50%</span>
+                                                <span class="badge bg-light text-dark px-2 px-md-3 py-1 py-md-2 small">Xu hướng Hot</span>
                                             </div>
-                                            <p class="fs-5 opacity-90">Phong cách trẻ trung, năng động</p>
+                                            <p class="small d-none d-md-block opacity-90">Phong cách trẻ trung, năng động</p>
                                         </div>
                                     </div>
                                 </a>
                             </div>
                         </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+                        <button class="carousel-control-prev d-none d-md-flex" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon"></span>
                         </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+                        <button class="carousel-control-next d-none d-md-flex" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
                             <span class="carousel-control-next-icon"></span>
                         </button>
                     </div>
                 </div>
 
                 <!-- Side Banners -->
-                <div class="col-lg-4 col-md-5">
-                    <div class="row g-3 h-100">
+                <div class="col-12 col-md-5 col-lg-4 d-none d-md-block">
+                    <div class="row g-2 g-md-3 h-100">
                         <div class="col-12">
                             <a href="/?action=products" class="text-decoration-none">
-                                <div class="side-banner position-relative rounded-3 overflow-hidden shadow" style="height: 195px; background: linear-gradient(45deg, #ffc107, #fd7e14);">
+                                <div class="side-banner position-relative  overflow-hidden shadow" style="height: 95px; background: linear-gradient(45deg, #ffc107, #fd7e14);">
                                     <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" 
                                          class="position-absolute w-100 h-100" style="object-fit: cover; opacity: 0.7;">
-                                    <div class="position-absolute bottom-0 start-0 p-3 text-white">
-                                        <h6 class="fw-bold mb-1">ĐIỆN TỬ - CÔNG NGHỆ</h6>
-                                        <small class="opacity-90">Giảm đến 40% các sản phẩm hot</small>
+                                    <div class="position-absolute bottom-0 start-0 p-2 p-md-3 text-white">
+                                        <h6 class="small fw-bold mb-1">ĐIỆN TỬ - CÔNG NGHỆ</h6>
+                                        <small class="opacity-90" style="font-size: 0.75rem;">Giảm đến 40% các sản phẩm hot</small>
                                     </div>
                                     <div class="position-absolute top-0 end-0 p-2">
-                                        <span class="badge bg-red">HOT</span>
+                                        <span class="badge bg-red small">HOT</span>
                                     </div>
                                 </div>
                             </a>
                         </div>
                         <div class="col-12">
                             <a href="/?action=products" class="text-decoration-none">
-                                <div class="side-banner position-relative rounded-3 overflow-hidden shadow" style="height: 195px; background: linear-gradient(45deg, #20c997, #17a2b8);">
+                                <div class="side-banner position-relative  overflow-hidden shadow" style="height: 95px; background: linear-gradient(45deg, #20c997, #17a2b8);">
                                     <img src="https://pngimg.com/uploads/house/house_PNG67.png" 
                                          class="position-absolute w-100 h-100" style="object-fit: cover; opacity: 0.8;">
-                                    <div class="position-absolute bottom-0 start-0 p-3 text-white">
-                                        <h6 class="fw-bold mb-1">NHÀ CỬA - ĐỜI SỐNG</h6>
-                                        <small class="opacity-90">Siêu ưu đãi cho ngôi nhà bạn</small>
+                                    <div class="position-absolute bottom-0 start-0 p-2 p-md-3 text-white">
+                                        <h6 class="small fw-bold mb-1">NHÀ CỬA - ĐỜI SỐNG</h6>
+                                        <small class="opacity-90" style="font-size: 0.75rem;">Siêu ưu đãi cho ngôi nhà bạn</small>
                                     </div>
                                     <div class="position-absolute top-0 end-0 p-2">
-                                        <span class="badge bg-success">NEW</span>
+                                        <span class="badge bg-success small">NEW</span>
                                     </div>
                                 </div>
                             </a>
@@ -203,31 +203,31 @@
 
     <!-- Quick Services Bar -->
     <section class="py-2 bg-white border-top border-bottom">
-        <div class="container px-4">
+        <div class="container px-2 px-md-4">
             <div class="row align-items-center">
-                <div class="col-md-8">
-                    <div class="d-flex flex-wrap gap-4 align-items-center text-muted">
+                <div class="col-12 col-md-8">
+                    <div class="d-flex flex-wrap gap-2 gap-md-4 align-items-center text-muted justify-content-center justify-content-md-start">
                         <div class="d-flex align-items-center">
-                            <i class="fas fa-shipping-fast text-red me-2"></i>
-                            <small class="fw-medium">Giao hàng nhanh 2H</small>
+                            <i class="fas fa-shipping-fast text-red me-1 me-md-2"></i>
+                            <small class="fw-medium" style="font-size: 0.75rem;">Giao hàng 2H</small>
                         </div>
                         <div class="d-flex align-items-center">
-                            <i class="fas fa-shield-alt text-success me-2"></i>
-                            <small class="fw-medium">Bảo hành chính hãng</small>
+                            <i class="fas fa-shield-alt text-success me-1 me-md-2"></i>
+                            <small class="fw-medium" style="font-size: 0.75rem;">Bảo hành chính hãng</small>
                         </div>
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-undo text-warning me-2"></i>
-                            <small class="fw-medium">Đổi trả trong 30 ngày</small>
+                        <div class="d-flex align-items-center d-none d-sm-flex">
+                            <i class="fas fa-undo text-warning me-1 me-md-2"></i>
+                            <small class="fw-medium" style="font-size: 0.75rem;">Đổi trả 30 ngày</small>
                         </div>
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-headset text-info me-2"></i>
-                            <small class="fw-medium">Hỗ trợ 24/7</small>
+                        <div class="d-flex align-items-center d-none d-md-flex">
+                            <i class="fas fa-headset text-info me-1 me-md-2"></i>
+                            <small class="fw-medium" style="font-size: 0.75rem;">Hỗ trợ 24/7</small>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 text-end">
-                    <div class="d-flex align-items-center justify-content-end gap-3">
-                        <small class="text-muted">Hotline:</small>
+                <div class="col-12 col-md-4 text-center text-md-end mt-2 mt-md-0">
+                    <div class="d-flex align-items-center justify-content-center justify-content-md-end gap-2 gap-md-3">
+                        <small class="text-muted" style="font-size: 0.75rem;">Hotline:</small>
                         <strong class="text-red">1900-1234</strong>
                     </div>
                 </div>
@@ -236,36 +236,35 @@
     </section>
 
     <!-- Flash Sale & Promotion Section -->
-    <section class="py-4" style="background-color: #f5f7fa;">
-        <div class="container px-4">
+    <section class="py-3 py-md-4" style="background-color: #f5f7fa;">
+        <div class="container px-2 px-md-4">
             <!-- Promotion Header -->
-            <div class="row mb-4">
+            <div class="row mb-3 mb-md-4">
                 <div class="col-12">
-                    <div class="d-flex align-items-center justify-content-between bg-gradient" style="background: linear-gradient(90deg, #dc3545, #fd7e14); border-radius: 15px; padding: 20px; box-shadow: 0 8px 25px rgba(220,53,69,0.3);">
-                        <div class="d-flex align-items-center">
-                            <div class="me-4">
-                                <span class="badge bg-white text-red px-4 py-3 fs-5 fw-bold shadow-sm" style="border-radius: 25px;">
-                                    <i class="fas fa-fire me-2 text-warning"></i>FLASH SALE - KHUYẾN MÃI SỐC
+                    <div class="d-flex flex-column flex-md-row align-items-center justify-content-between bg-gradient p-3 p-md-4" style="background: linear-gradient(90deg, #dc3545, #fd7e14); box-shadow: 0 8px 25px rgba(220,53,69,0.3);">
+                        <div class="d-flex flex-column flex-md-row align-items-center text-center text-md-start mb-3 mb-md-0">
+                            <div class="me-0 me-md-4 mb-2 mb-md-0">
+                                <span class="badge bg-white text-red px-3 py-2 fw-bold shadow-sm" style="font-size: 0.85rem;">
+                                    <i class="fas fa-fire me-1 me-md-2 text-warning"></i>FLASH SALE
                                 </span>
                             </div>
-                            <div class="">
-                                <h5 class="fw-bold mb-1 text-red">⚡ Giảm đến 70% - Chỉ diễn ra 12H-18H hôm nay!</h5>
-                                <p class="mb-0 opacity-90 text-muted">🔥 Hàng ngàn sản phẩm hot - Số lượng có hạn</p>
+                            <div class="text-white">
+                                <h5 class="h6 h-md-5 fw-bold mb-1 text-red">⚡ Giảm đến 70% - Hôm nay!</h5>
+                                <p class="mb-0 opacity-90 small text-red">🔥 Hàng ngàn sản phẩm hot</p>
                             </div>
                         </div>
-                        <div class="d-flex align-items-center gap-4 text-white">
-                            <div class="flash-timer text-center">
-                                <div class="d-flex gap-2 mb-2">
-                                    <div class="time-box bg-dark text-white px-3 py-2 rounded fw-bold">00</div>
-                                    <div class="time-box bg-dark text-white px-3 py-2 rounded fw-bold">01</div>
-                                    <div class="time-box bg-dark text-white px-3 py-2 rounded fw-bold">16</div>
-                                    <div class="time-box bg-dark text-white px-3 py-2 rounded fw-bold">45</div>
+                        <div class="d-flex align-items-center gap-2 gap-md-4 text-white">
+                            <div class="flash-timer text-center d-none d-sm-block">
+                                <div class="d-flex gap-1 gap-md-2 mb-1 mb-md-2">
+                                    <div class="time-box bg-dark text-white px-2 px-md-3 py-1 py-md-2 rounded fw-bold small">00</div>
+                                    <div class="time-box bg-dark text-white px-2 px-md-3 py-1 py-md-2 rounded fw-bold small">01</div>
+                                    <div class="time-box bg-dark text-white px-2 px-md-3 py-1 py-md-2 rounded fw-bold small">16</div>
                                 </div>
-                                <small class="text-black opacity-75">Giờ : Phút : Giây</small>
+                                <small class="text-black opacity-75" style="font-size: 0.7rem;">Giờ : Phút</small>
                             </div>
                             <div class="text-center">
-                                <a href="/?action=products" class="btn btn-white btn-lg px-4 fw-bold text-red rounded-pill shadow">
-                                    <i class="fas fa-arrow-right me-2"></i>Xem Tất Cả
+                                <a href="/?action=products" class="btn btn-white btn-sm btn-md-lg px-3 px-md-4 fw-bold text-red  shadow">
+                                    <i class="fas fa-arrow-right me-1 me-md-2"></i>Xem Tất Cả
                                 </a>
                             </div>
                         </div>
@@ -274,196 +273,195 @@
             </div>
 
             <!-- Flash Sale Products Grid -->
-            <div class="row g-3 mb-5">
+            <div class="row g-2 g-md-3 mb-4 mb-md-5">
                 <!-- Product 1 -->
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div class="product-card bg-white rounded-4 p-3 text-center border-0 shadow-sm position-relative h-100 hover-lift">
-                        <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between p-2">
-                            <span class="badge bg-red text-white px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
-                                🎁 TẶNG 100G THỊT XAY
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="product-card bg-white   p-2 p-md-3 text-center border-0 shadow-sm position-relative h-100 hover-lift">
+                        <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between p-1 p-md-2">
+                            <span class="badge bg-red text-white px-1 px-md-2 py-1  fw-bold" style="font-size: 0.6rem;">
+                                🎁 TẶNG
                             </span>
-                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                            <span class="badge bg-warning text-dark px-1 px-md-2 py-1  fw-bold" style="font-size: 0.6rem;">
                                 -50%
                             </span>
                         </div>
-                        <div class="mt-4">
+                        <div class="mt-3 mt-md-4">
                             <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/Products/Images/8781/233782/bhx/thumb-233782-thit-xay_202506131650018398.jpg" 
-                                 alt="Thịt heo xay C.P" class="img-fluid mb-3 rounded-3" style="height: 120px; object-fit: cover; width: 100%;">
+                                 alt="Thịt heo xay C.P" class="img-fluid mb-2 mb-md-3 rounded-2 rounded-md-3" style="height: 80px; object-fit: cover; width: 100%;">
                         </div>
-                        <h6 class="fw-bold text-dark mb-2" style="height: 40px; display: flex; align-items: center; justify-content: center;">Thịt heo xay C.P Premium</h6>
-                        <div class="price-info mb-3">
-                            <div class="d-flex justify-content-center align-items-center gap-2">
-                                <span class="text-red fw-bold fs-5">40.800₫</span>
-                                <small class="text-muted text-decoration-line-through">81.600₫</small>
+                        <h6 class="fw-bold text-dark mb-1 mb-md-2 small" style="height: 30px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">Thịt heo xay C.P</h6>
+                        <div class="price-info mb-2 mb-md-3">
+                            <div class="d-flex justify-content-center align-items-center gap-1">
+                                <span class="text-red fw-bold" style="font-size: 0.9rem;">40.800₫</span>
+                                <small class="text-muted text-decoration-line-through" style="font-size: 0.7rem;">81.600₫</small>
                             </div>
-                            <small class="text-success fw-medium">Tiết kiệm 40.800₫</small>
-                            <div><small class="text-muted">/300g - Giao trong 2h</small></div>
+                            <small class="text-success fw-medium" style="font-size: 0.7rem;">Tiết kiệm 40.800₫</small>
+                            <div><small class="text-muted" style="font-size: 0.65rem;">/300g</small></div>
                         </div>
-                        <div class="mb-2">
-                            <div class="progress mb-1" style="height: 8px;">
+                        <div class="mb-2 d-none d-md-block">
+                            <div class="progress mb-1" style="height: 6px;">
                                 <div class="progress-bar bg-red" style="width: 75%"></div>
                             </div>
-                            <small class="text-muted">Đã bán 156/200</small>
+                            <small class="text-muted" style="font-size: 0.65rem;">Đã bán 156/200</small>
                         </div>
-                        <button class="btn btn-outline-red btn-sm w-100 add-to-cart rounded-pill fw-bold" data-product-id="1">
-                            <i class="fas fa-plus me-1"></i>Thêm Vào Giỏ
+                        <button class="btn btn-outline-red btn-sm w-100 add-to-cart rounded-pill fw-bold" data-product-id="1" style="font-size: 0.75rem; padding: 0.3rem 0.5rem;">
+                            <i class="fas fa-plus me-1"></i>Thêm
                         </button>
                     </div>
                 </div>
 
                 <!-- Product 2 -->
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div class="product-card bg-white rounded-4 p-3 text-center border-0 shadow-sm position-relative h-100 hover-lift">
-                        <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between p-2">
-                            <span class="badge bg-success text-white px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
-                                🌟 BEST SELLER
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="product-card bg-white   p-2 p-md-3 text-center border-0 shadow-sm position-relative h-100 hover-lift">
+                        <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between p-1 p-md-2">
+                            <span class="badge bg-success text-white px-1 px-md-2 py-1 rounded-pill fw-bold" style="font-size: 0.6rem;">
+                                🌟 BEST
                             </span>
-                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                            <span class="badge bg-warning text-dark px-1 px-md-2 py-1 rounded-pill fw-bold" style="font-size: 0.6rem;">
                                 -35%
                             </span>
                         </div>
-                        <div class="mt-4">
+                        <div class="mt-3 mt-md-4">
                             <img src="https://images.unsplash.com/photo-1594221708779-94832f4320d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-                                 alt="Ức gà phi lê có da" class="img-fluid mb-3 rounded-3" style="height: 120px; object-fit: cover; width: 100%;">
+                                 alt="Ức gà phi lê có da" class="img-fluid mb-2 mb-md-3 rounded-2 rounded-md-3" style="height: 80px; object-fit: cover; width: 100%;">
                         </div>
-                        <h6 class="fw-bold text-dark mb-2" style="height: 40px; display: flex; align-items: center; justify-content: center;">Ức gà phi lê có da CP</h6>
-                        <div class="price-info mb-3">
-                            <div class="d-flex justify-content-center align-items-center gap-2">
-                                <span class="text-red fw-bold fs-5">44.000₫</span>
-                                <small class="text-muted text-decoration-line-through">67.700₫</small>
+                        <h6 class="fw-bold text-dark mb-1 mb-md-2 small" style="height: 30px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">Ức gà phi lê</h6>
+                        <div class="price-info mb-2 mb-md-3">
+                            <div class="d-flex justify-content-center align-items-center gap-1">
+                                <span class="text-red fw-bold" style="font-size: 0.9rem;">44.000₫</span>
+                                <small class="text-muted text-decoration-line-through" style="font-size: 0.7rem;">67.700₫</small>
                             </div>
-                            <small class="text-success fw-medium">Tiết kiệm 23.700₫</small>
-                            <div><small class="text-muted">/500g - Tươi ngon</small></div>
+                            <small class="text-success fw-medium" style="font-size: 0.7rem;">Tiết kiệm 23.700₫</small>
+                            <div><small class="text-muted" style="font-size: 0.65rem;">/500g</small></div>
                         </div>
-                        <div class="mb-2">
-                            <div class="progress mb-1" style="height: 8px;">
+                        <div class="mb-2 d-none d-md-block">
+                            <div class="progress mb-1" style="height: 6px;">
                                 <div class="progress-bar bg-red" style="width: 90%"></div>
                             </div>
-                            <small class="text-muted">Đã bán 234/260</small>
+                            <small class="text-muted" style="font-size: 0.65rem;">Đã bán 234/260</small>
                         </div>
-                        <button class="btn btn-outline-red btn-sm w-100 add-to-cart rounded-pill fw-bold" data-product-id="2">
-                            <i class="fas fa-plus me-1"></i>Thêm Vào Giỏ
+                        <button class="btn btn-outline-red btn-sm w-100 add-to-cart rounded-pill fw-bold" data-product-id="2" style="font-size: 0.75rem; padding: 0.3rem 0.5rem;">
+                            <i class="fas fa-plus me-1"></i>Thêm
                         </button>
                     </div>
                 </div>
 
                 <!-- Product 3 -->
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div class="product-card bg-white rounded-4 p-3 text-center border-0 shadow-sm position-relative h-100 hover-lift">
-                        <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between p-2">
-                            <span class="badge bg-info text-white px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
-                                🌍 NHẬP KHẨU
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                    <div class="product-card bg-white   p-2 p-md-3 text-center border-0 shadow-sm position-relative h-100 hover-lift">
+                        <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between p-1 p-md-2">
+                            <span class="badge bg-info text-white px-1 px-md-2 py-1 rounded-pill fw-bold" style="font-size: 0.6rem;">
+                                🌍 NK
                             </span>
-                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                            <span class="badge bg-warning text-dark px-1 px-md-2 py-1 rounded-pill fw-bold" style="font-size: 0.6rem;">
                                 -25%
                             </span>
                         </div>
-                        <div class="mt-4">
+                        <div class="mt-3 mt-md-4">
                             <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/Products/Images/8820/335480/bhx/335480optimized_202506131007320723.jpg" 
-                                 alt="Rau murc nhập khẩu" class="img-fluid mb-3 rounded-3" style="height: 120px; object-fit: cover; width: 100%;">
+                                 alt="Rau murc nhập khẩu" class="img-fluid mb-2 mb-md-3 rounded-2 rounded-md-3" style="height: 80px; object-fit: cover; width: 100%;">
                         </div>
-                        <h6 class="fw-bold text-dark mb-2" style="height: 40px; display: flex; align-items: center; justify-content: center;">Rau murc organic nhập khẩu</h6>
-                        <div class="price-info mb-3">
-                            <div class="d-flex justify-content-center align-items-center gap-2">
-                                <span class="text-red fw-bold fs-5">68.000₫</span>
-                                <small class="text-muted text-decoration-line-through">90.700₫</small>
+                        <h6 class="fw-bold text-dark mb-1 mb-md-2 small" style="height: 30px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">Rau murc organic</h6>
+                        <div class="price-info mb-2 mb-md-3">
+                            <div class="d-flex justify-content-center align-items-center gap-1">
+                                <span class="text-red fw-bold" style="font-size: 0.9rem;">68.000₫</span>
+                                <small class="text-muted text-decoration-line-through" style="font-size: 0.7rem;">90.700₫</small>
                             </div>
-                            <small class="text-success fw-medium">Tiết kiệm 22.700₫</small>
-                            <div><small class="text-muted">/500g - Hữu cơ</small></div>
+                            <small class="text-success fw-medium" style="font-size: 0.7rem;">Tiết kiệm 22.700₫</small>
+                            <div><small class="text-muted" style="font-size: 0.65rem;">/500g</small></div>
                         </div>
-                        <div class="mb-2">
-                            <div class="progress mb-1" style="height: 8px;">
+                        <div class="mb-2 d-none d-md-block">
+                            <div class="progress mb-1" style="height: 6px;">
                                 <div class="progress-bar bg-red" style="width: 45%"></div>
                             </div>
-                            <small class="text-muted">Đã bán 89/200</small>
+                            <small class="text-muted" style="font-size: 0.65rem;">Đã bán 89/200</small>
                         </div>
-                        <button class="btn btn-outline-red btn-sm w-100 add-to-cart rounded-pill fw-bold" data-product-id="3">
-                            <i class="fas fa-plus me-1"></i>Thêm Vào Giỏ
+                        <button class="btn btn-outline-red btn-sm w-100 add-to-cart rounded-pill fw-bold" data-product-id="3" style="font-size: 0.75rem; padding: 0.3rem 0.5rem;">
+                            <i class="fas fa-plus me-1"></i>Thêm
                         </button>
                     </div>
                 </div>
 
-                <!-- Product 4 -->
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div class="product-card bg-white rounded-4 p-3 text-center border-0 shadow-sm position-relative h-100 hover-lift">
-                        <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between p-2">
-                            <span class="badge bg-success text-white px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
-                                🥬 TƯƠI NGON
+                <!-- Products 4-6 for larger screens only -->
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-none d-sm-block">
+                    <div class="product-card bg-white   p-2 p-md-3 text-center border-0 shadow-sm position-relative h-100 hover-lift">
+                        <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between p-1 p-md-2">
+                            <span class="badge bg-success text-white px-1 px-md-2 py-1 rounded-pill fw-bold" style="font-size: 0.6rem;">
+                                🥬 TƯƠI
                             </span>
-                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                            <span class="badge bg-warning text-dark px-1 px-md-2 py-1 rounded-pill fw-bold" style="font-size: 0.6rem;">
                                 -20%
                             </span>
                         </div>
-                        <div class="mt-4">
+                        <div class="mt-3 mt-md-4">
                             <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-                                 alt="Cải ngot" class="img-fluid mb-3 rounded-3" style="height: 120px; object-fit: cover; width: 100%;">
+                                 alt="Cải ngot" class="img-fluid mb-2 mb-md-3 rounded-2 rounded-md-3" style="height: 80px; object-fit: cover; width: 100%;">
                         </div>
-                        <h6 class="fw-bold text-dark mb-2" style="height: 40px; display: flex; align-items: center; justify-content: center;">Cải ngot sạch VietGAP</h6>
-                        <div class="price-info mb-3">
-                            <div class="d-flex justify-content-center align-items-center gap-2">
-                                <span class="text-red fw-bold fs-5">5.000₫</span>
-                                <small class="text-muted text-decoration-line-through">6.250₫</small>
+                        <h6 class="fw-bold text-dark mb-1 mb-md-2 small" style="height: 30px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">Cải ngot VietGAP</h6>
+                        <div class="price-info mb-2 mb-md-3">
+                            <div class="d-flex justify-content-center align-items-center gap-1">
+                                <span class="text-red fw-bold" style="font-size: 0.9rem;">5.000₫</span>
+                                <small class="text-muted text-decoration-line-through" style="font-size: 0.7rem;">6.250₫</small>
                             </div>
-                            <small class="text-success fw-medium">Tiết kiệm 1.250₫</small>
-                            <div><small class="text-muted">/300g - VietGAP</small></div>
+                            <small class="text-success fw-medium" style="font-size: 0.7rem;">Tiết kiệm 1.250₫</small>
+                            <div><small class="text-muted" style="font-size: 0.65rem;">/300g</small></div>
                         </div>
-                        <div class="mb-2">
-                            <div class="progress mb-1" style="height: 8px;">
+                        <div class="mb-2 d-none d-md-block">
+                            <div class="progress mb-1" style="height: 6px;">
                                 <div class="progress-bar bg-red" style="width: 80%"></div>
                             </div>
-                            <small class="text-muted">Đã bán 320/400</small>
+                            <small class="text-muted" style="font-size: 0.65rem;">Đã bán 320/400</small>
                         </div>
-                        <button class="btn btn-outline-red btn-sm w-100 add-to-cart rounded-pill fw-bold" data-product-id="4">
-                            <i class="fas fa-plus me-1"></i>Thêm Vào Giỏ
+                        <button class="btn btn-outline-red btn-sm w-100 add-to-cart fw-bold" data-product-id="4" style="font-size: 0.75rem; padding: 0.3rem 0.5rem;">
+                            <i class="fas fa-plus me-1"></i>Thêm
                         </button>
                     </div>
                 </div>
 
-                <!-- Product 5 -->
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div class="product-card bg-white rounded-4 p-3 text-center border-0 shadow-sm position-relative h-100 hover-lift">
-                        <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between p-2">
-                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-none d-md-block">
+                    <div class="product-card bg-white   p-2 p-md-3 text-center border-0 shadow-sm position-relative h-100 hover-lift">
+                        <div class="position-absolute top-0 start-0 w-100 d-flex justify-content-between p-1 p-md-2">
+                            <span class="badge bg-warning text-dark px-1 px-md-2 py-1 fw-bold" style="font-size: 0.6rem;">
                                 🎃 MÙA VỤ
                             </span>
-                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill fw-bold" style="font-size: 0.7rem;">
+                            <span class="badge bg-warning text-dark px-1 px-md-2 py-1 fw-bold" style="font-size: 0.6rem;">
                                 -30%
                             </span>
                         </div>
-                        <div class="mt-4">
+                        <div class="mt-3 mt-md-4">
                             <img src="https://images.unsplash.com/photo-1576045057995-568f588f82fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80" 
-                                 alt="Bí đỏ hồ lô" class="img-fluid mb-3 rounded-3" style="height: 120px; object-fit: cover; width: 100%;">
+                                 alt="Bí đỏ hồ lô" class="img-fluid mb-2 mb-md-3 rounded-2 rounded-md-3" style="height: 80px; object-fit: cover; width: 100%;">
                         </div>
-                        <h6 class="fw-bold text-dark mb-2" style="height: 40px; display: flex; align-items: center; justify-content: center;">Bí đỏ hồ lô (1 trái)</h6>
-                        <div class="price-info mb-3">
-                            <div class="d-flex justify-content-center align-items-center gap-2">
-                                <span class="text-red fw-bold fs-5">16.000₫</span>
-                                <small class="text-muted text-decoration-line-through">22.900₫</small>
+                        <h6 class="fw-bold text-dark mb-1 mb-md-2 small" style="height: 30px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">Bí đỏ hồ lô</h6>
+                        <div class="price-info mb-2 mb-md-3">
+                            <div class="d-flex justify-content-center align-items-center gap-1">
+                                <span class="text-red fw-bold" style="font-size: 0.9rem;">16.000₫</span>
+                                <small class="text-muted text-decoration-line-through" style="font-size: 0.7rem;">22.900₫</small>
                             </div>
-                            <small class="text-success fw-medium">Tiết kiệm 6.900₫</small>
-                            <div><small class="text-muted">/1kg - Ngọt tự nhiên</small></div>
+                            <small class="text-success fw-medium" style="font-size: 0.7rem;">Tiết kiệm 6.900₫</small>
+                            <div><small class="text-muted" style="font-size: 0.65rem;">/1kg</small></div>
                         </div>
-                        <div class="mb-2">
-                            <div class="progress mb-1" style="height: 8px;">
+                        <div class="mb-2 d-none d-md-block">
+                            <div class="progress mb-1" style="height: 6px;">
                                 <div class="progress-bar bg-red" style="width: 60%"></div>
                             </div>
-                            <small class="text-muted">Đã bán 120/200</small>
+                            <small class="text-muted" style="font-size: 0.65rem;">Đã bán 120/200</small>
                         </div>
-                        <button class="btn btn-outline-red btn-sm w-100 add-to-cart rounded-pill fw-bold" data-product-id="5">
-                            <i class="fas fa-plus me-1"></i>Thêm Vào Giỏ
+                        <button class="btn btn-outline-red btn-sm w-100 add-to-cart fw-bold" data-product-id="5" style="font-size: 0.75rem; padding: 0.3rem 0.5rem;">
+                            <i class="fas fa-plus me-1"></i>Thêm
                         </button>
                     </div>
                 </div>
 
                 <!-- View More Card -->
-                <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-                    <div class="product-card bg-gradient-primary rounded-4 p-3 text-center border-0 shadow-sm h-100 d-flex flex-column justify-content-center" style="background: linear-gradient(135deg, #ffc107, #fd7e14);">
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 d-none d-lg-block">
+                    <div class="product-card bg-gradient-primary   p-2 p-md-3 text-center border-0 shadow-sm h-100 d-flex flex-column justify-content-center" style="background: linear-gradient(135deg, #ffc107, #fd7e14);">
                         <div class="text-center text-white">
-                            <i class="fas fa-fire fa-3x mb-3 opacity-75"></i>
-                            <h6 class="fw-bold mb-2">999+ SẢN PHẨM KHÁC</h6>
-                            <p class="small mb-3 opacity-90">Khám phá thêm nhiều deal hot khác</p>
-                            <a href="/?action=products" class="btn btn-white text-dark fw-bold rounded-pill px-4">
-                                <i class="fas fa-arrow-right me-2"></i>Xem Tất Cả
+                            <i class="fas fa-fire fa-2x fa-md-3x mb-2 mb-md-3 opacity-75"></i>
+                            <h6 class="fw-bold mb-1 mb-md-2 small">999+ SẢN PHẨM</h6>
+                            <p class="small mb-2 mb-md-3 opacity-90" style="font-size: 0.7rem;">Khám phá thêm deal hot</p>
+                            <a href="/?action=products" class="btn btn-white text-dark fw-bold px-2 px-md-4" style="font-size: 0.75rem;">
+                                <i class="fas fa-arrow-right me-1"></i>Xem
                             </a>
                         </div>
                     </div>
@@ -473,163 +471,163 @@
     </section>
 
     <!-- Category Promotions -->
-    <section class="py-4" style="background-color: #f5f7fa;">
-        <div class="container px-4">
-            <div class="row mb-4">
+    <section class="py-3 py-md-4" style="background-color: #f5f7fa;">
+        <div class="container px-2 px-md-4">
+            <div class="row mb-3 mb-md-4">
                 <div class="col-12">
-                    <h3 class="fw-bold text-center mb-1 text-red">🏷️ DANH MỤC HOT - ƯU ĐÃI KHỦNG</h3>
-                    <p class="text-muted text-center">Khám phá các danh mục sản phẩm với ưu đãi đặc biệt</p>
+                    <h4 class="h5 h-md-3 fw-bold text-center mb-1 text-red">🏷️ DANH MỤC HOT - ƯU ĐÃI KHỦNG</h4>
+                    <p class="text-muted text-center small">Khám phá các danh mục sản phẩm với ưu đãi đặc biệt</p>
                 </div>
             </div>
-            <div class="row g-3">
-                <div class="col-lg-3 col-md-6">
-                    <div class="category-promo-card bg-white rounded-4 p-4 shadow-sm h-100 position-relative overflow-hidden">
-                        <div class="position-absolute top-0 end-0 m-3">
-                            <span class="badge bg-red px-2 py-1 rounded-pill">Giảm 60%</span>
+            <div class="row g-2 g-md-3">
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="category-promo-card bg-white   p-3 p-md-4 shadow-sm h-100 position-relative overflow-hidden">
+                        <div class="position-absolute top-0 end-0 m-2 m-md-3">
+                            <span class="badge bg-red px-2 py-1 small">Giảm 60%</span>
                         </div>
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="category-icon bg-red-light rounded-circle p-3 me-3">
-                                <i class="fas fa-utensils text-red fa-2x"></i>
+                        <div class="d-flex align-items-center mb-2 mb-md-3">
+                            <div class="category-icon bg-red-light rounded-circle p-2 p-md-3 me-2 me-md-3">
+                                <i class="fas fa-utensils text-red fa-lg fa-md-2x"></i>
                             </div>
                             <div>
-                                <h5 class="fw-bold mb-1 text-dark">Thực Phẩm Tươi Sống</h5>
-                                <small class="text-muted">2,847+ sản phẩm</small>
+                                <h6 class="h6 h-md-5 fw-bold mb-1 text-dark">Thực Phẩm Tươi Sống</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">2,847+ sản phẩm</small>
                             </div>
                         </div>
-                        <div class="row g-2 mb-3">
+                        <div class="row g-2 mb-2 mb-md-3 d-none d-sm-flex">
                             <div class="col-4">
                                 <img src="https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                                     class="img-fluid rounded-2" style="height: 50px; height: 60px; object-fit: cover; width: 100%;">
                             </div>
                             <div class="col-4">
                                 <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                                     class="img-fluid rounded-2" style="height: 50px; height: 60px; object-fit: cover; width: 100%;">
                             </div>
                             <div class="col-4">
                                 <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                                     class="img-fluid rounded-2" style="height: 50px; height: 60px; object-fit: cover; width: 100%;">
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <small class="text-success fw-bold">Từ 5.000₫</small>
-                                <div><small class="text-muted">Giao trong 2h</small></div>
+                                <small class="text-success fw-bold" style="font-size: 0.8rem;">Từ 5.000₫</small>
+                                <div><small class="text-muted" style="font-size: 0.7rem;">Giao trong 2h</small></div>
                             </div>
-                            <a href="/?action=products" class="btn btn-red btn-sm rounded-pill px-3">Xem ngay</a>
+                            <a href="/?action=products" class="btn btn-red btn-sm px-2 px-md-3" style="font-size: 0.75rem;">Xem ngay</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="category-promo-card bg-white rounded-4 p-4 shadow-sm h-100 position-relative overflow-hidden">
-                        <div class="position-absolute top-0 end-0 m-3">
-                            <span class="badge bg-warning text-dark px-2 py-1 rounded-pill">Giảm 40%</span>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="category-promo-card bg-white   p-3 p-md-4 shadow-sm h-100 position-relative overflow-hidden">
+                        <div class="position-absolute top-0 end-0 m-2 m-md-3">
+                            <span class="badge bg-warning text-dark px-2 py-1 small">Giảm 40%</span>
                         </div>
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="category-icon bg-warning-light rounded-circle p-3 me-3">
-                                <i class="fas fa-tshirt text-warning fa-2x"></i>
+                        <div class="d-flex align-items-center mb-2 mb-md-3">
+                            <div class="category-icon bg-warning-light rounded-circle p-2 p-md-3 me-2 me-md-3">
+                                <i class="fas fa-tshirt text-warning fa-lg fa-md-2x"></i>
                             </div>
                             <div>
-                                <h5 class="fw-bold mb-1 text-dark">Thời Trang</h5>
-                                <small class="text-muted">5,692+ sản phẩm</small>
+                                <h6 class="h6 h-md-5 fw-bold mb-1 text-dark">Thời Trang</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">5,692+ sản phẩm</small>
                             </div>
                         </div>
-                        <div class="row g-2 mb-3">
+                        <div class="row g-2 mb-2 mb-md-3 d-none d-sm-flex">
                             <div class="col-4">
                                 <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                                     class="img-fluid rounded-2" style="height: 50px; height: 60px; object-fit: cover; width: 100%;">
                             </div>
                             <div class="col-4">
                                 <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                                     class="img-fluid rounded-2" style="height: 50px; height: 60px; object-fit: cover; width: 100%;">
                             </div>
                             <div class="col-4">
                                 <img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                                     class="img-fluid rounded-2" style="height: 50px; height: 60px; object-fit: cover; width: 100%;">
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <small class="text-success fw-bold">Từ 99.000₫</small>
-                                <div><small class="text-muted">Phong cách trendy</small></div>
+                                <small class="text-success fw-bold" style="font-size: 0.8rem;">Từ 99.000₫</small>
+                                <div><small class="text-muted" style="font-size: 0.7rem;">Phong cách trendy</small></div>
                             </div>
-                            <a href="/?action=products" class="btn btn-warning btn-sm rounded-pill px-3">Xem ngay</a>
+                            <a href="/?action=products" class="btn btn-warning btn-sm px-2 px-md-3" style="font-size: 0.75rem;">Xem ngay</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="category-promo-card bg-white rounded-4 p-4 shadow-sm h-100 position-relative overflow-hidden">
-                        <div class="position-absolute top-0 end-0 m-3">
-                            <span class="badge bg-info px-2 py-1 rounded-pill">Giảm 50%</span>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="category-promo-card bg-white   p-3 p-md-4 shadow-sm h-100 position-relative overflow-hidden">
+                        <div class="position-absolute top-0 end-0 m-2 m-md-3">
+                            <span class="badge bg-info px-2 py-1 small">Giảm 50%</span>
                         </div>
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="category-icon bg-info-light rounded-circle p-3 me-3">
-                                <i class="fas fa-laptop text-info fa-2x"></i>
+                        <div class="d-flex align-items-center mb-2 mb-md-3">
+                            <div class="category-icon bg-info-light rounded-circle p-2 p-md-3 me-2 me-md-3">
+                                <i class="fas fa-laptop text-info fa-lg fa-md-2x"></i>
                             </div>
                             <div>
-                                <h5 class="fw-bold mb-1 text-dark">Điện Tử</h5>
-                                <small class="text-muted">3,421+ sản phẩm</small>
+                                <h6 class="h6 h-md-5 fw-bold mb-1 text-dark">Điện Tử</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">3,421+ sản phẩm</small>
                             </div>
                         </div>
-                        <div class="row g-2 mb-3">
+                        <div class="row g-2 mb-2 mb-md-3 d-none d-sm-flex">
                             <div class="col-4">
                                 <img src="https://images.unsplash.com/photo-1498049794561-7780e7231661?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                                     class="img-fluid rounded-2" style="height: 50px; height: 60px; object-fit: cover; width: 100%;">
                             </div>
                             <div class="col-4">
                                 <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                                     class="img-fluid rounded-2" style="height: 50px; height: 60px; object-fit: cover; width: 100%;">
                             </div>
                             <div class="col-4">
                                 <img src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                                     class="img-fluid rounded-2" style="height: 50px; height: 60px; object-fit: cover; width: 100%;">
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <small class="text-success fw-bold">Từ 299.000₫</small>
-                                <div><small class="text-muted">Chính hãng bảo hành</small></div>
+                                <small class="text-success fw-bold" style="font-size: 0.8rem;">Từ 299.000₫</small>
+                                <div><small class="text-muted" style="font-size: 0.7rem;">Chính hãng bảo hành</small></div>
                             </div>
-                            <a href="/?action=products" class="btn btn-info btn-sm rounded-pill px-3">Xem ngay</a>
+                            <a href="/?action=products" class="btn btn-info btn-sm px-2 px-md-3" style="font-size: 0.75rem;">Xem ngay</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
-                    <div class="category-promo-card bg-white rounded-4 p-4 shadow-sm h-100 position-relative overflow-hidden">
-                        <div class="position-absolute top-0 end-0 m-3">
-                            <span class="badge bg-success px-2 py-1 rounded-pill">Giảm 35%</span>
+                <div class="col-12 col-sm-6 col-lg-3">
+                    <div class="category-promo-card bg-white   p-3 p-md-4 shadow-sm h-100 position-relative overflow-hidden">
+                        <div class="position-absolute top-0 end-0 m-2 m-md-3">
+                            <span class="badge bg-success px-2 py-1 ounded-pill small">Giảm 35%</span>
                         </div>
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="category-icon bg-success-light rounded-circle p-3 me-3">
-                                <i class="fas fa-home text-success fa-2x"></i>
+                        <div class="d-flex align-items-center mb-2 mb-md-3">
+                            <div class="category-icon bg-success-light rounded-circle p-2 p-md-3 me-2 me-md-3">
+                                <i class="fas fa-home text-success fa-lg fa-md-2x"></i>
                             </div>
                             <div>
-                                <h5 class="fw-bold mb-1 text-dark">Nhà Cửa & Đời Sống</h5>
-                                <small class="text-muted">4,156+ sản phẩm</small>
+                                <h6 class="h6 h-md-5 fw-bold mb-1 text-dark">Nhà Cửa & Đời Sống</h6>
+                                <small class="text-muted" style="font-size: 0.75rem;">4,156+ sản phẩm</small>
                             </div>
                         </div>
-                        <div class="row g-2 mb-3">
+                        <div class="row g-2 mb-2 mb-md-3 d-none d-sm-flex">
                             <div class="col-4">
                                 <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                                     class="img-fluid rounded-2" style="height: 50px; height: 60px; object-fit: cover; width: 100%;">
                             </div>
                             <div class="col-4">
                                 <img src="https://images.unsplash.com/photo-1556909114-4f6e78316a0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                                     class="img-fluid rounded-2" style="height: 50px; height: 60px; object-fit: cover; width: 100%;">
                             </div>
                             <div class="col-4">
                                 <img src="https://images.unsplash.com/photo-1556909132-d81ec17de271?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" 
-                                     class="img-fluid rounded-2" style="height: 60px; object-fit: cover; width: 100%;">
+                                     class="img-fluid rounded-2" style="height: 50px; height: 60px; object-fit: cover; width: 100%;">
                             </div>
                         </div>
                         <div class="d-flex justify-content-between align-items-center">
                             <div>
-                                <small class="text-success fw-bold">Từ 49.000₫</small>
-                                <div><small class="text-muted">Decor hiện đại</small></div>
+                                <small class="text-success fw-bold" style="font-size: 0.8rem;">Từ 49.000₫</small>
+                                <div><small class="text-muted" style="font-size: 0.7rem;">Decor hiện đại</small></div>
                             </div>
-                            <a href="/?action=products" class="btn btn-success btn-sm rounded-pill px-3">Xem ngay</a>
+                            <a href="/?action=products" class="btn btn-success btn-sm  px-2 px-md-3" style="font-size: 0.75rem;">Xem ngay</a>
                         </div>
                     </div>
                 </div>
@@ -638,19 +636,19 @@
     </section>
 
     <!-- Additional Promotions & Information Rich Section -->
-    <section class="py-5" style="background-color: #f5f7fa;">
-        <div class="container px-4">
-            <div class="row g-4">
+    <section class="py-3 py-md-5" style="background-color: #f5f7fa;">
+        <div class="container px-2 px-md-4">
+            <div class="row g-3 g-md-4">
                 <!-- Left Column - Main Promotions -->
-                <div class="col-lg-8">
+                <div class="col-12 col-lg-8">
                     <!-- Daily Deals Section -->
-                    <div class="mb-5">
+                    <div class="mb-4 mb-md-5">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="d-flex align-items-center">
                                 <h3 class="fw-bold mb-0 me-3 text-red">🔥 DEAL TRONG NGÀY</h3>
                                 <span class="badge bg-red text-white px-3 py-2 fs-6">Mỗi ngày một deal hot</span>
                             </div>
-                            <a href="/?action=products" class="btn btn-outline-red rounded-pill">Xem tất cả deals</a>
+                            <a href="/?action=products" class="btn btn-outline-red ">Xem tất cả deals</a>
                         </div>
                         
                         <div class="row g-3">
@@ -662,7 +660,7 @@
                                     <div class="row align-items-center mt-3">
                                         <div class="col-5">
                                             <img src="https://product.hstatic.net/200000522611/product/drink-machine-advace_a9cef49548a343ac891b1518cf82b6bd_master.png" 
-                                                 class="img-fluid rounded-3" style="height: 150px; object-fit: cover; width: 100%;">
+                                                 class="img-fluid " style="height: 150px; object-fit: cover; width: 100%;">
                                         </div>
                                         <div class="col-7">
                                             <h5 class="fw-bold text-dark mb-2">Máy Xay Sinh Tố Cao Cấp</h5>
@@ -679,7 +677,7 @@
                                             </div>
                                             <small class="text-muted">Đã bán 420/500 - Còn lại 80 sản phẩm</small>
                                             <div class="mt-3">
-                                                <button class="btn btn-red btn-sm rounded-pill px-4 fw-bold">
+                                                <button class="btn btn-red btn-sm  px-4 fw-bold">
                                                     <i class="fas fa-shopping-cart me-2"></i>Mua Ngay
                                                 </button>
                                             </div>
@@ -696,7 +694,7 @@
                                     <div class="row align-items-center mt-3">
                                         <div class="col-5">
                                             <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80" 
-                                                 class="img-fluid rounded-3" style="height: 150px; object-fit: cover; width: 100%;">
+                                                 class="img-fluid " style="height: 150px; object-fit: cover; width: 100%;">
                                         </div>
                                         <div class="col-7">
                                             <h5 class="fw-bold text-dark mb-2">Tai Nghe Bluetooth Premium</h5>
@@ -713,7 +711,7 @@
                                             </div>
                                             <small class="text-muted">Đã bán 195/300 - Còn lại 105 sản phẩm</small>
                                             <div class="mt-3">
-                                                <button class="btn btn-warning btn-sm rounded-pill px-4 fw-bold">
+                                                <button class="btn btn-warning btn-sm  px-4 fw-bold">
                                                     <i class="fas fa-shopping-cart me-2"></i>Mua Ngay
                                                 </button>
                                             </div>
@@ -762,7 +760,7 @@
                             </div>
                             <div class="text-center mt-4">
                                 <p class="text-muted mb-3">Và hơn 1000+ thương hiệu uy tín khác</p>
-                                <a href="/?action=products" class="btn btn-outline-dark rounded-pill px-4">Khám phá thương hiệu</a>
+                                <a href="/?action=products" class="btn btn-outline-dark  px-4">Khám phá thương hiệu</a>
                             </div>
                         </div>
                     </div>
@@ -803,7 +801,7 @@
                             <p class="small text-muted mb-0">"Giá cả hợp lý, đóng gói cẩn thận. Tôi sẽ tiếp tục mua sắm tại đây!"</p>
                         </div>
                         <div class="text-center">
-                            <a href="#" class="btn btn-outline-warning btn-sm rounded-pill">Xem thêm đánh giá</a>
+                            <a href="#" class="btn btn-outline-warning btn-sm ">Xem thêm đánh giá</a>
                         </div>
                     </div>
 
@@ -844,12 +842,12 @@
                         <p class="small mb-3 opacity-90">Trải nghiệm mua sắm tối ưu trên điện thoại với nhiều ưu đãi độc quyền</p>
                         <div class="row g-2">
                             <div class="col-6">
-                                <a href="#" class="btn btn-light btn-sm w-100 rounded-pill">
+                                <a href="#" class="btn btn-light btn-sm w-100 ">
                                     <i class="fab fa-apple me-1"></i>App Store
                                 </a>
                             </div>
                             <div class="col-6">
-                                <a href="#" class="btn btn-success btn-sm w-100 rounded-pill">
+                                <a href="#" class="btn btn-success btn-sm w-100 ">
                                     <i class="fab fa-google-play me-1"></i>Google Play
                                 </a>
                             </div>
@@ -865,19 +863,19 @@
                     <div class="info-card bg-white rounded-4 p-4 shadow-sm">
                         <h5 class="fw-bold mb-3" style="color: var(--golden)">🔗 Liên Kết Nhanh</h5>
                         <div class="d-grid gap-2">
-                            <a href="#" class="btn btn-outline-primary btn-sm text-start rounded-pill">
+                            <a href="#" class="btn btn-outline-primary btn-sm text-start ">
                                 <i class="fas fa-gift me-2"></i>Khuyến mãi đặc biệt
                             </a>
-                            <a href="#" class="btn btn-outline-success btn-sm text-start rounded-pill">
+                            <a href="#" class="btn btn-outline-success btn-sm text-start ">
                                 <i class="fas fa-truck me-2"></i>Theo dõi đơn hàng
                             </a>
-                            <a href="#" class="btn btn-outline-warning btn-sm text-start rounded-pill">
+                            <a href="#" class="btn btn-outline-warning btn-sm text-start ">
                                 <i class="fas fa-medal me-2"></i>Chương trình tích điểm
                             </a>
-                            <a href="#" class="btn btn-outline-info btn-sm text-start rounded-pill">
+                            <a href="#" class="btn btn-outline-info btn-sm text-start ">
                                 <i class="fas fa-headset me-2"></i>Hỗ trợ khách hàng
                             </a>
-                            <a href="#" class="btn btn-outline-danger btn-sm text-start rounded-pill">
+                            <a href="#" class="btn btn-outline-danger btn-sm text-start ">
                                 <i class="fas fa-newspaper me-2"></i>Tin tức & Sự kiện
                             </a>
                         </div>
@@ -903,11 +901,11 @@
                         </p>
                         <form class="newsletter-form d-flex flex-column flex-sm-row gap-3 justify-content-center">
                             <div class="flex-grow-1" style="max-width: 400px;">
-                                <input class="form-control form-control-lg rounded-pill px-4" 
+                                <input class="form-control form-control-lg  px-4" 
                                        type="email" 
                                        placeholder="Nhập email để nhận ưu đãi">
                             </div>
-                            <button class="btn btn-light btn-lg px-4 rounded-pill fw-bold" type="submit">
+                            <button class="btn btn-light btn-lg px-4  fw-bold" type="submit">
                                 <i class="fas fa-gift me-2"></i>
                                 Nhận Ưu Đãi
                             </button>
