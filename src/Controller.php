@@ -1,8 +1,12 @@
 <?php
+
 namespace MyAwesomeWebsite;
 
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
+
+use MyAwesomeWebsite\service\GlobalDataService;
+use MyAwesomeWebsite\controller\CartController;
 
 abstract class Controller
 {
@@ -15,9 +19,9 @@ abstract class Controller
     {
         $loader = new FilesystemLoader(self::PATH_TO_TEMPLATES);
         $this->twig = new Environment($loader);
-        if (isset($_SESSION['user'])) {
-            $this->args['user'] = $_SESSION['user'];
-        }
+
+        $globalData = GlobalDataService::getInstance()->getGlobalTemplateData();
+        $this->args = array_merge($this->args, $globalData);
     }
 }
 

@@ -40,6 +40,19 @@ class CartRepository extends EntityRepository
         $this->entityManager->persist($cart);
         $this->entityManager->flush();
     }
+
+    public function getCart()
+    {
+        $userId = $_SESSION['user']->getId();
+        $cart = $this->findOneBy(["user" => $userId]);
+        return $cart;
+    }
+
+    public function getCartNumber()
+    {
+        $cart = $this->getCart();
+        return count($cart->getCartItems());
+    }
 }
 
 ?>

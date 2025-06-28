@@ -20,28 +20,7 @@ class CartController extends Controller
         $this->cartRepository = new CartRepository();
         $this->cartItemRepository = new CartItemRepository();
         parent::__construct();
-
     }
-
-    private function getCart()
-    {
-        if (!$_SESSION['user']) {
-            header("Location: /?action=login");
-            exit;
-        }
-
-        $userId = $_SESSION['user']->getId();
-        $template = 'cart.html.twig';
-        $cart = $this->cartRepository->findOneBy(["user" => $userId]);
-        return $cart;
-    }
-
-    public function getCartNumber()
-    {
-        $cart = $this->getCart();
-        return count($cart->getCartItems());
-    }
-
 
     public function cart()
     {
@@ -51,7 +30,7 @@ class CartController extends Controller
         }
         $template = 'cart.html.twig';
 
-        $cart = $this->getCart();
+        $cart = $this->cartRepository->getCart();
 
         if(empty($cart)) {
             $cart = $this->cartRepository->newCart();
@@ -68,7 +47,7 @@ class CartController extends Controller
     public function addToCart($product_id)
     {
         $product = $this->productRepository->find($product_id);
-        $cart = $this->getCart();
+        $cart = $this->cartRepository->getCart();
 
         $existingCartItem = null;
         foreach ($cart->getCartItems() as $cartItem) {
