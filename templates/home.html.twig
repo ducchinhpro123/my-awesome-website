@@ -4,80 +4,22 @@
 {% block title %} VietShop - Cửa Hàng Trực Tuyến Của Bạn {% endblock %}
 
 {% block body %}
-<div class="bg-marketplace" style="min-height: 100vh;">
+<div style="min-height: 100vh;margin-top: 60px">
     <!-- Categories Section -->
     <section class="py-3 bg-white shadow-sm mt-5">
         <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="category-nav d-flex justify-content-between align-items-center flex-wrap">
-                        <div class="category-item text-center p-2">
-                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
-                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/menuheader/icon_202503080042045961.png" class='img-fluid'/>
-    
+                        {% for category in categoriesFeatured %}
+                            <div class="category-item text-center p-2">
+                                <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" 
+                                    style="width: 85px; height: 85px;">
+                                    <img src="{{ category.imageUrl }}" class='img-fluid'/>
+                                </div>
+                                <small class="text-muted fw-medium">{{ category.name }}</small>
                             </div>
-                            <small class="text-muted fw-medium">Dỉ chợ<br>Online</small>
-                        </div>
-                        <div class="category-item text-center p-2">
-                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
-                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/menuheader/frame-3476208_202504171359310072.png" class='img-fluid'/>
-                            </div>
-                            <small class="text-muted fw-medium">Chăm da<br>sáng mịn</small>
-                        </div>
-                        <div class="category-item text-center p-2">
-                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
-                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/menuheader/2465_202506201525589477.png" class='img-fluid'/>
-                            </div>
-                            <small class="text-muted fw-medium">Nước giặt</small>
-                        </div>
-                        <div class="category-item text-center p-2">
-                            <div class="category-icon text-dark rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
-                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/menuheader/icon-cate-gao-1_202409162319347446.png" class='img-fluid'/>
-                            </div>
-                            <small class="text-muted fw-medium">Gạo, nếp<br>các loại</small>
-                        </div>
-                        <div class="category-item text-center p-2">
-                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
-                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/menuheader/frame-3476164_202503181618276472.png" class='img-fluid'/>
-                            </div>
-                            <small class="text-muted fw-medium">Sữa tươi</small>
-                        </div>
-                        <div class="category-item text-center p-2">
-                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
-                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/menuheader/frame-3476174_202503191402125535.png" class='img-fluid'/>
-                            </div>
-                            <small class="text-muted fw-medium">Nước ngọt</small>
-                        </div>
-                        <div class="category-item text-center p-2">
-                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
-                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/Category/Images/8820/rau-la-202212161540248870_202505091455135513.png" class='img-fluid'/>
-                            </div>
-                            <small class="text-muted fw-medium">Rau lá</small>
-                        </div>
-                        <div class="category-item text-center p-2">
-                            <div class="category-icon text-dark rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
-                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/Category/Images/8788/image-2461_202410151408000050.png" class='img-fluid'/>
-                            </div>
-                            <small class="text-muted fw-medium">Trái cây</small>
-                        </div>
-                        <div class="category-item text-center p-2">
-                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
-                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/Category/Images/8785/image-2463_202410151407419129.png" class='img-fluid'/>
-                            </div>
-                            <small class="text-muted fw-medium">Củ, quả</small>
-                        </div>
-                        <div class="category-item text-center p-2">
-                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
-                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/Category/Images/8781/image-1202410181218245372_202412161434503628.png" class='img-fluid'/>
-                            </div>
-                            <small class="text-muted fw-medium">Thịt heo</small>
-                        </div>
-                        <div class="category-item text-center p-2">
-                            <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" style="width: 85px; height: 85px;">
-                                <img src="https://cdnv2.tgdd.vn/bhx-static/bhx/Category/Images/2565/frame-3476165_202503181622093844.png" class='img-fluid'/>
-                            </div>
-                            <small class="text-muted fw-medium">Mì ăn liền</small>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -475,7 +417,7 @@
         <div class="container px-2 px-md-4">
             <div class="row mb-3 mb-md-4">
                 <div class="col-12">
-                    <h4 class="h5 h-md-3 fw-bold text-center mb-1 text-red">🏷️ DANH MỤC HOT - ƯU ĐÃI KHỦNG</h4>
+                    <h3 class="h-md-3 fw-bold text-center mb-1 text-red">🏷️ DANH MỤC HOT - ƯU ĐÃI KHỦNG</h4>
                     <p class="text-muted text-center small">Khám phá các danh mục sản phẩm với ưu đãi đặc biệt</p>
                 </div>
             </div>

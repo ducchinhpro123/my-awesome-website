@@ -36,6 +36,13 @@ class CartController extends Controller
         return $cart;
     }
 
+    public function getCartNumber()
+    {
+        $cart = $this->getCart();
+        return count($cart->getCartItems());
+    }
+
+
     public function cart()
     {
         if (!isset($_SESSION['user_id']) || !$_SESSION['user']) {
