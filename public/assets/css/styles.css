@@ -516,3 +516,8 @@ section {
         margin-bottom: 15px;
     }
 }
+
+/* Navbar Logo Alignment */
+.navbar-logo {
+    vertical-align: middle;
+}
