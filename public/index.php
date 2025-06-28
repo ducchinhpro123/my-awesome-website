@@ -6,7 +6,7 @@ require_once __DIR__ . '/../bootstrap.php';
 session_start();
 
 use MyAwesomeWebsite\Application;
-use MyAwesomeWebsite\OrmHelper;
+use MyAwesomeWebsite\service\OrmHelper;
 
 OrmHelper::setEntityManager($entityManager);
 

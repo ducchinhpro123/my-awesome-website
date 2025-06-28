@@ -1,11 +1,12 @@
 <?php
 
-namespace MyAwesomeWebsite;
+namespace MyAwesomeWebsite\repository;
 
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\EntityManager;
 
 use MyAwesomeWebsite\model\User;
+use MyAwesomeWebsite\service\OrmHelper;
 
 class UserRepository extends EntityRepository
 {

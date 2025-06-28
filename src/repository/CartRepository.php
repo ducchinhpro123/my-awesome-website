@@ -1,11 +1,13 @@
 <?php
 
-namespace MyAwesomeWebsite;
+namespace MyAwesomeWebsite\repository;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 
 use MyAwesomeWebsite\model\Cart;
+use MyAwesomeWebsite\service\OrmHelper;
+use MyAwesomeWebsite\repository\UserRepository;
 
 class CartRepository extends EntityRepository
 {

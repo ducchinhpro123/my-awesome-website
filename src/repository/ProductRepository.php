@@ -1,11 +1,12 @@
 <?php
 
-namespace MyAwesomeWebsite;
+namespace MyAwesomeWebsite\repository;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 
 use MyAwesomeWebsite\model\Product;
+use MyAwesomeWebsite\service\OrmHelper;
 
 class ProductRepository extends EntityRepository
 {

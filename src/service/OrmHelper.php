@@ -1,6 +1,6 @@
 <?php
 
-namespace MyAwesomeWebsite;
+namespace MyAwesomeWebsite\service;
 
 use Doctrine\ORM\EntityManager;
 

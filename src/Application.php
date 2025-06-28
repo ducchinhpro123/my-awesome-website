@@ -2,7 +2,10 @@
 
 namespace MyAwesomeWebsite;
 
-use MyAwesomeWebsite\DefaultController;
+use MyAwesomeWebsite\controller\DefaultController;
+use MyAwesomeWebsite\controller\ProductController;
+use MyAwesomeWebsite\controller\CartController;
+use MyAwesomeWebsite\controller\UserController;
 
 class Application
 {
@@ -83,7 +86,6 @@ class Application
                     $this->userController->updateProfile($firstName, $lastName);
                 } else {
                     $this->userController->profilePage();
-
                 }
                 break;
 

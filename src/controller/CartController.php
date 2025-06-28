@@ -1,8 +1,12 @@
 <?php
 
-namespace MyAwesomeWebsite;
+namespace MyAwesomeWebsite\controller;
 
 use MyAwesomeWebsite\model\CartItem;
+use MyAwesomeWebsite\repository\ProductRepository;
+use MyAwesomeWebsite\repository\CartRepository;
+use MyAwesomeWebsite\repository\CartItemRepository;
+use MyAwesomeWebsite\Controller;
 
 class CartController extends Controller
 {
