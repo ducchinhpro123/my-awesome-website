@@ -28,7 +28,11 @@
                     <a class="btn btn-outline-light me-2" role="button" href="/?action=cart">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="badge rounded-pill text-dark" id="cart-count" style="background-color: var(--golden);">
-                            {{ numCartItems }}
+                            {% if numCartItems is defined %}
+                                {{ numCartItems }}
+                            {% else %}
+                                0
+                            {% endif %}
                         </span>
                     </a>
 

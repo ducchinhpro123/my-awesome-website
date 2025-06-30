@@ -2,7 +2,7 @@
 {% block body %}
 
     <!-- Breadcrumb -->
-    <section class="bg-light py-3 mt-5">
+    <section class="bg-light py-3" style="margin-top: 90px">
         <div class="container">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0">
@@ -58,11 +58,16 @@
                         <!-- Rating -->
                         <div class="d-flex align-items-center mb-3">
                             <div class="text-warning me-2">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
+                                {% if product.rating > 0 %}
+                                    {% for i in 1..product.rating %}
+                                        <i class="fas fa-star"></i>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if product.rating != 5 %}
+                                    {% for i in range(product.rating, 4) %}
+                                        <i class="far fa-star"></i>
+                                    {% endfor %}
+                                {% endif %}
                             </div>
                             <span class="text-muted">(24 reviews)</span>
                             <a href="#reviews" class="ms-2 text-decoration-none">Write a review</a>
