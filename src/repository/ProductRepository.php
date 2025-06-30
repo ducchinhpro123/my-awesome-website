@@ -1,6 +1,7 @@
 <?php
 
 namespace MyAwesomeWebsite\repository;
+
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
 use Doctrine\ORM\EntityManager;
@@ -33,13 +34,24 @@ class ProductRepository extends EntityRepository
     public function getProductsPagination($page = 0)
     {
         $dql = "SELECT p FROM MyAwesomeWebsite\model\Product p";
-        $query = $this->entityManager->createQuery($dql)
+        return $this->entityManager->createQuery($dql)
                                      ->setHint(Paginator::HINT_ENABLE_DISTINCT, false)
                                      ->setFirstResult(self::ITEM_PER_PAGE * $page)
-                                     ->setMaxResults(self::ITEM_PER_PAGE);
-        $paginator = new Paginator($query, true);
-        /* error_log("query count"); */
-        return iterator_to_array($paginator);
+                                     ->setMaxResults(self::ITEM_PER_PAGE)->getResult();
+    }
+
+    public function findWithCategoriesPaginated(array $categoryNames, int $page)
+    {
+        $queryBuilder = $this->createQueryBuilder('p')
+            ->join('p.category', 'c')
+            ->where('c.name IN (:categoryNames)')
+            ->setParameter('categoryNames', $categoryNames)
+            ->orderBy('p.id', 'DESC');
+        $query = $queryBuilder->getQuery();
+        $query->setFirstResult(self::ITEM_PER_PAGE * $page)
+              ->setMaxResults(self::ITEM_PER_PAGE);
+
+        return new Paginator($query, true);
     }
 }
 

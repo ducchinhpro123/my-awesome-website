@@ -28,6 +28,11 @@ class CategoryRepository extends EntityRepository
         return $this->findBy(["isFeatured" => true]);
     }
 
+    public function findByNames(array $names)
+    {
+        return $this->findBy(["name" => $names]);
+    }
+
 }
 
 ?>

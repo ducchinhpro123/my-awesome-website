@@ -93,6 +93,9 @@ class Application
                 $product_id = filter_input(INPUT_GET, 'product_id');
                 $this->cartController->addToCart($product_id);
                 break;
+            case 'products-filter':
+                $this->productController->productsFilter();
+                break;
 
             default:
                 $this->defaultController->homePage();

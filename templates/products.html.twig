@@ -31,14 +31,15 @@
                         <div class="card-header">
                             <h5 class="mb-0 text-white">Bộ Lọc</h5>
                         </div>
-                        <div class="card-body">
+                        <form class="card-body" method="get">
+                            <input type='hidden' name='action' value='products-filter'/>
                             <!-- Categories -->
                             <div class="mb-4">
                                 <h6 class="fw-bold text-red">Danh Mục</h6>
-
                                 {% for category in categories %}
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="{{ category.name }}" id="{{ category.name }}" />
+                                        <input class="form-check-input" name="categories[]" 
+                                        type="checkbox" value="{{ category.name }}" id="{{ category.name }}" />
                                         <label class="form-check-label" for="{{ category.name }}">{{ category.name }}</label>
                                     </div>
                                 {% endfor %}
@@ -90,10 +91,11 @@
 
                             <button class="btn btn-red w-100 mb-2">Áp Dụng Bộ Lọc</button>
                             <button class="btn btn-outline-red w-100">Xóa Tất Cả</button>
-                        </div>
+                        </form>
                     </div>
 
                 </div>
+
                 <div class="col-lg-9">
                     <!-- Sort and View Options -->
                     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -179,8 +181,10 @@
                             </div>
                         </div>
                         {% else %}
-                            <div class='text-black'>
-                                KO co san pham
+                            <div class="col-12">
+                                <div class="alert alert-info text-center" role="alert">
+                                    Không có sản phẩm nào trong danh mục này.
+                                </div>
                             </div>
                         {% endfor %}
                         <!-- Product 1 -->
@@ -224,23 +228,38 @@
                     </div>
 
                     <!-- Pagination -->
-                    <nav aria-label="Products pagination">
-                        <ul class="pagination justify-content-center">
-                            {% if pagination.totalPages > 1 %}
-                                <li class="page-item {{ pagination.has_previous ? '' : 'disabled' }}">
-                                    <a class="page-link" href="?action=products&page={{ pagination.current_page - 1 }}" tabindex="-1">Previous</a>
-                                </li>
-                                {% for page_num in 0..pagination.totalPages - 1 %}
-                                    <li class="page-item {{ page_num == pagination.current_page ? 'active' : '' }}">
-                                        <a class="page-link" href="/?action=products&page={{ page_num}}">{{ page_num + 1 }}</a>
+                    {% if products|length != 0 %}
+                        <nav aria-label="Products pagination">
+                            <ul class="pagination justify-content-center">
+                                {% if products_filter %}
+                                    <li class="page-item {{ pagination.has_previous ? '' : 'disabled' }}">
+                                        <a class="page-link" href="{{ current_url }}&page={{ pagination.current_page - 1 }}" tabindex="-1">Previous</a>
                                     </li>
-                                {% endfor %}
-                                <li class="page-item {{ pagination.has_next ? '' : 'disabled' }}">
-                                    <a class="page-link" href="?action=products&page={{ pagination.current_page + 1 }}">Next</a>
-                                </li>
-                            {% endif %}
-                        </ul>
-                    </nav>
+                                    {% for page_num in 0..pagination.totalPages - 1 %}
+                                        <li class="page-item {{ page_num == pagination.current_page ? 'active' : '' }}">
+                                            <a class="page-link" href="{{ current_url }}&page={{ page_num}}">{{ page_num + 1 }}</a>
+                                        </li>
+                                    {% endfor %}
+                                    <li class="page-item {{ pagination.has_next ? '' : 'disabled' }}">
+                                        <a class="page-link" href="{{ current_url }}&page={{ pagination.current_page + 1 }}">Next</a>
+                                    </li>
+                                {% elseif pagination.totalPages > 1 %}
+                                    <li class="page-item {{ pagination.has_previous ? '' : 'disabled' }}">
+                                        <a class="page-link" href="?action=products&page={{ pagination.current_page - 1 }}" tabindex="-1">Previous</a>
+                                    </li>
+                                    {% for page_num in 0..pagination.totalPages - 1 %}
+                                        <li class="page-item {{ page_num == pagination.current_page ? 'active' : '' }}">
+                                            <a class="page-link" href="/?action=products&page={{ page_num}}">{{ page_num + 1 }}</a>
+                                        </li>
+                                    {% endfor %}
+                                    <li class="page-item {{ pagination.has_next ? '' : 'disabled' }}">
+                                        <a class="page-link" href="?action=products&page={{ pagination.current_page + 1 }}">Next</a>
+                                    </li>
+                                {% endif %}
+
+                            </ul>
+                        </nav>
+                    {% endif %}
                 </div>
 
             </div>
