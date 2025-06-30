@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <h1 style="color: var(--dark-color);" class="display-5 fw-bold mb-3 text-red">Sản Phẩm Của Chúng Tôi</h1>
+                    <h1 style="color: var(--dark-color);" class="display-5 fw-bold mb-3 text-red">Sản Phẩm</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="index.html">Trang Chủ</a></li>
@@ -35,24 +35,13 @@
                             <!-- Categories -->
                             <div class="mb-4">
                                 <h6 class="fw-bold text-red">Danh Mục</h6>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="electronics" id="electronics">
-                                    <label class="form-check-label" for="electronics">Điện Tử</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="clothing" id="clothing">
-                                    <label class="form-check-label" for="clothing">Thời Trang</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="home" id="home">
-                                    <label class="form-check-label" for="home">Gia Dụng</label>
-                                </div>
-                                    <label class="form-check-label" for="home">Home & Garden</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="sports" id="sports">
-                                    <label class="form-check-label" for="sports">Sports</label>
-                                </div>
+
+                                {% for category in categories %}
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="{{ category.name }}" id="{{ category.name }}" />
+                                        <label class="form-check-label" for="{{ category.name }}">{{ category.name }}</label>
+                                    </div>
+                                {% endfor %}
                             </div>
 
                             <!-- Price Range -->
@@ -104,157 +93,156 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-9">
-                        <!-- Sort and View Options -->
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <div>
-                                <span class="text-muted">Hiển thị 1-12 trong tổng số 48 sản phẩm</span>
-                            </div>
-                            <div class="d-flex align-items-center gap-3">
-                                <select class="form-select form-select-sm" style="width: auto;">
-                                    <option>Sắp xếp: Nổi bật</option>
-                                    <option>Giá: Thấp đến Cao</option>
-                                    <option>Giá: Cao đến Thấp</option>
-                                    <option>Tên: A đến Z</option>
-                                    <option>Tên: Z đến A</option>
-                                    <option>Đánh giá: Cao đến Thấp</option>
-                                </select>
-                                <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-outline-secondary btn-sm active">
-                                        <i class="fas fa-th"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-outline-secondary btn-sm">
-                                        <i class="fas fa-list"></i>
-                                    </button>
-                                </div>
+                </div>
+                <div class="col-lg-9">
+                    <!-- Sort and View Options -->
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div>
+                            <span class="text-muted">Hiển thị {{ pagination.startNumberItemDisplay }}-{{ pagination.endNumberItemDisplay }}
+                                trong tổng số {{ totalItemsNumber }} sản phẩm</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-3">
+                            <select class="form-select form-select-sm" style="width: auto;">
+                                <option>Sắp xếp: Nổi bật</option>
+                                <option>Giá: Thấp đến Cao</option>
+                                <option>Giá: Cao đến Thấp</option>
+                                <option>Tên: A đến Z</option>
+                                <option>Tên: Z đến A</option>
+                                <option>Đánh giá: Cao đến Thấp</option>
+                            </select>
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-outline-secondary btn-sm active">
+                                    <i class="fas fa-th"></i>
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm">
+                                    <i class="fas fa-list"></i>
+                                </button>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Products Grid -->
-                        <div class="row" id="products-grid">
-                            {% for product in products %}
-                            <div class="col-lg-4 col-md-6 mb-4">
-                                <div class="card product-card h-100 shadow-sm">
-                                    <div class="position-relative">
-                                        <img src="{{ product.imageUrl }}" 
-                                             class="card-img-top" alt="Wireless Headphones">
-                                        <span class="badge bg-danger position-absolute top-0 end-0 m-2">Sale</span>
-                                        <div class="product-overlay">
-                                            <a class="btn btn-light btn-sm wishlist-btn">
-                                                <i class="far fa-heart"></i>
+                    <!-- Products Grid -->
+                    <div class="row" id="products-grid">
+                        {% for product in products %}
+                        <div class="col-lg-4 col-md-6 mb-4">
+                            <div class="card product-card h-100 shadow-sm">
+                                <div class="position-relative">
+                                    <img src="{{ product.imageUrl }}" 
+                                         class="card-img-top" alt="Wireless Headphones">
+                                    <span class="badge bg-danger position-absolute top-0 end-0 m-2">Sale</span>
+                                    <div class="product-overlay">
+                                        <a class="btn btn-light btn-sm wishlist-btn">
+                                            <i class="far fa-heart"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">{{ product.name }} {{ product.id }}</h5>
+                                    <p class="card-text text-muted">{{ product.description }}</p>
+                                    <div class="mt-auto">
+                                        <div class="d-flex justify-content-between align-items-center mb-2">
+                                            <span class="h5 mb-0 text-primary">{{ product.price }}</span>
+                                            <span class="text-muted text-decoration-line-through">$129.99</span>
+                                        </div>
+                                        <div class="text-warning mb-2">
+                                            {% if product.rating > 0 %}
+                                                {% for i in 1..product.rating %}
+                                                    <i class="fas fa-star"></i>
+                                                {% endfor %}
+                                            {% endif %}
+                                            {% if product.rating != 5 %}
+                                                {% for i in range(product.rating, 4) %}
+                                                    <i class="far fa-star"></i>
+                                                {% endfor %}
+                                            {% endif %}
+
+                                            <span class="text-muted ms-1">(24)</span>
+                                        </div>
+                                        {# <div class="text-warning mb-2"> #}
+                                        {#     <i class="fas fa-star"></i> #}
+                                        {#     <i class="fas fa-star"></i> #}
+                                        {#     <i class="fas fa-star"></i> #}
+                                        {#     <i class="fas fa-star"></i> #}
+                                        {#     <i class="far fa-star"></i> #}
+                                        {#     <span class="text-muted ms-1">(24)</span> #}
+                                        {# </div> #}
+                                        <div class="d-flex justify-content-between">
+                                            <a href="/?action=add-to-cart&product_id={{ product.id }}" class="btn btn-primary btn-sm add-to-cart" data-product-id="1">
+                                                <i class="fas fa-cart-plus me-1"></i>Add to Cart
+                                            </a>
+                                            <a href="/?action=product-detail&id={{ product.id }}" class="btn btn-outline-primary btn-sm">
+                                                <i class="fas fa-eye me-1"></i>View
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="card-body d-flex flex-column">
-                                        <h5 class="card-title">{{ product.name }}</h5>
-                                        <p class="card-text text-muted">{{ product.description }}</p>
-                                        <div class="mt-auto">
-                                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                                <span class="h5 mb-0 text-primary">{{ product.price }}</span>
-                                                <span class="text-muted text-decoration-line-through">$129.99</span>
-                                            </div>
-                                            <div class="text-warning mb-2">
-                                                {% if product.rating > 0 %}
-                                                    {% for i in 1..product.rating %}
-                                                        <i class="fas fa-star"></i>
-                                                    {% endfor %}
-                                                {% endif %}
-                                                {% if product.rating != 5 %}
-                                                    {% for i in range(product.rating, 4) %}
-                                                        <i class="far fa-star"></i>
-                                                    {% endfor %}
-                                                {% endif %}
-
-                                                <span class="text-muted ms-1">(24)</span>
-                                            </div>
-                                            {# <div class="text-warning mb-2"> #}
-                                            {#     <i class="fas fa-star"></i> #}
-                                            {#     <i class="fas fa-star"></i> #}
-                                            {#     <i class="fas fa-star"></i> #}
-                                            {#     <i class="fas fa-star"></i> #}
-                                            {#     <i class="far fa-star"></i> #}
-                                            {#     <span class="text-muted ms-1">(24)</span> #}
-                                            {# </div> #}
-                                            <div class="d-flex justify-content-between">
-                                                <a href="/?action=add-to-cart&product_id={{ product.id }}" class="btn btn-primary btn-sm add-to-cart" data-product-id="1">
-                                                    <i class="fas fa-cart-plus me-1"></i>Add to Cart
-                                                </a>
-                                                <a href="/?action=product-detail&id={{ product.id }}" class="btn btn-outline-primary btn-sm">
-                                                    <i class="fas fa-eye me-1"></i>View
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
-                            {% endfor %}
-                            <!-- Product 1 -->
-                            <!-- Product 2 -->
-                            {# <div class="col-lg-4 col-md-6 mb-4"> #}
-                            {#     <div class="card product-card h-100 shadow-sm"> #}
-                            {#         <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" #} 
-                            {#              class="card-img-top" alt="Smart Watch"> #}
-                            {#         <div class="card-body d-flex flex-column"> #}
-                            {#             <h5 class="card-title">Smart Watch</h5> #}
-                            {#             <p class="card-text text-muted">Track your fitness and stay connected with this smart watch</p> #}
-                            {#             <div class="mt-auto"> #}
-                            {#                 <div class="d-flex justify-content-between align-items-center mb-2"> #}
-                            {#                     <span class="h5 mb-0 text-primary">$199.99</span> #}
-                            {#                 </div> #}
-                            {#                 <div class="text-warning mb-2"> #}
-                            {#                     <i class="fas fa-star"></i> #}
-                            {#                     <i class="fas fa-star"></i> #}
-                            {#                     <i class="fas fa-star"></i> #}
-                            {#                     <i class="fas fa-star"></i> #}
-                            {#                     <i class="fas fa-star"></i> #}
-                            {#                     <span class="text-muted ms-1">(18)</span> #}
-                            {#                 </div> #}
-                            {#                 <div class="d-flex justify-content-between"> #}
-                            {#                     <button class="btn btn-primary btn-sm add-to-cart" data-product-id="2"> #}
-                            {#                         <i class="fas fa-cart-plus me-1"></i>Add to Cart #}
-                            {#                     </button> #}
-                            {#                     <a href="product-detail.html?id=2" class="btn btn-outline-primary btn-sm"> #}
-                            {#                         <i class="fas fa-eye me-1"></i>View #}
-                            {#                     </a> #}
-                            {#                 </div> #}
-                            {#             </div> #}
-                            {#         </div> #}
-                            {#     </div> #}
-                            {# </div> #}
-
-                            <!-- Product 3 -->
-
-
-                            <!-- Product 6 -->
                         </div>
+                        {% else %}
+                            <div class='text-black'>
+                                KO co san pham
+                            </div>
+                        {% endfor %}
+                        <!-- Product 1 -->
+                        <!-- Product 2 -->
+                        {# <div class="col-lg-4 col-md-6 mb-4"> #}
+                        {#     <div class="card product-card h-100 shadow-sm"> #}
+                        {#         <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" #} 
+                        {#              class="card-img-top" alt="Smart Watch"> #}
+                        {#         <div class="card-body d-flex flex-column"> #}
+                        {#             <h5 class="card-title">Smart Watch</h5> #}
+                        {#             <p class="card-text text-muted">Track your fitness and stay connected with this smart watch</p> #}
+                        {#             <div class="mt-auto"> #}
+                        {#                 <div class="d-flex justify-content-between align-items-center mb-2"> #}
+                        {#                     <span class="h5 mb-0 text-primary">$199.99</span> #}
+                        {#                 </div> #}
+                        {#                 <div class="text-warning mb-2"> #}
+                        {#                     <i class="fas fa-star"></i> #}
+                        {#                     <i class="fas fa-star"></i> #}
+                        {#                     <i class="fas fa-star"></i> #}
+                        {#                     <i class="fas fa-star"></i> #}
+                        {#                     <i class="fas fa-star"></i> #}
+                        {#                     <span class="text-muted ms-1">(18)</span> #}
+                        {#                 </div> #}
+                        {#                 <div class="d-flex justify-content-between"> #}
+                        {#                     <button class="btn btn-primary btn-sm add-to-cart" data-product-id="2"> #}
+                        {#                         <i class="fas fa-cart-plus me-1"></i>Add to Cart #}
+                        {#                     </button> #}
+                        {#                     <a href="product-detail.html?id=2" class="btn btn-outline-primary btn-sm"> #}
+                        {#                         <i class="fas fa-eye me-1"></i>View #}
+                        {#                     </a> #}
+                        {#                 </div> #}
+                        {#             </div> #}
+                        {#         </div> #}
+                        {#     </div> #}
+                        {# </div> #}
 
-                        <!-- Pagination -->
-                        <nav aria-label="Products pagination">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                </li>
-                                <li class="page-item active">
-                                    <a class="page-link" href="#">1</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">2</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">3</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">4</a>
-                                </li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
-                        </nav>
+                        <!-- Product 3 -->
+
+
+                        <!-- Product 6 -->
                     </div>
+
+                    <!-- Pagination -->
+                    <nav aria-label="Products pagination">
+                        <ul class="pagination justify-content-center">
+                            {% if pagination.totalPages > 1 %}
+                                <li class="page-item {{ pagination.has_previous ? '' : 'disabled' }}">
+                                    <a class="page-link" href="?action=products&page={{ pagination.current_page - 1 }}" tabindex="-1">Previous</a>
+                                </li>
+                                {% for page_num in 0..pagination.totalPages - 1 %}
+                                    <li class="page-item {{ page_num == pagination.current_page ? 'active' : '' }}">
+                                        <a class="page-link" href="/?action=products&page={{ page_num}}">{{ page_num + 1 }}</a>
+                                    </li>
+                                {% endfor %}
+                                <li class="page-item {{ pagination.has_next ? '' : 'disabled' }}">
+                                    <a class="page-link" href="?action=products&page={{ pagination.current_page + 1 }}">Next</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
                 </div>
 
-                <!-- Products Grid -->
             </div>
         </div>
     </section>
