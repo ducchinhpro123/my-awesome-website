@@ -48,11 +48,56 @@ class ProductRepository extends EntityRepository
             ->setParameter('categoryNames', $categoryNames)
             ->orderBy('p.id', 'DESC');
         $query = $queryBuilder->getQuery();
-        $query->setFirstResult(self::ITEM_PER_PAGE * $page)
-              ->setMaxResults(self::ITEM_PER_PAGE);
+        return $query->setFirstResult(self::ITEM_PER_PAGE * $page)
+              ->setMaxResults(self::ITEM_PER_PAGE)
+              ->getResult();
 
-        return new Paginator($query, true);
+        /* return new Paginator($query, true); */
     }
+
+    public function findWithFilters(array $criteria, int $page): Paginator
+    {
+        /* Do not call the database for each filter and try to merge the results in PHP. 
+         * The database is infinitely more efficient at finding the intersection of multiple 
+         * criteria than PHP is at merging arrays. */
+        $queryBuilder = $this->createQueryBuilder('p');
+        if (!empty($criteria['categories'])) {
+            $queryBuilder->join('p.category', 'c')
+                ->andWhere('c.name IN (:categoryNames)')
+                ->setParameter('categoryNames', $criteria['categories']);
+        }
+
+        if (!empty($criteria['prices'])) {
+            $priceConditions = [];
+            $paramIndex = 0;
+            foreach($criteria['prices'] as $range) {
+                if (str_ends_with($range, '+')) {
+                    $minPrice = (int) rtrim($range, '+');
+                    $priceConditions[] = "p.price >= :min{$paramIndex}";
+                    $queryBuilder->setParameter("min{$paramIndex}", $minPrice);
+                } else {
+                    $parts = explode('-', $range);
+                    if (count($parts) === 2) {
+                        $priceConditions[] = "(p.price >= :min{$paramIndex} AND p.price <= :max{$paramIndex})";
+                        $queryBuilder->setParameter("min{$paramIndex}", (int)$parts[0]);
+                        $queryBuilder->setParameter("max{$paramIndex}", (int)$parts[1]);
+                    }
+                }
+                $paramIndex ++;
+            }
+            if (!empty($priceConditions)) {
+                $queryBuilder->andWhere('(' . implode(' OR ', $priceConditions) . ')');
+            }
+        }
+
+        $queryBuilder->orderBy('p.id', 'DESC');
+        $query = $queryBuilder->getQuery()
+            ->setFirstResult(self::ITEM_PER_PAGE * $page)
+            ->setMaxResults(self::ITEM_PER_PAGE);
+        return new Paginator($query, true);
+
+    }
+
 }
 
 ?>
