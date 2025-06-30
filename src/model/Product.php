@@ -20,7 +20,7 @@ class Product
     private string $name;
 
     #[ORM\Column(type: 'decimal', precision: 10, nullable: true, scale: 2)]
-    private ?string $price;
+    private ?float $price;
 
     #[ORM\Column(type: 'string', nullable: true, name: 'image_url')]
     private ?string $imageUrl;
@@ -37,7 +37,7 @@ class Product
         return "\nproduct_id: " . $this->id . "\ndescription: " . $this->description;
     }
 
-    public function __construct(string $name, string $price, Category $category, $rating)
+    public function __construct(string $name, float $price, Category $category, $rating)
     {
         $this->name = $name;
         $this->price = $price;
@@ -87,10 +87,11 @@ class Product
 
     public function getPrice()
     {
-        return number_format($this->price, 0, '.', ',') . '₫';
+        return $this->price;
+        /* return number_format($this->price, 0, '.', ',') . '₫'; */
     }
 
-    public function setPrice(?string $price)
+    public function setPrice(?float $price)
     {
         $this->price = $price;
     }
