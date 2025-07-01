@@ -89,7 +89,38 @@ class ProductRepository extends EntityRepository
             }
         }
 
-        $queryBuilder->orderBy('p.id', 'DESC');
+                                /* <option value="featured">Sắp xếp: Nổi bật</option> */
+                                /* <option value="price_asc">Giá: Thấp đến Cao</option> */
+                                /* <option value="price_desc">Giá: Cao đến Thấp</option> */
+                                /* <option value="name_asc">Tên: A đến Z</option> */
+                                /* <option value="name_desc">Tên: Z đến A</option> */
+                                /* <option value="rating_asc">Đánh giá: Cao đến Thấp</option> */
+        if (!empty($criteria['sort_by'])) {
+            switch($criteria['sort_by']) {
+                case 'price_asc':
+                    $queryBuilder->orderBy('p.price', 'ASC');
+                    break;
+                case 'price_desc':
+                    $queryBuilder->orderBy('p.price', 'DESC');
+                    break;
+                case 'name_asc':
+                    $queryBuilder->orderBy('p.name', 'ASC');
+                    break;
+                case 'name_desc':
+                    $queryBuilder->orderBy('p.name', 'DESC');
+                    break;
+                case 'rating_asc':
+                    $queryBuilder->orderBy('p.rating', 'ASC');
+                    break;
+                case 'rating_desc':
+                    $queryBuilder->orderBy('p.rating', 'DESC');
+                    break;
+                case 'featured':
+                default:
+                    $queryBuilder->orderBy('p.id', 'DESC');
+            }
+        }
+
         $query = $queryBuilder->getQuery()
             ->setFirstResult(self::ITEM_PER_PAGE * $page)
             ->setMaxResults(self::ITEM_PER_PAGE);

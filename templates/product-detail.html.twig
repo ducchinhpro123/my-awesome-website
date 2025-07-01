@@ -8,7 +8,9 @@
                 <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item"><a href="products.html">Products</a></li>
-                    <li class="breadcrumb-item"><a href="products.html?category=electronics">{{ product.category.name }}</a></li>
+                    <li class="breadcrumb-item"><a href="/?action=products-filter&category={{ product.category.name|url_encode }}">
+                        {{ product.category.name }}</a>
+                    </li>
                     <li class="breadcrumb-item active" aria-current="page">{{ product.name }}</li>
                 </ol>
             </nav>
