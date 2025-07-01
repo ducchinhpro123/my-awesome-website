@@ -13,7 +13,7 @@
                                                      role="button"> Danh Mục </a>
                         <ul class="dropdown-menu">
                             {% for category in categories %}
-                                <li><a class="dropdown-item" href="products.html?category={{ category.name }}">{{ category.name }}</a></li>
+                                <li><a class="dropdown-item" href="/?action=products-filter&category={{ category.name|url_encode }}">{{ category.name }}</a></li>
                             {% endfor %}
                         </ul>
                     </li>

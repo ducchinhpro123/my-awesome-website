@@ -31,14 +31,17 @@
                         <div class="card-header">
                             <h5 class="mb-0 text-white">Bộ Lọc</h5>
                         </div>
-                        <form class="card-body" method="get">
+                        <form class="card-body" method="get" id='form-filter'>
                             <input type='hidden' name='action' value='products-filter'/>
                             <!-- Categories -->
                             <div class="mb-4">
                                 <h6 class="fw-bold text-red">Danh Mục</h6>
                                 {% for category in categories %}
                                     <div class="form-check">
-                                        <input class="form-check-input" name="categories[]" {{ category.name in categories_filter ? 'checked' : '' }}
+
+                                        <input class="form-check-input" name="categories[]"
+                                        {{ category.name in categories_filter or category.name == category_filter ? 'checked' : '' }}
+
                                         type="checkbox" value="{{ category.name }}" id="{{ category.name }}" />
                                         <label class="form-check-label" for="{{ category.name }}">{{ category.name }}</label>
                                     </div>
@@ -50,7 +53,7 @@
                                 <h6 class="fw-bold text-red">Tầm Giá</h6>
                                 {% for price in prices %}
                                     <div class="form-check">
-                                        <input class="form-check-input"  {{ price.value in prices_filter ? 'checked' : '' }}
+                                        <Input class="form-check-input" {{ price.value in prices_filter ? 'checked' : '' }}
                                                type="checkbox" name="prices[]" value="{{ price.value }}" 
                                                                                                         id="{{ price.value }}">
                                         <label class="form-check-label" for="{{ price.value }}">{{ price.label }}</label>
@@ -82,7 +85,7 @@
                             </div>
 
                             <button class="btn btn-red w-100 mb-2">Áp Dụng Bộ Lọc</button>
-                            <button class="btn btn-outline-red w-100">Xóa Tất Cả</button>
+                            <button type="button" class="btn btn-outline-red w-100" onclick="clearAllFilters()">Xóa Tất Cả</button>
                         </form>
                     </div>
 
@@ -257,5 +260,17 @@
             </div>
         </div>
     </section>
+    <script>
+        function clearAllFilters() {
+            const filterForm = document.getElementById('form-filter');
+            if (filterForm) {
+                const checkboxes = filterForm.querySelectorAll('input[type="checkbox"]');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = false;
+                });
+                window.location.href='/?action=products';
+            }
+        }
+    </script>
 
 {% endblock %}

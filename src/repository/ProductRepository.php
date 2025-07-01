@@ -6,7 +6,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
-
+use Doctrine\ORM\Query\Expr\Join as ExprJoin;
 use MyAwesomeWebsite\model\Product;
 use MyAwesomeWebsite\service\OrmHelper;
 
@@ -62,8 +62,7 @@ class ProductRepository extends EntityRepository
          * criteria than PHP is at merging arrays. */
         $queryBuilder = $this->createQueryBuilder('p');
         if (!empty($criteria['categories'])) {
-            $queryBuilder->join('p.category', 'c')
-                ->andWhere('c.name IN (:categoryNames)')
+            $queryBuilder->join('p.category', 'c', ExprJoin::WITH, 'c.name IN (:categoryNames)')
                 ->setParameter('categoryNames', $criteria['categories']);
         }
 
@@ -94,7 +93,7 @@ class ProductRepository extends EntityRepository
         $query = $queryBuilder->getQuery()
             ->setFirstResult(self::ITEM_PER_PAGE * $page)
             ->setMaxResults(self::ITEM_PER_PAGE);
-        return new Paginator($query, true);
+        return new Paginator($query, false);
 
     }
 

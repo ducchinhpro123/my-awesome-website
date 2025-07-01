@@ -97,14 +97,23 @@ class ProductController extends Controller
     {
         $page = filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT);
         $categoryNames = filter_input(INPUT_GET, 'categories', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY) ?? [];
+        $categoryName = filter_input(INPUT_GET, 'category', FILTER_DEFAULT);
         $prices = filter_input(INPUT_GET, 'prices', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY) ?? [];
+
         // Gather criteria for a single call to query
         $criteria = [];
+        $allCategoriesFilter = [];
         if (!empty($prices)) {
             $criteria['prices'] = $prices;
         }
         if (!empty($categoryNames)) {
-            $criteria['categories'] = $categoryNames;
+            $allCategoriesFilter = $categoryNames;
+        }
+        if (!empty($categoryName)) {
+            $allCategoriesFilter[] = $categoryName;
+        }
+        if (!empty($allCategoriesFilter)) {
+            $criteria['categories'] = array_unique($allCategoriesFilter);
         }
 
         $template = 'products.html.twig';
@@ -112,9 +121,10 @@ class ProductController extends Controller
         $products = $this->productRepository->findWithFilters($criteria, $page ? $page : 0);
         $this->args['products'] = $products;
         $this->args['categories_filter'] = $categoryNames;
+        $this->args['category_filter'] = $categoryName;
+        error_log($categoryName);
         $this->args['products_filter'] = true; // mark as a way to handle the pagination in twig template
         $this->args['prices_filter'] = $prices;
-
 
         $this->args['current_url'] = $_SERVER['REQUEST_URI'];
         $this->paginationHandle($page ? $page : 0, $this->args, false, $products);
