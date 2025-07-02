@@ -4,9 +4,12 @@ namespace MyAwesomeWebsite\repository;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
+use Doctrine\ORM\Query\ResultSetMapping;
+use Doctrine\ORM\NativeQuery;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Query\Expr\Join as ExprJoin;
+
 use MyAwesomeWebsite\model\Product;
 use MyAwesomeWebsite\service\OrmHelper;
 
@@ -61,9 +64,28 @@ class ProductRepository extends EntityRepository
          * The database is infinitely more efficient at finding the intersection of multiple 
          * criteria than PHP is at merging arrays. */
         $queryBuilder = $this->createQueryBuilder('p');
+
         if (!empty($criteria['categories'])) {
-            $queryBuilder->join('p.category', 'c', ExprJoin::WITH, 'c.name IN (:categoryNames)')
+            $queryBuilder->join('p.category', 'c')
+                ->andWhere('c.name IN (:categoryNames)')
                 ->setParameter('categoryNames', $criteria['categories']);
+        }
+
+        if (!empty($criteria['searchTerm'])) {
+            $searchTerms = explode(' ', trim($criteria['searchTerm']));
+            $conditions = [];
+
+            foreach ($searchTerms as $index => $term) {
+                $paramName = "term{$index}";
+                $conditions[] = $queryBuilder->expr()->orX(
+                    $queryBuilder->expr()->like('p.name', ':' . $paramName),
+                    $queryBuilder->expr()->like('p.description', ':' . $paramName),
+                );
+                $queryBuilder->setParameter($paramName, '%' . $term . '%');
+            }
+            if (!empty($conditions)) {
+                $queryBuilder->andWhere($queryBuilder->expr()->andX(...$conditions));
+            }
         }
 
         if (!empty($criteria['prices'])) {
@@ -89,12 +111,12 @@ class ProductRepository extends EntityRepository
             }
         }
 
-                                /* <option value="featured">Sắp xếp: Nổi bật</option> */
-                                /* <option value="price_asc">Giá: Thấp đến Cao</option> */
-                                /* <option value="price_desc">Giá: Cao đến Thấp</option> */
-                                /* <option value="name_asc">Tên: A đến Z</option> */
-                                /* <option value="name_desc">Tên: Z đến A</option> */
-                                /* <option value="rating_asc">Đánh giá: Cao đến Thấp</option> */
+        /* <option value="featured">Sắp xếp: Nổi bật</option> */
+        /* <option value="price_asc">Giá: Thấp đến Cao</option> */
+        /* <option value="price_desc">Giá: Cao đến Thấp</option> */
+        /* <option value="name_asc">Tên: A đến Z</option> */
+        /* <option value="name_desc">Tên: Z đến A</option> */
+        /* <option value="rating_asc">Đánh giá: Cao đến Thấp</option> */
         if (!empty($criteria['sort_by'])) {
             switch($criteria['sort_by']) {
                 case 'price_asc':

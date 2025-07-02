@@ -12,13 +12,13 @@
                 <div class="col-12">
                     <div class="category-nav d-flex justify-content-between align-items-center flex-wrap">
                         {% for category in categoriesFeatured %}
-                            <div class="category-item text-center p-2">
+                            <a class="category-item text-center p-2 link-underline link-underline-opacity-0" href="/?action=products-filter&category={{ category.name|url_encode }}">
                                 <div class="category-icon text-white rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center shadow-sm" 
                                     style="width: 85px; height: 85px;">
                                     <img src="{{ category.imageUrl }}" class='img-fluid'/>
                                 </div>
                                 <small class="text-muted fw-medium">{{ category.name }}</small>
-                            </div>
+                            </a>
                         {% endfor %}
                     </div>
                 </div>
@@ -705,6 +705,29 @@
                                 <a href="/?action=products" class="btn btn-outline-dark  px-4">Khám phá thương hiệu</a>
                             </div>
                         </div>
+
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="info-card bg-white rounded-4 p-4 shadow-sm">
+                        <h5 class="fw-bold mb-3" style="color: var(--golden)">🔗 Liên Kết Nhanh</h5>
+                        <div class="d-grid gap-2">
+                            <a href="#" class="btn btn-outline-primary btn-sm text-start ">
+                                <i class="fas fa-gift me-2"></i>Khuyến mãi đặc biệt
+                            </a>
+                            <a href="#" class="btn btn-outline-success btn-sm text-start ">
+                                <i class="fas fa-truck me-2"></i>Theo dõi đơn hàng
+                            </a>
+                            <a href="#" class="btn btn-outline-warning btn-sm text-start ">
+                                <i class="fas fa-medal me-2"></i>Chương trình tích điểm
+                            </a>
+                            <a href="#" class="btn btn-outline-info btn-sm text-start ">
+                                <i class="fas fa-headset me-2"></i>Hỗ trợ khách hàng
+                            </a>
+                            <a href="#" class="btn btn-outline-danger btn-sm text-start ">
+                                <i class="fas fa-newspaper me-2"></i>Tin tức & Sự kiện
+                            </a>
+                        </div>
                     </div>
                 </div>
 
@@ -801,27 +824,6 @@
                         </div>
                     </div>
 
-                    <!-- Quick Links -->
-                    <div class="info-card bg-white rounded-4 p-4 shadow-sm">
-                        <h5 class="fw-bold mb-3" style="color: var(--golden)">🔗 Liên Kết Nhanh</h5>
-                        <div class="d-grid gap-2">
-                            <a href="#" class="btn btn-outline-primary btn-sm text-start ">
-                                <i class="fas fa-gift me-2"></i>Khuyến mãi đặc biệt
-                            </a>
-                            <a href="#" class="btn btn-outline-success btn-sm text-start ">
-                                <i class="fas fa-truck me-2"></i>Theo dõi đơn hàng
-                            </a>
-                            <a href="#" class="btn btn-outline-warning btn-sm text-start ">
-                                <i class="fas fa-medal me-2"></i>Chương trình tích điểm
-                            </a>
-                            <a href="#" class="btn btn-outline-info btn-sm text-start ">
-                                <i class="fas fa-headset me-2"></i>Hỗ trợ khách hàng
-                            </a>
-                            <a href="#" class="btn btn-outline-danger btn-sm text-start ">
-                                <i class="fas fa-newspaper me-2"></i>Tin tức & Sự kiện
-                            </a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

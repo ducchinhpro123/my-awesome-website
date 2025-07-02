@@ -110,10 +110,15 @@ class ProductController extends Controller
         $categoryName = filter_input(INPUT_GET, 'category', FILTER_DEFAULT);
         $prices = filter_input(INPUT_GET, 'prices', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY) ?? [];
         $sortBy = filter_input(INPUT_GET, 'sort_by', FILTER_DEFAULT, FILTER_SANITIZE_STRING);
+        $searchTerm = filter_input(INPUT_GET, 'query', FILTER_SANITIZE_STRING);
 
         // Gather criteria for a single call to query
         $criteria = [];
         $allCategoriesFilter = [];
+        if (!empty($searchTerm)) {
+            $criteria['searchTerm'] = $searchTerm;
+            $this->args['searchTerm'] = $searchTerm;
+        }
         if (!empty($prices)) {
             $criteria['prices'] = $prices;
         }

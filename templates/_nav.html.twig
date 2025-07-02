@@ -21,8 +21,14 @@
                     <li class="nav-item"><a class="nav-link {% if active_page == 'contact' %} active {% endif %}" href="contact.html">Liên Hệ</a></li>
                 </ul>
                 <div class="d-flex align-items-center">
-                    <form class="d-flex me-3" role="search"><input class="form-control me-2" type="search"
-                                                                   aria-label="Search" placeholder="Tìm kiếm sản phẩm...">
+                    <form class="d-flex me-3" role="search" method='get' id='search-form'>
+                        <input type='hidden' name='action' value='products-filter'/>
+
+                        {% if searchTerm is defined %}
+                            <input class="form-control me-2" value="{{ searchTerm }}" type="search" name='query' aria-label="Search" placeholder="Tìm kiếm sản phẩm...">
+                        {% else %}
+                            <input class="form-control me-2" type="search" name='query' aria-label="Search" placeholder="Tìm kiếm sản phẩm...">
+                        {% endif %}
                         <button class="btn btn-outline-light" type="submit"><i class="fas fa-search"></i></button>
                     </form>
                     <a class="btn btn-outline-light me-2" role="button" href="/?action=cart">

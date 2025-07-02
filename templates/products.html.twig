@@ -18,6 +18,10 @@
                     </nav>
                 </div>
             </div>
+
+        {% if searchTerm is defined %}
+            <h2 class='text-black text-muted'>Kết quả tìm kiếm cho từ khóa: <i>{{ searchTerm }}</i> </h2>
+        {% endif %}
         </div>
     </section>
 
@@ -102,11 +106,7 @@
                             <input type='hidden' name='action' value='products-filter'/>
                             <select id="sort-by-select" class="form-select form-select-sm" style="width: auto;" name='sort_by'>
                                 {% for order in orderBy %}
-                                    {% if order.value == sort_by_filter %}
-                                        <option selected="selected" value="{{ order.value }}">{{ order.label }}</option>
-                                    {% else %}
-                                        <option value="{{ order.value }}">{{ order.label }}</option>
-                                    {% endif %}
+                                    <option {{ order.value == sort_by_filter ? 'selected' : '' }} value="{{ order.value }}">{{ order.label }}</option>
                                 {% endfor %}
                             </select>
                             <div class="btn-group" role="group">
@@ -265,6 +265,7 @@
     <script>
         const filterForm = document.getElementById('form-filter');
         const sortBySelect = document.getElementById('sort-by-select');
+        const searchForm = document.getElementById('search-form');
 
         function syncAndSubmit() {
             const formData = new FormData(filterForm);
@@ -272,9 +273,14 @@
             if (sortBySelect.value) {
                 params.set('sort_by', sortBySelect.value);
             }
-
             params.set('action', 'products-filter');
+            const searchInput = searchForm.querySelector('input[name="query"]');
+            if (searchInput && searchInput.value) {
+                params.set('query', searchInput.value);
+            }
+
             const newUrl = window.location.pathname + '?' + params.toString();
+            alert(newUrl);
             window.location.href = newUrl;
         }
 
