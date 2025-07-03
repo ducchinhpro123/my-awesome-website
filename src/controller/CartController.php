@@ -22,6 +22,12 @@ class CartController extends Controller
         parent::__construct();
     }
 
+    public function getCart()
+    {
+        $cart = $this->cartRepository->getCart();
+        return $cart;
+    }
+
     public function cart()
     {
         if (!isset($_SESSION['user_id']) || !$_SESSION['user']) {
@@ -36,6 +42,13 @@ class CartController extends Controller
             $cart = $this->cartRepository->newCart();
         }
 
+        $productId = filter_input(INPUT_GET, 'product_id_delete', FILTER_DEFAULT, FILTER_VALIDATE_INT);
+        if (!empty($productId)) {
+            $this->cartItemRepository->remove($productId, $cart->getId());
+            header("Location: /?action=cart");
+            exit;
+        }
+
         $cartItems = $cart->getCartItems();
 
         $this->args['cart'] = $cart;
@@ -46,8 +59,13 @@ class CartController extends Controller
 
     public function addToCart($product_id)
     {
+        error_log('got product id: ' . $product_id);
         $product = $this->productRepository->find($product_id);
         $cart = $this->cartRepository->getCart();
+
+        if(empty($cart)) {
+            $cart = $this->cartRepository->newCart();
+        }
 
         $existingCartItem = null;
         foreach ($cart->getCartItems() as $cartItem) {

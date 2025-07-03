@@ -41,7 +41,7 @@ class CartRepository extends EntityRepository
         $this->entityManager->flush();
     }
 
-    public function getCart()
+    public function getCart(): Cart
     {
         $userId = $_SESSION['user']->getId();
         $cart = $this->findOneBy(["user" => $userId]);

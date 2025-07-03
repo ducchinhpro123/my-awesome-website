@@ -73,6 +73,7 @@ class Application
                 break;
 
             case 'cart':
+            case 'remove-cart-item':
                 $this->cartController->cart();
                 break;
 
@@ -96,6 +97,9 @@ class Application
             case 'products-filter':
                 $this->productController->productsFilter();
                 break;
+            /* case 'products-search': */
+            /*     $this->productController->searchProducts(); */
+            /*     break; */
 
             default:
                 $this->defaultController->homePage();
