@@ -25,8 +25,7 @@ class Application
     public function run()
     {
         $action = filter_input(INPUT_GET, 'action');
-        switch($action)
-        {
+        switch ($action) {
             case 'home':
                 $this->defaultController->homePage();
                 break;
@@ -53,6 +52,7 @@ class Application
                 } else {
                     $this->userController->loginPage();
                 }
+                // no break
             case 'register':
                 $this->userController->registerPage();
                 break;
@@ -97,14 +97,12 @@ class Application
             case 'products-filter':
                 $this->productController->productsFilter();
                 break;
-            /* case 'products-search': */
-            /*     $this->productController->searchProducts(); */
-            /*     break; */
+                /* case 'products-search': */
+                /*     $this->productController->searchProducts(); */
+                /*     break; */
 
             default:
                 $this->defaultController->homePage();
         }
     }
 }
-
-?>

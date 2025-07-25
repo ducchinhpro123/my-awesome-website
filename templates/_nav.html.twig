@@ -42,7 +42,7 @@
                         </span>
                     </a>
 
-                    {% if user is defined %}
+                    {% if username is defined %}
                         <!-- User Dropdown Menu -->
                         <div class="dropdown">
                             <button class="btn btn-outline-light dropdown-toggle d-flex align-items-center" 
@@ -51,8 +51,8 @@
                                     data-bs-toggle="dropdown" 
                                     aria-expanded="false">
                                 <i class="fas fa-user-circle me-2"></i>
-                                <span class="d-none d-md-inline">Xin chào, {{ user.username }}</span>
-                                <span class="d-md-none">{{ user.username }}</span>
+                                <span class="d-none d-md-inline">Xin chào, {{ username }}</span>
+                                <span class="d-md-none">{{ username }}</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userDropdown">
                                 <li>

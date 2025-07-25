@@ -116,13 +116,20 @@
                         </div>
 
                         <!-- Stock Status -->
-                        <div class="stock-status mb-4">
-                            <span class="badge bg-success fs-6">
-                                <i class="fas fa-check-circle me-1"></i>Còn hàng
-                            </span>
-                            <span class="text-muted ms-2">Chỉ còn 5 sản phẩm trong kho</span>
-                        </div>
-
+                        {% if product.stock == 0 %}
+                            <div class="stock-status mb-4">
+                                <span class="badge bg-danger fs-6">
+                                    <i class="fas fa-check-circle me-1"></i>Hết hàng
+                                </span>
+                            </div>
+                        {% else %}
+                            <div class="stock-status mb-4">
+                                <span class="badge bg-success fs-6">
+                                    <i class="fas fa-check-circle me-1"></i>Còn hàng
+                                </span>
+                                <span class="text-muted ms-2">Chỉ còn {{ product.stock }} sản phẩm trong kho</span>
+                            </div>
+                        {% endif %}
                         <!-- Action Buttons -->
                         <div class="action-buttons mb-4">
                             <button class="btn btn-primary btn-lg me-3 add-to-cart" data-product-id="{{ product.id }}">

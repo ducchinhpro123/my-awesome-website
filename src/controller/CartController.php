@@ -22,15 +22,9 @@ class CartController extends Controller
         parent::__construct();
     }
 
-    public function getCart()
-    {
-        $cart = $this->cartRepository->getCart();
-        return $cart;
-    }
-
     public function cart()
     {
-        if (!isset($_SESSION['user_id']) || !$_SESSION['user']) {
+        if (!isset($_SESSION['user_id'])) {
             header("Location: /?action=login");
             exit;
         }
@@ -57,11 +51,20 @@ class CartController extends Controller
         print $this->twig->render($template, $this->args);
     }
 
-    public function addToCart($product_id)
+    public function addToCart($productId): void
     {
-        error_log('got product id: ' . $product_id);
-        $product = $this->productRepository->find($product_id);
+        $product = $this->productRepository->find($productId);
         $cart = $this->cartRepository->getCart();
+
+        // User haven't logged
+        if (is_null($cart)) {
+            $_SESSION['post_login_action'] = [
+                'action' => 'add_to_cart',
+                'productId' => $productId,
+            ];
+            header("Location: /?action=login");
+            exit;
+        }
 
         if(empty($cart)) {
             $cart = $this->cartRepository->newCart();
@@ -69,7 +72,7 @@ class CartController extends Controller
 
         $existingCartItem = null;
         foreach ($cart->getCartItems() as $cartItem) {
-            if ($cartItem->getProduct()->getId() == $product_id) {
+            if ($cartItem->getProduct()->getId() == $productId) {
                 $existingCartItem = $cartItem;
                 break;
             }

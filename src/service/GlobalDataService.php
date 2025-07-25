@@ -35,7 +35,7 @@ class GlobalDataService
             $data['categories'] = $this->categoryRepository->findAll();
             $data['categoriesFeatured'] = $this->categoryRepository->getCategoriesFeatured();
 
-            if (isset($_SESSION['user'])) {
+            if (isset($_SESSION['user_id'])) {
                 $numCartItems = $this->cartRepository->getCartNumber();
                 $data['numCartItems'] = $numCartItems;
             }
@@ -46,8 +46,8 @@ class GlobalDataService
             $data['numCartItems'] = 0;
         }
 
-        if (isset($_SESSION['user'])) {
-            $data['user'] = $_SESSION['user'];
+        if (isset($_SESSION['username'])) {
+            $data['username'] = $_SESSION['username'];
         }
 
         return $data;

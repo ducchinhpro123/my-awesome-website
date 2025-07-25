@@ -24,6 +24,11 @@ class CartRepository extends EntityRepository
         parent::__construct($this->entityManager, $entityMetadata);
     }
 
+    /**
+     * Create a new cart and save it into the database
+     *
+     * @return Cart a new cart object
+     */
     public function newCart()
     {
         $user = $this->userRepository->find($_SESSION['user_id']);
@@ -35,19 +40,39 @@ class CartRepository extends EntityRepository
         return $cart;
     }
 
+    /**
+     * Update cart
+     *
+     * @param \MyAwesomeWebsite\model\Cart $cart save this
+     *
+     */
     public function save(Cart $cart)
     {
         $this->entityManager->persist($cart);
         $this->entityManager->flush();
     }
 
-    public function getCart(): Cart
+    /**
+     * Get a cart object
+     *
+     * @return Cart | null
+     */
+    public function getCart(): Cart | null
     {
-        $userId = $_SESSION['user']->getId();
+        if (!isset($_SESSION['user_id'])) {
+            return null;
+        }
+        $userId = $_SESSION['user_id'];
+
         $cart = $this->findOneBy(["user" => $userId]);
         return $cart;
     }
 
+    /**
+     * How many cart items in the existing cart?
+     *
+     * @return int the number of cart items
+     */
     public function getCartNumber()
     {
         $cart = $this->getCart();

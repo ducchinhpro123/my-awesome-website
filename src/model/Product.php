@@ -28,6 +28,9 @@ class Product
     #[ORM\Column(type: 'integer', nullable: false)]
     private int $rating = 0;
 
+    #[ORM\Column(type: 'integer', nullable: false)]
+    private int $stock = 0;
+
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'products')]
     #[ORM\JoinColumn(name: 'category_id', referencedColumnName: 'id', nullable: true)]
     private Category $category;
@@ -43,6 +46,16 @@ class Product
         $this->price = $price;
         $this->category = $category;
         $this->rating = $rating;
+    }
+
+    public function getStock()
+    {
+        return $this->stock;
+    }
+
+    public function setStock(int $stock)
+    {
+        $this->stock = $stock;
     }
 
     public function getRating()

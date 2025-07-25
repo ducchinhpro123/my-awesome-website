@@ -13,8 +13,8 @@
                         <div class="col-md-5 d-none d-md-block">
                             <div class="bg-red h-100 d-flex align-items-center justify-content-center p-4">
                                 <div class="text-center text-white">
-                                    <i class="fas fa-leaf fa-3x mb-4 text-golden"></i>
-                                    <h4 class="fw-bold mb-3">Chào Mừng Trở Lại</h4>
+                                    <img src="/assets/images/logo3-1.png" style="width: 100px" />
+                                    <h4 class="fw-bold mb-3 mt-3">Chào Mừng Trở Lại</h4>
                                     <p class="mb-4 opacity-75">Đăng nhập để tiếp tục hành trình mua sắm cùng VietShop</p>
                                     <div class="d-flex justify-content-center gap-3 mt-4">
                                         <i class="fab fa-facebook-f text-white"></i>
@@ -79,7 +79,7 @@
                                             <i class="fas fa-sign-in-alt me-2"></i>Đăng Nhập
                                         </button>
                                     </div>
-                                    
+
                                     <div class="text-center">
                                         <span class="text-muted">Chưa có tài khoản?</span>
                                         <a href="/?action=register" class="text-decoration-none text-red ms-1">Đăng ký ngay</a>
@@ -101,18 +101,20 @@
                                             </button>
                                         </div>
                                     </div>
+
                                 </form>
+
+                                    {% if errorMessage is defined %}
+                                        <div class="mt-3 alert alert-warning">
+                                            {{ errorMessage }}
+                                        <div>
+                                    {% endif %}
+
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="text-center mt-4">
-                    <p class="text-muted small">
-                        <i class="fas fa-shield-alt me-1"></i>
-                        Đăng nhập an toàn với mã hóa SSL
-                    </p>
-                </div>
             </div>
         </div>
     </div>

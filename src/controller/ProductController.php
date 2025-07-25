@@ -6,7 +6,6 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 
 use MyAwesomeWebsite\repository\ProductRepository;
 use MyAwesomeWebsite\Controller;
-use MyAwesomeWebsite\model\Product;
 use MyAwesomeWebsite\repository\CategoryRepository;
 
 class ProductController extends Controller
@@ -17,7 +16,7 @@ class ProductController extends Controller
     public function __construct()
     {
         $this->productRepository = new ProductRepository();
-        $this->categoryRepository = new categoryRepository();
+        $this->categoryRepository = new CategoryRepository();
         parent::__construct();
     }
 
