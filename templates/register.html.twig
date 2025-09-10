@@ -35,22 +35,25 @@
                                 
                                 <h2 class="fw-bold mb-4 text-center text-md-start">Đăng Ký</h2>
                                 
-                                {% if error is defined and error %}
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    <i class="fas fa-exclamation-circle me-2"></i>{{ error }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                                </div>
+                                {% if errors is defined and errors is not empty %}
+                                    {% for error in errors %}
+                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                            <i class="fas fa-exclamation-circle me-2"></i>{{ error }}
+                                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                        </div>
+                                    {% endfor %}
                                 {% endif %}
                                 
                                 <form action="/?action=register-process" method="post" id="registrationForm">
                                     <div class="row">
                                         <div class="col-md-6 mb-3">
                                             <label for="firstName" class="form-label">Họ</label>
-                                            <input type="text" class="form-control" id="firstName" name="firstName" required>
+                                            <input value="{{ formData.firstName ?? '' }}" type="text" class="form-control" id="firstName" name="firstName" required>
+
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="lastName" class="form-label">Tên</label>
-                                            <input type="text" class="form-control" id="lastName" name="lastName" required>
+                                            <input value="{{ formData.lastName ?? '' }}" type="text" class="form-control" id="lastName" name="lastName" required>
                                         </div>
                                     </div>
                                     
@@ -61,7 +64,7 @@
                                             <span class="input-group-text bg-light border-end-0">
                                                 <i class="fas fa-user text-muted"></i>
                                             </span>
-                                            <input type="text" class="form-control border-start-0" id="username" name="username" required>
+                                            <input value="{{ formData.username ?? '' }}" type="text" class="form-control border-start-0" id="username" name="username" required>
                                         </div>
                                         <small class="form-text text-muted">Tên đăng nhập phải có ít nhất 5 ký tự</small>
                                     </div>
@@ -72,7 +75,7 @@
                                             <span class="input-group-text bg-light border-end-0">
                                                 <i class="fas fa-lock text-muted"></i>
                                             </span>
-                                            <input type="password" class="form-control border-start-0" id="password" name="password" required>
+                                            <input value="{{ formData.password ?? '' }}" type="password" class="form-control border-start-0" id="password" name="password" required>
                                             <button class="btn btn-outline-secondary border-start-0" type="button" id="togglePassword">
                                                 <i class="far fa-eye"></i>
                                             </button>
@@ -96,7 +99,7 @@
                                             <span class="input-group-text bg-light border-end-0">
                                                 <i class="fas fa-phone text-muted"></i>
                                             </span>
-                                            <input type="tel" class="form-control border-start-0" id="phone" name="phone">
+                                            <input value="{{ formData.phoneNumber ?? '' }}" type="tel" class="form-control border-start-0" id="phone" name="phone" required>
                                         </div>
                                     </div>
                                     

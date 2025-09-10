@@ -76,7 +76,17 @@ class CartRepository extends EntityRepository
     public function getCartNumber()
     {
         $cart = $this->getCart();
-        return count($cart->getCartItems());
+        if ($cart == null) {
+            return 0;
+        }
+
+        $cartItems = $cart->getCartItems();
+
+        if ($cartItems === null || $cartItems->isEmpty()) {
+            return 0;
+        }
+
+        return $cart->getCartItems()->count();
     }
 }
 

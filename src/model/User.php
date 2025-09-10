@@ -22,7 +22,7 @@ class User
     private string $lastName;
 
     #[ORM\Column(type: 'string', length: 20)]
-    private int $phoneNumber;
+    private string $phoneNumber;
 
     #[ORM\Column(type: 'string', unique: true)]
     private string $username;

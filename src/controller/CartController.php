@@ -44,9 +44,9 @@ class CartController extends Controller
         }
 
         $cartItems = $cart->getCartItems();
-
         $this->args['cart'] = $cart;
         $this->args['cartItems'] = $cartItems;
+        $this->args['numCartItems'] = $cartItems->count();
 
         print $this->twig->render($template, $this->args);
     }
@@ -71,10 +71,14 @@ class CartController extends Controller
         }
 
         $existingCartItem = null;
-        foreach ($cart->getCartItems() as $cartItem) {
-            if ($cartItem->getProduct()->getId() == $productId) {
-                $existingCartItem = $cartItem;
-                break;
+        $cartItems = $cart->getCartItems();
+
+        if ($cartItems !== null || !$cartItems->isEmpty()) {
+            foreach ($cart->getCartItems() as $cartItem) {
+                if ($cartItem->getProduct()->getId() == $productId) {
+                    $existingCartItem = $cartItem;
+                    break;
+                }
             }
         }
 

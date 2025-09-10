@@ -1,13 +1,17 @@
 <?php
 
+
 namespace MyAwesomeWebsite\repository;
 
-use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityRepository;
 
 use MyAwesomeWebsite\model\User;
 use MyAwesomeWebsite\service\OrmHelper;
 
+/**
+ * @extends EntityRepository<User>
+ */
 class UserRepository extends EntityRepository
 {
 
@@ -20,7 +24,7 @@ class UserRepository extends EntityRepository
         parent::__construct($this->entityManager, $entityMetadata);
     }
 
-    public function create(User $user)
+    public function create(User $user): void
     {
         $this->entityManager->persist($user);
         $this->entityManager->flush();
