@@ -77,6 +77,9 @@ class Application
                 $this->cartController->cart();
                 break;
 
+            case 'updateAvatar':
+                $this->userController->uploadAvatar();
+                break;
             case 'updateProfile':
                 $isSubmitted = ($_SERVER['REQUEST_METHOD'] === 'POST');
 

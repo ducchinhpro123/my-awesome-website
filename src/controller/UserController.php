@@ -2,6 +2,7 @@
 
 namespace MyAwesomeWebsite\controller;
 
+use Cloudinary\Api\Upload\UploadApi;
 use MyAwesomeWebsite\model\User;
 use MyAwesomeWebsite\repository\UserRepository;
 use MyAwesomeWebsite\Controller;
@@ -17,7 +18,6 @@ class UserController extends Controller
         $this->cartController = new CartController();
         parent::__construct();
     }
-
 
     public function loginPage(): void
     {
@@ -146,6 +146,14 @@ class UserController extends Controller
     {
         $template = 'profile.html.twig';
 
+        $flash = $_SESSION['flash'] ?? null;
+        unset($_SESSION['flash']);
+
+        if ($flash) {
+            $this->args['upload_success'] = $flash['upload_success'] ?? null;
+            $this->args['upload_failed'] = $flash['upload_failed'] ?? null;
+        }
+
         if (isset($_SESSION['user_id'])) {
             $user = $this->userRepository->find($_SESSION['user_id']);
             if ($user) {
@@ -174,6 +182,7 @@ class UserController extends Controller
         print $this->twig->render($template, $this->args);
     }
 
+
     public function logout(): void
     {
         $_SESSION = [];
@@ -200,6 +209,37 @@ class UserController extends Controller
 
         $location = '/?action=profile';
         header("Location: $location");
+    }
+
+    public function uploadAvatar()
+    {
+        if (!isset($_SESSION['user_id'])) {
+            header("Location: /");
+            exit;
+        }
+        if (!isset($_FILES['file_image']) || $_FILES['file_image']['error'] !== UPLOAD_ERR_OK) {
+            throw new Exception("File upload failed.");
+        }
+
+        $upload = new UploadApi();
+        $file_path = $_FILES['file_image']['tmp_name'];
+        $result = $upload->upload($file_path, [
+            'folder' => 'avatars',
+            'use_filename' => true,
+            'overwrite' => true,
+            'public_id' => 'user_' . $_SESSION['user_id']
+        ]);
+
+        if (isset($result['secure_url'])) {
+            $this->userRepository->updateAvatar($_SESSION['user_id'], $result['secure_url']);
+            $_SESSION['flash']['upload_success'] = "Updated successfully";
+        } else {
+            $_SESSION['flash']['upload_failed'] = "Failed to update the avatar";
+        }
+
+        $location = '/?action=profile';
+        header("Location: $location");
+        exit;
     }
 
 }

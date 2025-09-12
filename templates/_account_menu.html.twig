@@ -1,26 +1,41 @@
-        <div class="col-md-4">
-            <div class="card">
-                <div class="card-body text-center">
-                    <img src="https://i.pravatar.cc/300" alt="User Avatar" class="rounded-circle mb-3" width="150">
-                    <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
-                    <button class="btn btn-primary btn-sm">Change Avatar</button>
+<div class="col-md-4">
+    <div class="card">
+        <div class="card-body text-center">
+            <!-- <img src="https://i.pravatar.cc/300" alt="User Avatar" class="rounded-circle mb-3" width="150"> -->
+            <h5 class="card-title">{{ user.firstName }} {{ user.lastName }}</h5>
+            <form method="POST" action="?action=updateAvatar" enctype="multipart/form-data" class="text-center">
+                <img src="{{ user.avatar ?? 'https://i.pravatar.cc/300' }}" alt="User Avatar"
+                    class="rounded-circle mb-3" width="150">
+                <input type="file" name="file_image" class="form-control mb-2" required>
+                <button type="submit" class="btn btn-primary btn-sm">Change Avatar</button>
+            </form>
+
+            {% if upload_success %}
+                <div class="alert alert-success mt-1" role="alert">
+                    {{ upload_success }}
                 </div>
-                <div class="list-group list-group-flush">
-                    <a href="/?action=profile" 
-                       class="list-group-item list-group-item-action {% if active_page == 'profile' %} active {% endif %}">
-                        <i class="fas fa-user me-2"></i>Profile
-                    </a>
-                    <a href="/?action=orders" 
-                        class="list-group-item list-group-item-action {% if active_page == 'orders' %} active {% endif %}">
-                        <i class="fas fa-shopping-bag me-2"></i>My Orders
-                    </a>
-                    <a href="/?action=wishlist" 
-                        class="list-group-item list-group-item-action {% if active_page == 'wishlist' %} active {% endif %}">
-                        <i class="fas fa-heart me-2"></i>Wishlist
-                    </a>
-                    <a href="/?action=logout" class="list-group-item list-group-item-action text-danger">
-                        <i class="fas fa-sign-out-alt me-2"></i>Logout
-                    </a>
+            {% elseif upload_failed %}
+                <div class="alert alert-danger mt-1" role="alert">
+                    {{ upload_fail_msg }}
                 </div>
-            </div>
+            {% endif %}
         </div>
+        <div class="list-group list-group-flush">
+            <a href="/?action=profile"
+                class="list-group-item list-group-item-action {% if active_page == 'profile' %} active {% endif %}">
+                <i class="fas fa-user me-2"></i>Profile
+            </a>
+            <a href="/?action=orders"
+                class="list-group-item list-group-item-action {% if active_page == 'orders' %} active {% endif %}">
+                <i class="fas fa-shopping-bag me-2"></i>My Orders
+            </a>
+            <a href="/?action=wishlist"
+                class="list-group-item list-group-item-action {% if active_page == 'wishlist' %} active {% endif %}">
+                <i class="fas fa-heart me-2"></i>Wishlist
+            </a>
+            <a href="/?action=logout" class="list-group-item list-group-item-action text-danger">
+                <i class="fas fa-sign-out-alt me-2"></i>Logout
+            </a>
+        </div>
+    </div>
+</div>

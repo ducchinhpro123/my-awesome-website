@@ -5,7 +5,7 @@ require_once 'vendor/autoload.php';
 use Doctrine\DBAL\DriverManager;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\ORMSetup;
-
+use Cloudinary\Configuration\Configuration;
 use Symfony\Component\Dotenv\Dotenv;
 
 
@@ -26,7 +26,8 @@ $config = ORMSetup::createAttributeMetadataConfiguration(
 );
 
 $connection = DriverManager::getConnection($connectionParams, $config);
-
 $entityManager = new EntityManager($connection, $config);
 
+// For cloudinary
+Configuration::instance("cloudinary://{$_ENV['CLOUNDINARY_KEY']}:{$_ENV['CLOUNDINARY_SECRET']}@{$_ENV['CLOUNDINARY_NAME']}?secure=true");
 ?>

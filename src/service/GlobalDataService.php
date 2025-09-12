@@ -4,12 +4,14 @@ namespace MyAwesomeWebsite\service;
 
 use MyAwesomeWebsite\repository\CategoryRepository;
 use MyAwesomeWebsite\repository\CartRepository;
+use MyAwesomeWebsite\repository\UserRepository;
 
 class GlobalDataService
 {
     private static $instance = null;
     private CategoryRepository $categoryRepository;
     private CartRepository $cartRepository;
+    private UserRepository $userRepository;
 
     public static function getInstance()
     {
@@ -23,6 +25,7 @@ class GlobalDataService
     {
         $this->categoryRepository = new CategoryRepository();
         $this->cartRepository = new CartRepository();
+        $this->userRepository = new UserRepository();
     }
 
     /*
@@ -50,9 +53,14 @@ class GlobalDataService
             $data['username'] = $_SESSION['username'];
         }
 
+        if (isset($_SESSION['user_id'])) {
+            $user = $this->userRepository->find($_SESSION['user_id']);
+            if ($user) {
+                $data['user'] = $user;
+            }
+        }
         return $data;
     }
-
 }
 
 ?>

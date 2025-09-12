@@ -30,6 +30,9 @@ class User
     #[ORM\Column(type: 'string')]
     private string $password;
 
+    #[ORM\Column(type: 'string', nullable: true)]
+    private ?string $avatar = null;
+
     #[ORM\Column(type: 'boolean', name: 'is_admin')]
     private bool $isAdmin = false;
 
@@ -113,6 +116,16 @@ class User
     public function getCart(): ?Cart
     {
         return $this->cart;
+    }
+
+    public function setAvatar(?string $avatar): void
+    {
+        $this->avatar = $avatar;
+    }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
     }
 }
 

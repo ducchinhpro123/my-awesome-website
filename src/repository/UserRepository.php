@@ -28,7 +28,18 @@ class UserRepository extends EntityRepository
     {
         $this->entityManager->persist($user);
         $this->entityManager->flush();
+    }
 
+    public function updateAvatar(int $user_id, string $avatar_path)
+    {
+        $user = $this->find($user_id);
+        if (!$user) {
+            throw new \Exception("user not found with ID $user_id");
+        }
+        $user->setAvatar($avatar_path);
+
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
     }
 }
 
