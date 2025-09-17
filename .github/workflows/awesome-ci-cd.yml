@@ -44,6 +44,9 @@ jobs:
         echo "MYSQL_DATABASE=my_awesome_website_test" >> .env
         echo "MYSQL_USER=webapp" >> .env
         echo "MYSQL_PASSWORD=webapp123" >> .env
+        echo "CLOUNDINARY_KEY=${{ secrets.CLOUNDINARY_KEY }}" >> .env
+        echo "CLOUNDINARY_SECRET=${{ secrets.CLOUNDINARY_SECRET }}" >> .env
+        echo "CLOUNDINARY_NAME=${{ secrets.CLOUNDINARY_NAME }}" >> .env
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
