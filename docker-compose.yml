@@ -11,6 +11,9 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       - MYSQL_HOST=db
       - MYSQL_PORT=3306
+      - CLOUNDINARY_KEY=${CLOUNDINARY_KEY}
+      - CLOUNDINARY_SECRET=${CLOUNDINARY_SECRET}
+      - CLOUNDINARY_NAME=${CLOUNDINARY_NAME}
     volumes:
       - .:/var/www/html
     networks:
