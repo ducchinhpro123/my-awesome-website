@@ -8,6 +8,7 @@
         "twig/twig": "^3.21",
         "doctrine/orm": "^3.4",
         "symfony/cache": "^7.3",
-        "symfony/dotenv": "^7.3"
+        "symfony/dotenv": "^7.3",
+        "cloudinary/cloudinary_php": "^3.1"
     }
 }
