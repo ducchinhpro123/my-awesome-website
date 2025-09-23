@@ -9,8 +9,12 @@ use Cloudinary\Configuration\Configuration;
 use Symfony\Component\Dotenv\Dotenv;
 
 
-$dotenv = new Dotenv();
-$dotenv->load(__DIR__ . '/.env');
+$env_file = __DIR__ . '/.env';
+if (file_exists($env_file)) {
+    $dotenv = new Dotenv();
+    $dotenv->load($env_file);
+}
+
 
 $connectionParams = [];
 
