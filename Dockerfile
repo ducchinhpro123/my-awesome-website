@@ -12,12 +12,14 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     libzip-dev \
+    libpq-dev \
     zip \
     unzip \
     && rm -rf /var/lib/apt/lists/*
-
 # Install PHP extensions
-RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd zip
+
+RUN docker-php-ext-install pdo_mysql pdo_pgsql pgsql mbstring exif pcntl bcmath gd zip
+
 
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
@@ -44,17 +46,6 @@ RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 # Copy application code
 COPY . .
-
-# Copy .env.example to .env if .env doesn't exist
-RUN if [ ! -f .env ] && [ -f .env.example ]; then \
-    cp .env.example .env; \
-    elif [ ! -f .env ]; then \
-    echo "MYSQL_DATABASE=my_awesome_website" > .env && \
-    echo "MYSQL_USER=webapp" >> .env && \
-    echo "MYSQL_PASSWORD=webapp123" >> .env && \
-    echo "MYSQL_HOST=db" >> .env && \
-    echo "MYSQL_PORT=3306" >> .env; \
-    fi
 
 # Set proper permissions
 RUN chown -R www-data:www-data /var/www/html \

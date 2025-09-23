@@ -14,6 +14,7 @@ services:
       - CLOUNDINARY_KEY=${CLOUNDINARY_KEY}
       - CLOUNDINARY_SECRET=${CLOUNDINARY_SECRET}
       - CLOUNDINARY_NAME=${CLOUNDINARY_NAME}
+      - PSQL=${PSQL}
     volumes:
       - .:/var/www/html
     networks:
