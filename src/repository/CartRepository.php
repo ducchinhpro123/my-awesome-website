@@ -65,6 +65,9 @@ class CartRepository extends EntityRepository
         $userId = $_SESSION['user_id'];
 
         $cart = $this->findOneBy(["user" => $userId]);
+        if ($cart == null) {
+            $cart = $this->newCart();
+        }
         return $cart;
     }
 

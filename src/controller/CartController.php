@@ -54,6 +54,7 @@ class CartController extends Controller
     public function addToCart($productId): void
     {
         $product = $this->productRepository->find($productId);
+        // If user logged in, but the cart is empty, generate a new one
         $cart = $this->cartRepository->getCart();
 
         // User haven't logged
@@ -64,10 +65,6 @@ class CartController extends Controller
             ];
             header("Location: /?action=login");
             exit;
-        }
-
-        if(empty($cart)) {
-            $cart = $this->cartRepository->newCart();
         }
 
         $existingCartItem = null;
