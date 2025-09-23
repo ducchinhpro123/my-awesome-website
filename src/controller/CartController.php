@@ -99,6 +99,3 @@ class CartController extends Controller
         exit;
     }
 }
-
-
-?>

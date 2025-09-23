@@ -42,5 +42,3 @@ class UserRepository extends EntityRepository
         $this->entityManager->flush();
     }
 }
-
-?>

@@ -25,5 +25,3 @@ class CategoryController extends Controller
         return $this->categoryRepository->findAll();
     }
 }
-
-?>

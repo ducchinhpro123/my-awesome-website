@@ -42,6 +42,9 @@ class User
     #[ORM\OneToOne(mappedBy: 'user', targetEntity: Cart::class, cascade: ['persist', 'remove'])]
     private ?Cart $cart;
 
+    #[ORM\OneToMany(targetEntity: Order::class, mappedBy: 'user')]
+    private Collection $orders;
+
     public function __construct(string $username, string $password, string $firstName, string $lastName, string $phoneNumber)
     {
         $this->username = $username;
@@ -128,5 +131,3 @@ class User
         return $this->avatar;
     }
 }
-
-?>

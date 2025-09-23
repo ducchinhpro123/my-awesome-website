@@ -19,6 +19,3 @@ class CartItemController extends Controller
         parent::__construct();
     }
 }
-
-
-?>

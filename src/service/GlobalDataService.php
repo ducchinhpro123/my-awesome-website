@@ -62,5 +62,3 @@ class GlobalDataService
         return $data;
     }
 }
-
-?>

@@ -66,5 +66,3 @@ class CartItem
         return $this->quantity;
     }
 }
-
-?>

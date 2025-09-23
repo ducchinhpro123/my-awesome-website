@@ -53,5 +53,3 @@ class CartItemRepository extends EntityRepository
         return $query->execute(); // return the effected rows
     }
 }
-
-?>

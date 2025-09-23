@@ -89,5 +89,3 @@ class CartRepository extends EntityRepository
         return $cart->getCartItems()->count();
     }
 }
-
-?>

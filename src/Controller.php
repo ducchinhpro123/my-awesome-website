@@ -24,5 +24,3 @@ abstract class Controller
         $this->args = array_merge($this->args, $globalData);
     }
 }
-
-?>
