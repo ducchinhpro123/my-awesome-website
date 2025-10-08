@@ -18,7 +18,7 @@ if (file_exists($env_file)) {
 
 $connectionParams = [];
 
-if (!empty($_ENV['PSQL'])) {
+if (!empty($_ENV['PSQL']) && !empty($_ENV['ENVIRONMENT']) && $_ENV['ENVIRONMENT'] != 'local') {
     $psql = parse_url($_ENV['PSQL']);
     $connectionParams = [
         'host' => $psql['host'],
@@ -32,7 +32,7 @@ if (!empty($_ENV['PSQL'])) {
 } else {
     // Local development
     $connectionParams = [
-        'dbname' => $_ENV['MYSQL_DATABASE'],
+        'dbname' => $_ENV['MYSQL_DATABASE_LOCAL'],
         'user' => $_ENV['MYSQL_USER'],
         'password' => $_ENV['MYSQL_PASSWORD'],
         'host' => $_ENV['MYSQL_HOST'] ?? 3306,
