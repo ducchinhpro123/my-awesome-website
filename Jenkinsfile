@@ -24,11 +24,13 @@ pipeline {
             steps {
                 sh 'cp .env.example .env'
                 sh '''
-                    echo "MYSQL_HOST=db" >> .env
-                    echo "MYSQL_PORT=3306" >> .env
-                    echo "MYSQL_DATABASE=my_awesome_website_test" >> .env
-                    echo "MYSQL_USER=webapp" >> .env
-                    echo "MYSQL_PASSWORD=webapp123" >> .env
+                sed -i "s/MYSQL_HOST=.*/MYSQL_HOST=db/" .env
+                sed -i "s/MYSQL_PORT=.*/MYSQL_PORT=3306/" .env
+                sed -i "s/MYSQL_DATABASE=.*/MYSQL_DATABASE=my_awesome_website/" .env
+                sed -i "s/MYSQL_USER=.*/MYSQL_USER=webapp/" .env
+                sed -i "s/MYSQL_PASSWORD=.*/MYSQL_PASSWORD=webapp123/" .env
+                sed -i "s/MYSQL_DATABASE_LOCAL=.*/MYSQL_DATABASE_LOCAL=demo1/" .env
+                sed -i "s/ENVIRONMENT=.*/ENVIRONMENT=local/" .env
                 '''
             }
         }
