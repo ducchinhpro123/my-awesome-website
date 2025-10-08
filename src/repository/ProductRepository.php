@@ -66,6 +66,7 @@ class ProductRepository extends EntityRepository
 
         /* return new Paginator($query, true); */
     }
+
     /**
      * @param array<int,mixed> $criteria
      */
