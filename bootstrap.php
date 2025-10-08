@@ -18,6 +18,7 @@ if (file_exists($env_file)) {
 
 $connectionParams = [];
 
+// For production
 if (!empty($_ENV['PSQL']) && !empty($_ENV['ENVIRONMENT']) && $_ENV['ENVIRONMENT'] != 'local') {
     $psql = parse_url($_ENV['PSQL']);
     $connectionParams = [
