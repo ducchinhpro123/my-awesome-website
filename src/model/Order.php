@@ -25,7 +25,7 @@ class Order
     #[ORM\Column(type: 'string')]
     private string $status = 'pending';
 
-    #[ORM\OneToMany(mappedBy: 'order', targetEntity: OrderItem::class)]
+    #[ORM\OneToMany(mappedBy: 'order', targetEntity: OrderItem::class, cascade: ['persist', 'remove'])]
     private Collection $orderItems;
 
     public function __construct(User $user, string $totalAmount)
@@ -78,13 +78,13 @@ class Order
     public function addOrderItem(OrderItem $orderItem)
     {
         if (!$this->orderItems->contains($orderItem)) {
-            $this->orderItems->add($oderItem);
+            $this->orderItems->add($orderItem);
         }
     }
 
     public function removeOrderItem(OrderItem $orderItem)
     {
-        $this->orderItems->removeElement($oderItem);
+        $this->orderItems->removeElement($orderItem);
     }
 
 }

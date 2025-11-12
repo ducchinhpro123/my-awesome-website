@@ -1,0 +1,219 @@
+{% extends 'base.html.twig'%}
+
+{% set active_page = 'payment-result' %}
+
+{% block title %} Payment Result {% endblock %}
+
+{% block body %} 
+    <!-- Page Header -->
+    <section class="bg-light py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="display-5 fw-bold mb-3 text-red">Payment Result</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/?action=home">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/?action=cart">Cart</a></li>
+                            <li class="breadcrumb-item"><a href="/?action=checkout">Checkout</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Result</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Result Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    {% if payment_result.status == 'success' %}
+                        <!-- Success Message -->
+                        <div class="card border-success shadow-lg">
+                            <div class="card-body text-center py-5">
+                                <div class="mb-4">
+                                    <i class="fas fa-check-circle text-success" style="font-size: 80px;"></i>
+                                </div>
+                                <h2 class="text-success mb-3">Payment Successful!</h2>
+                                <p class="lead mb-4">{{ payment_result.message }}</p>
+                                
+                                <!-- Transaction Details -->
+                                <div class="card bg-light mb-4">
+                                    <div class="card-body">
+                                        <h5 class="mb-3">Transaction Details</h5>
+                                        <div class="row text-start">
+                                            <div class="col-md-6 mb-3">
+                                                <strong>Transaction ID:</strong><br>
+                                                <code class="text-primary">{{ payment_result.transaction_id }}</code>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <strong>Order ID:</strong><br>
+                                                <code class="text-primary">#{{ order_id }}</code>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <strong>Payment Method:</strong><br>
+                                                {{ payment_result.payment_method|upper }}
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <strong>Amount Paid:</strong><br>
+                                                <span class="h5 text-success">${{ payment_result.amount }}</span>
+                                            </div>
+                                            <div class="col-12">
+                                                <strong>Date & Time:</strong><br>
+                                                {{ payment_result.timestamp }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Success Actions -->
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                    <a href="/?action=orders" class="btn btn-success btn-lg">
+                                        <i class="fas fa-list me-2"></i>View My Orders
+                                    </a>
+                                    <a href="/?action=products" class="btn btn-outline-primary btn-lg">
+                                        <i class="fas fa-shopping-bag me-2"></i>Continue Shopping
+                                    </a>
+                                </div>
+
+                                <!-- Order Confirmation Notice -->
+                                <div class="alert alert-info mt-4 text-start">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    <strong>What's Next?</strong>
+                                    <ul class="mb-0 mt-2">
+                                        <li>A confirmation email has been sent to your registered email address</li>
+                                        <li>You can track your order in the "My Orders" section</li>
+                                        <li>Your order will be processed within 24 hours</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    {% else %}
+                        <!-- Failure Message -->
+                        <div class="card border-danger shadow-lg">
+                            <div class="card-body text-center py-5">
+                                <div class="mb-4">
+                                    <i class="fas fa-times-circle text-danger" style="font-size: 80px;"></i>
+                                </div>
+                                <h2 class="text-danger mb-3">Payment Failed</h2>
+                                <p class="lead mb-4">{{ payment_result.message }}</p>
+                                
+                                <!-- Transaction Details -->
+                                <div class="card bg-light mb-4">
+                                    <div class="card-body">
+                                        <h5 class="mb-3">Transaction Details</h5>
+                                        <div class="row text-start">
+                                            <div class="col-md-6 mb-3">
+                                                <strong>Transaction ID:</strong><br>
+                                                <code class="text-muted">{{ payment_result.transaction_id }}</code>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <strong>Payment Method:</strong><br>
+                                                {{ payment_result.payment_method|upper }}
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <strong>Attempted Amount:</strong><br>
+                                                <span class="h5 text-muted">${{ payment_result.amount }}</span>
+                                            </div>
+                                            <div class="col-md-6 mb-3">
+                                                <strong>Date & Time:</strong><br>
+                                                {{ payment_result.timestamp }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Failure Actions -->
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                                    <a href="/?action=checkout" class="btn btn-danger btn-lg">
+                                        <i class="fas fa-redo me-2"></i>Try Again
+                                    </a>
+                                    <a href="/?action=cart" class="btn btn-outline-secondary btn-lg">
+                                        <i class="fas fa-shopping-cart me-2"></i>Back to Cart
+                                    </a>
+                                </div>
+
+                                <!-- Help Notice -->
+                                <div class="alert alert-warning mt-4 text-start">
+                                    <i class="fas fa-exclamation-triangle me-2"></i>
+                                    <strong>Need Help?</strong>
+                                    <ul class="mb-0 mt-2">
+                                        <li>Please check your payment details and try again</li>
+                                        <li>Make sure you have sufficient funds in your account</li>
+                                        <li>Contact your bank if the problem persists</li>
+                                        <li>Contact our support team for assistance</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Simulation Notice -->
+                                <div class="alert alert-info mt-3 text-start">
+                                    <i class="fas fa-info-circle me-2"></i>
+                                    <strong>Simulation Note:</strong> This is a simulated payment failure. In a real scenario, you would receive specific error details from the payment gateway. Try again for a different result (80% success rate).
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <!-- Support Section -->
+                    <div class="card mt-4">
+                        <div class="card-body text-center">
+                            <h5 class="mb-3">Need Assistance?</h5>
+                            <p class="text-muted mb-3">
+                                Our customer support team is available 24/7 to help you with any questions or concerns.
+                            </p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="#" class="btn btn-outline-primary">
+                                    <i class="fas fa-envelope me-2"></i>Email Support
+                                </a>
+                                <a href="#" class="btn btn-outline-primary">
+                                    <i class="fas fa-phone me-2"></i>Call Us
+                                </a>
+                                <a href="#" class="btn btn-outline-primary">
+                                    <i class="fas fa-comment me-2"></i>Live Chat
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Additional Features Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-truck fa-3x text-primary mb-3"></i>
+                            <h5>Fast Shipping</h5>
+                            <p class="text-muted">Free shipping on orders over $50</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+                            <h5>Secure Payment</h5>
+                            <p class="text-muted">Your payment information is always safe</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body">
+                            <i class="fas fa-undo fa-3x text-primary mb-3"></i>
+                            <h5>Easy Returns</h5>
+                            <p class="text-muted">30-day return policy on all items</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

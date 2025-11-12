@@ -6,6 +6,7 @@ use MyAwesomeWebsite\controller\DefaultController;
 use MyAwesomeWebsite\controller\ProductController;
 use MyAwesomeWebsite\controller\CartController;
 use MyAwesomeWebsite\controller\UserController;
+use MyAwesomeWebsite\controller\OrderController;
 
 class Application
 {
@@ -13,6 +14,7 @@ class Application
     private ProductController $productController;
     private CartController $cartController;
     private UserController $userController;
+    private OrderController $orderController;
 
     public function __construct()
     {
@@ -20,6 +22,7 @@ class Application
         $this->productController = new ProductController();
         $this->userController = new UserController();
         $this->cartController = new CartController();
+        $this->orderController = new OrderController();
     }
 
     public function run()
@@ -103,6 +106,18 @@ class Application
                 /* case 'products-search': */
                 /*     $this->productController->searchProducts(); */
                 /*     break; */
+
+            case 'checkout':
+                $this->orderController->checkout();
+                break;
+
+            case 'process-payment':
+                $this->orderController->processPayment();
+                break;
+
+            case 'payment-result':
+                $this->orderController->paymentResult();
+                break;
 
             default:
                 $this->defaultController->homePage();

@@ -6,7 +6,6 @@ use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
 
 use MyAwesomeWebsite\service\GlobalDataService;
-use MyAwesomeWebsite\controller\CartController;
 
 abstract class Controller
 {

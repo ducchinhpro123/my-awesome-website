@@ -1,0 +1,241 @@
+{% extends 'base.html.twig'%}
+
+{% set active_page = 'checkout' %}
+
+{% block title %} Checkout {% endblock %}
+
+{% block body %} 
+    <!-- Page Header -->
+    <section class="bg-light py-5 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="display-5 fw-bold mb-3 text-red">Checkout</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/?action=home">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/?action=cart">Cart</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Checkout</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section class="py-5">
+        <div class="container">
+            {% if session.error %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{ session.error }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endif %}
+
+            <form action="/?action=process-payment" method="POST" id="paymentForm">
+                <div class="row">
+                    <!-- Payment Details -->
+                    <div class="col-lg-8 mb-4">
+                        <!-- Payment Method -->
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="fas fa-credit-card me-2"></i>Payment Method</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 mb-3">
+                                        <input type="radio" class="btn-check" name="payment_method" id="visa" value="visa" checked>
+                                        <label class="btn btn-outline-primary w-100 d-flex flex-column align-items-center p-3" for="visa">
+                                            <img src="/assets/icons/visa-svgrepo-com.png" alt="Visa" style="height: 40px;" class="mb-2">
+                                            <span>Visa</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <input type="radio" class="btn-check" name="payment_method" id="mastercard" value="mastercard">
+                                        <label class="btn btn-outline-primary w-100 d-flex flex-column align-items-center p-3" for="mastercard">
+                                            <img src="/assets/icons/mastercard-full-svgrepo-com.png" alt="Mastercard" style="height: 40px;" class="mb-2">
+                                            <span>Mastercard</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-4 mb-3">
+                                        <input type="radio" class="btn-check" name="payment_method" id="paypal" value="paypal">
+                                        <label class="btn btn-outline-primary w-100 d-flex flex-column align-items-center p-3" for="paypal">
+                                            <img src="/assets/icons/paypal-svgrepo-com.png" alt="PayPal" style="height: 40px;" class="mb-2">
+                                            <span>PayPal</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card Details (Hidden for PayPal) -->
+                        <div class="card" id="cardDetails">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="fas fa-wallet me-2"></i>Card Details</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <label for="cardholder_name" class="form-label">Cardholder Name</label>
+                                        <input type="text" class="form-control" id="cardholder_name" name="cardholder_name" placeholder="John Doe" required>
+                                    </div>
+                                    <div class="col-12 mb-3">
+                                        <label for="card_number" class="form-label">Card Number</label>
+                                        <input type="text" class="form-control" id="card_number" name="card_number" placeholder="1234 5678 9012 3456" maxlength="16" required>
+                                        <small class="text-muted">For testing: Use any 16-digit number</small>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="expiry_month" class="form-label">Expiry Date</label>
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <select class="form-select" id="expiry_month" name="expiry_month" required>
+                                                    <option value="">MM</option>
+                                                    {% for month in 1..12 %}
+                                                        <option value="{{ '%02d'|format(month) }}">{{ '%02d'|format(month) }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                            <div class="col-6">
+                                                <select class="form-select" id="expiry_year" name="expiry_year" required>
+                                                    <option value="">YYYY</option>
+                                                    {% for year in 2025..2035 %}
+                                                        <option value="{{ year }}">{{ year }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="cvv" class="form-label">CVV</label>
+                                        <input type="text" class="form-control" id="cvv" name="cvv" placeholder="123" maxlength="3" required>
+                                        <small class="text-muted">3 digits on the back</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PayPal Info (Hidden by default) -->
+                        <div class="card d-none" id="paypalInfo">
+                            <div class="card-header">
+                                <h5 class="mb-0"><i class="fab fa-paypal me-2"></i>PayPal Payment</h5>
+                            </div>
+                            <div class="card-body">
+                                <p class="mb-0">
+                                    <i class="fas fa-info-circle text-info me-2"></i>
+                                    You will be redirected to PayPal to complete your payment securely.
+                                    This is a simulated payment - no actual transaction will occur.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <div class="col-lg-4">
+                        <div class="card sticky-top" style="top: 100px;">
+                            <div class="card-header">
+                                <h5 class="mb-0">Order Summary</h5>
+                            </div>
+                            <div class="card-body">
+                                <!-- Order Items -->
+                                <div class="mb-3">
+                                    <h6 class="mb-3">Items ({{ cartItems|length }})</h6>
+                                    {% for cartItem in cartItems %}
+                                        <div class="d-flex justify-content-between mb-2">
+                                            <small>{{ cartItem.product.name }} × {{ cartItem.quantity }}</small>
+                                            <small>${{ (cartItem.product.price * cartItem.quantity)|number_format(2) }}</small>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                
+                                <hr>
+                                
+                                <!-- Price Breakdown -->
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Subtotal:</span>
+                                    <span>${{ subtotal }}</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Tax (8%):</span>
+                                    <span>${{ tax }}</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span>Shipping:</span>
+                                    <span>{% if shipping == '0.00' %}<span class="text-success">Free</span>{% else %}<span>${{ shipping }}</span>{% endif %}</span>
+                                </div>
+                                
+                                <hr>
+                                
+                                <div class="d-flex justify-content-between mb-3">
+                                    <strong>Total:</strong>
+                                    <strong class="text-primary h5">${{ total }}</strong>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100 mb-3" id="submitBtn">
+                                    <i class="fas fa-lock me-2"></i>Complete Payment
+                                </button>
+
+                                <div class="text-center mb-3">
+                                    <small class="text-muted">
+                                        <i class="fas fa-shield-alt me-1"></i>
+                                        Secure SSL Encrypted Payment
+                                    </small>
+                                </div>
+
+                                <a href="/?action=cart" class="btn btn-outline-secondary w-100">
+                                    <i class="fas fa-arrow-left me-2"></i>Back to Cart
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Payment Simulation Notice -->
+                        <div class="alert alert-info mt-3">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <strong>Simulation Mode:</strong> This is a simulated payment. The system will randomly succeed or fail to demonstrate both scenarios.
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // Toggle card details based on payment method
+        document.querySelectorAll('input[name="payment_method"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const cardDetails = document.getElementById('cardDetails');
+                const paypalInfo = document.getElementById('paypalInfo');
+                const cardInputs = cardDetails.querySelectorAll('input, select');
+                
+                if (this.value === 'paypal') {
+                    cardDetails.classList.add('d-none');
+                    paypalInfo.classList.remove('d-none');
+                    // Disable required validation for card fields
+                    cardInputs.forEach(input => input.removeAttribute('required'));
+                } else {
+                    cardDetails.classList.remove('d-none');
+                    paypalInfo.classList.add('d-none');
+                    // Enable required validation for card fields
+                    cardInputs.forEach(input => input.setAttribute('required', 'required'));
+                }
+            });
+        });
+
+        // Format card number input
+        document.getElementById('card_number').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '');
+        });
+
+        // Format CVV input
+        document.getElementById('cvv').addEventListener('input', function(e) {
+            this.value = this.value.replace(/\D/g, '');
+        });
+
+        // Form submission handler
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Processing...';
+        });
+    </script>
+{% endblock %}

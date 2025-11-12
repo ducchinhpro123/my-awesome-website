@@ -11,7 +11,6 @@ use MyAwesomeWebsite\repository\CategoryRepository;
 class ProductController extends Controller
 {
     private ProductRepository $productRepository;
-    private CategoryRepository $categoryRepository;
 
     public function __construct()
     {
