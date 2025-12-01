@@ -162,4 +162,92 @@ class ProductRepository extends EntityRepository
 
     }
 
+    /**
+     * Get all products for admin
+     *
+     * @return Product[]
+     */
+    public function getAllProducts(): array
+    {
+        return $this->createQueryBuilder('p')
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+     * Count total products
+     *
+     * @return int
+     */
+    public function countProducts(): int
+    {
+        return (int) $this->createQueryBuilder('p')
+            ->select('COUNT(p.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }
+
+    /**
+     * Delete a product
+     *
+     * @param int $productId
+     * @return bool
+     */
+    public function deleteProduct(int $productId): bool
+    {
+        $product = $this->find($productId);
+        if ($product) {
+            $this->entityManager->remove($product);
+            $this->entityManager->flush();
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * Save a product (create or update)
+     *
+     * @param Product $product
+     * @return Product
+     */
+    public function save(Product $product): Product
+    {
+        $this->entityManager->persist($product);
+        $this->entityManager->flush();
+        return $product;
+    }
+
+    /**
+     * Create a new product
+     *
+     * @param string $name
+     * @param float $price
+     * @param \MyAwesomeWebsite\model\Category $category
+     * @param int $rating
+     * @param string|null $description
+     * @param string|null $imageUrl
+     * @param int $stock
+     * @return Product
+     */
+    public function createProduct(
+        string $name,
+        float $price,
+        \MyAwesomeWebsite\model\Category $category,
+        int $rating = 0,
+        ?string $description = null,
+        ?string $imageUrl = null,
+        int $stock = 0
+    ): Product {
+        $product = new Product($name, $price, $category, $rating);
+        $product->setDescription($description);
+        $product->setImageUrl($imageUrl);
+        $product->setStock($stock);
+        
+        $this->entityManager->persist($product);
+        $this->entityManager->flush();
+        
+        return $product;
+    }
+
 }

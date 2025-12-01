@@ -55,6 +55,14 @@
                                 <span class="d-md-none">{{ username }}</span>
                             </button>
                             <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userDropdown">
+                                {% if isAdmin is defined and isAdmin %}
+                                <li>
+                                    <a class="dropdown-item text-primary fw-bold" href="/?action=admin">
+                                        <i class="fas fa-cog me-2"></i>Admin Dashboard
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                {% endif %}
                                 <li>
                                     <a class="dropdown-item" href="/?action=profile">
                                         <i class="fas fa-user me-2"></i>Thông Tin Cá Nhân

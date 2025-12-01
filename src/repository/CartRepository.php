@@ -91,4 +91,15 @@ class CartRepository extends EntityRepository
 
         return $cart->getCartItems()->count();
     }
+
+    /**
+     * Get cart by user ID
+     *
+     * @param int $userId
+     * @return Cart|null
+     */
+    public function getCartByUserId(int $userId): ?Cart
+    {
+        return $this->findOneBy(["user" => $userId]);
+    }
 }

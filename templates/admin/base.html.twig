@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Admin{% endblock %} - VietShop Admin</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/assets/admin.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <a href="/?action=admin" class="sidebar-brand">
+            <i class="fas fa-store me-2"></i>
+            VietShop Admin
+        </a>
+        
+        <div class="sidebar-nav">
+            <div class="sidebar-heading">Core</div>
+            
+            <div class="nav-item">
+                <a href="/?action=admin" class="nav-link {% if page_title == 'Dashboard' %}active{% endif %}">
+                    <i class="fas fa-tachometer-alt"></i>
+                    Dashboard
+                </a>
+            </div>
+
+            <div class="sidebar-heading">Management</div>
+            
+            <div class="nav-item">
+                <a href="/?action=admin-users" class="nav-link {% if page_title == 'Users Management' %}active{% endif %}">
+                    <i class="fas fa-users"></i>
+                    Users
+                </a>
+            </div>
+            
+            <div class="nav-item">
+                <a href="/?action=admin-orders" class="nav-link {% if page_title == 'Orders Management' %}active{% endif %}">
+                    <i class="fas fa-shopping-cart"></i>
+                    Orders
+                </a>
+            </div>
+            
+            <div class="nav-item">
+                <a href="/?action=admin-products" class="nav-link {% if page_title == 'Products Management' %}active{% endif %}">
+                    <i class="fas fa-box"></i>
+                    Products
+                </a>
+            </div>
+
+            <div class="sidebar-heading">System</div>
+            
+            <div class="nav-item">
+                <a href="/" class="nav-link">
+                    <i class="fas fa-external-link-alt"></i>
+                    View Site
+                </a>
+            </div>
+            
+            <div class="nav-item">
+                <a href="/?action=logout" class="nav-link">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Top Navbar -->
+        <nav class="topbar">
+            <div class="d-flex align-items-center">
+                <button class="btn btn-link d-lg-none me-3" id="sidebarToggle">
+                    <i class="fas fa-bars text-dark"></i>
+                </button>
+                <h1 class="page-title">{{ page_title }}</h1>
+            </div>
+            
+            <div class="d-flex align-items-center">
+                <div class="dropdown">
+                    <div class="user-profile" data-bs-toggle="dropdown">
+                        <img src="{{ admin.avatar ?: 'https://ui-avatars.com/api/?name=' ~ admin.fullName|url_encode }}" 
+                             class="user-avatar" alt="User">
+                        <div class="user-info d-none d-md-flex">
+                            <span class="user-name">{{ admin.fullName }}</span>
+                            <span class="user-role">Administrator</span>
+                        </div>
+                        <i class="fas fa-chevron-down ms-2 text-secondary small"></i>
+                    </div>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2">
+                        <li><a class="dropdown-item py-2" href="/?action=profile"><i class="fas fa-user me-2 text-secondary"></i>Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item py-2 text-danger" href="/?action=logout"><i class="fas fa-sign-out-alt me-2"></i>Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Content -->
+        <div class="content-wrapper">
+            {% if session.success is defined %}
+                <div class="alert alert-success alert-dismissible fade show border-0 shadow-sm mb-4" role="alert">
+                    <i class="fas fa-check-circle me-2"></i> {{ session.success }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endif %}
+
+            {% if session.error is defined %}
+                <div class="alert alert-danger alert-dismissible fade show border-0 shadow-sm mb-4" role="alert">
+                    <i class="fas fa-exclamation-circle me-2"></i> {{ session.error }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endif %}
+
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sidebar toggle for mobile
+        document.getElementById('sidebarToggle')?.addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.toggle('show');
+        });
+    </script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

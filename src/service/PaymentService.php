@@ -25,45 +25,18 @@ class PaymentService
      */
     public function processPayment(string $paymentMethod, string $amount, array $cardDetails = []): array
     {
-        // Simulate processing delay
-        usleep(500000); // 0.5 seconds delay
-
         // Generate a unique transaction ID
         $transactionId = $this->generateTransactionId();
 
-        // Simulate payment success/failure (80% success rate)
-        $isSuccess = (rand(1, 100) <= 80);
-
-        if ($isSuccess) {
-            return [
-                'status' => self::STATUS_SUCCESS,
-                'transaction_id' => $transactionId,
-                'message' => 'Payment processed successfully',
-                'payment_method' => $paymentMethod,
-                'amount' => $amount,
-                'timestamp' => date('Y-m-d H:i:s')
-            ];
-        } else {
-            // Simulate different failure reasons
-            $failureReasons = [
-                'Insufficient funds',
-                'Card declined by issuer',
-                'Invalid card details',
-                'Transaction timeout',
-                'Payment gateway error'
-            ];
-            
-            $randomReason = $failureReasons[array_rand($failureReasons)];
-
-            return [
-                'status' => self::STATUS_FAILED,
-                'transaction_id' => $transactionId,
-                'message' => 'Payment failed: ' . $randomReason,
-                'payment_method' => $paymentMethod,
-                'amount' => $amount,
-                'timestamp' => date('Y-m-d H:i:s')
-            ];
-        }
+        // Always return success
+        return [
+            'status' => self::STATUS_SUCCESS,
+            'transaction_id' => $transactionId,
+            'message' => 'Payment processed successfully',
+            'payment_method' => $paymentMethod,
+            'amount' => $amount,
+            'timestamp' => date('Y-m-d H:i:s')
+        ];
     }
 
     /**

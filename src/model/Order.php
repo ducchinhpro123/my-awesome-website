@@ -10,12 +10,17 @@ use Doctrine\Common\Collections\Collection;
 #[ORM\Table(name: 'orders')]
 class Order
 {
+    public const STATUS_PENDING = 'pending';
+    public const STATUS_PAID = 'paid';
+    public const STATUS_SHIPPED = 'shipped';
+    public const STATUS_CANCELLED = 'cancelled';
+    public const STATUS_FAILED = 'failed';
     #[ORM\Id]
     #[ORM\Column(type: 'integer')]
     #[ORM\GeneratedValue]
     private int $id;
 
-    #[ORM\Column(name: 'total_amount', type: 'decimal', precision: 10, scale: 2)]
+    #[ORM\Column(name: 'total_amount', type: 'decimal', precision: 15, scale: 2)]
     private string $totalAmount;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'orders')]
@@ -23,7 +28,10 @@ class Order
     private User $user;
 
     #[ORM\Column(type: 'string')]
-    private string $status = 'pending';
+    private string $status = self::STATUS_PENDING;
+
+    #[ORM\Column(type: 'datetime')]
+    private \DateTime $createdAt;
 
     #[ORM\OneToMany(mappedBy: 'order', targetEntity: OrderItem::class, cascade: ['persist', 'remove'])]
     private Collection $orderItems;
@@ -33,6 +41,12 @@ class Order
         $this->user = $user;
         $this->totalAmount = $totalAmount;
         $this->orderItems = new ArrayCollection();
+        $this->createdAt = new \DateTime();
+    }
+
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->createdAt;
     }
 
     public function getId(): int

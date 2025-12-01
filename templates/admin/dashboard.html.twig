@@ -1,0 +1,216 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<!-- Stats Cards Row -->
+<div class="row mb-4">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card primary h-100">
+            <div class="card-body">
+                <div class="stat-content">
+                    <div class="stat-label">Total Revenue</div>
+                    <div class="stat-value">{{ stats.total_revenue|number_format(0, '.', ',') }}₫</div>
+                </div>
+                <div class="stat-icon-bg">
+                    <i class="fas fa-money-bill-wave"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card success h-100">
+            <div class="card-body">
+                <div class="stat-content">
+                    <div class="stat-label">Total Orders</div>
+                    <div class="stat-value">{{ stats.total_orders }}</div>
+                </div>
+                <div class="stat-icon-bg">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card info h-100">
+            <div class="card-body">
+                <div class="stat-content">
+                    <div class="stat-label">Total Users</div>
+                    <div class="stat-value">{{ stats.total_users }}</div>
+                </div>
+                <div class="stat-icon-bg">
+                    <i class="fas fa-users"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card stat-card warning h-100">
+            <div class="card-body">
+                <div class="stat-content">
+                    <div class="stat-label">Products</div>
+                    <div class="stat-value">{{ stats.total_products }}</div>
+                </div>
+                <div class="stat-icon-bg">
+                    <i class="fas fa-box"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Order Status Row -->
+<div class="row mb-4">
+    <div class="col-xl-8 col-lg-7">
+        <div class="card h-100">
+            <div class="card-header">
+                <h6>Recent Orders</h6>
+                <a href="/?action=admin-orders" class="btn btn-sm btn-primary">View All</a>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Order ID</th>
+                                <th>Customer</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in recent_orders %}
+                            <tr>
+                                <td><span class="fw-bold">#{{ order.id }}</span></td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar-sm me-2 bg-light rounded-circle d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                                            <span class="text-primary fw-bold">{{ order.user.fullName|slice(0, 1) }}</span>
+                                        </div>
+                                        {{ order.user.fullName }}
+                                    </div>
+                                </td>
+                                <td>{{ order.totalAmount|number_format(0, '.', ',') }}₫</td>
+                                <td>
+                                    <span class="badge badge-{{ order.status }}">{{ order.status|capitalize }}</span>
+                                </td>
+                                <td class="text-muted small">{{ order.createdAt|date('M d, Y') }}</td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="5" class="text-center text-muted py-4">No orders yet</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-4 col-lg-5">
+        <div class="card h-100">
+            <div class="card-header">
+                <h6>Order Status Overview</h6>
+            </div>
+            <div class="card-body">
+                <div class="mb-4">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="text-secondary"><i class="fas fa-clock text-warning me-2"></i>Pending</span>
+                        <span class="fw-bold">{{ stats.pending_orders }}</span>
+                    </div>
+                    {% set total = stats.pending_orders + stats.paid_orders %}
+                    {% set pending_percent = total > 0 ? (stats.pending_orders / total * 100) : 0 %}
+                    <div class="progress" style="height: 6px;">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: {{ pending_percent }}%"></div>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <div class="d-flex align-items-center justify-content-between mb-2">
+                        <span class="text-secondary"><i class="fas fa-check-circle text-success me-2"></i>Paid</span>
+                        <span class="fw-bold">{{ stats.paid_orders }}</span>
+                    </div>
+                    {% set paid_percent = total > 0 ? (stats.paid_orders / total * 100) : 0 %}
+                    <div class="progress" style="height: 6px;">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: {{ paid_percent }}%"></div>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="d-grid gap-2">
+                    <a href="/?action=admin-orders" class="btn btn-outline-primary">
+                        Manage All Orders
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Users Row -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h6>New Users</h6>
+                <a href="/?action=admin-users" class="btn btn-sm btn-primary">View All</a>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Username</th>
+                                <th>Role</th>
+                                <th>Joined</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in recent_users %}
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                    <img src="{{ user.avatar ?: 'https://ui-avatars.com/api/?name=' ~ user.fullName|url_encode }}" 
+                                    class="rounded-circle me-3" width="36" height="36">
+                                        <div>
+                                            <div class="fw-bold">{{ user.fullName }}</div>
+                                            <div class="small text-muted">{{ user.email }}</div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>{{ user.username }}</td>
+                                <td>
+                                    {% if user.isAdmin %}
+                                        <span class="badge bg-danger">Admin</span>
+                                    {% else %}
+                                        <span class="badge bg-secondary">User</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ user.createdAt|date('M d, Y') }}</td>
+                                <td>
+                                    <a href="/?action=admin-users&edit={{ user.id }}" class="btn btn-sm btn-light text-primary">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            {% else %}
+                            <tr>
+                                <td colspan="5" class="text-center text-muted py-4">No users yet</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

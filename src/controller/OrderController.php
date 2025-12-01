@@ -92,36 +92,6 @@ class OrderController extends Controller
             exit;
         }
 
-        // Get payment details from POST
-        $paymentMethod = filter_input(INPUT_POST, 'payment_method', FILTER_SANITIZE_STRING);
-        
-        // Validate payment method
-        if (!$this->paymentService->isValidPaymentMethod($paymentMethod)) {
-            $_SESSION['error'] = 'Invalid payment method';
-            header("Location: /?action=checkout");
-            exit;
-        }
-
-        // Get card details if not PayPal
-        $cardDetails = [];
-        if ($paymentMethod !== PaymentService::PAYMENT_METHOD_PAYPAL) {
-            $cardDetails = [
-                'card_number' => filter_input(INPUT_POST, 'card_number', FILTER_SANITIZE_STRING),
-                'cardholder_name' => filter_input(INPUT_POST, 'cardholder_name', FILTER_SANITIZE_STRING),
-                'expiry_month' => filter_input(INPUT_POST, 'expiry_month', FILTER_SANITIZE_STRING),
-                'expiry_year' => filter_input(INPUT_POST, 'expiry_year', FILTER_SANITIZE_STRING),
-                'cvv' => filter_input(INPUT_POST, 'cvv', FILTER_SANITIZE_STRING),
-            ];
-
-            // Validate card details
-            $validation = $this->paymentService->validateCardDetails($cardDetails);
-            if (!$validation['valid']) {
-                $_SESSION['error'] = implode(', ', $validation['errors']);
-                header("Location: /?action=checkout");
-                exit;
-            }
-        }
-
         // Calculate total amount
         $cartItems = $cart->getCartItems();
         $subtotal = 0;
@@ -133,11 +103,11 @@ class OrderController extends Controller
         $shipping = $subtotal >= 50 ? 0 : 5.99;
         $total = $subtotal + $tax + $shipping;
 
-        // Process payment through payment service
+        // Process payment through payment service (Instant Checkout)
         $paymentResult = $this->paymentService->processPayment(
-            $paymentMethod,
+            'instant_checkout',
             number_format($total, 2, '.', ''),
-            $cardDetails
+            []
         );
 
         // Handle payment result
@@ -158,7 +128,7 @@ class OrderController extends Controller
             }
             
             // Update order status to paid
-            $order->setStatus('paid');
+            $order->setStatus(Order::STATUS_PAID);
             $this->orderRepository->save($order);
 
             // Clear the cart

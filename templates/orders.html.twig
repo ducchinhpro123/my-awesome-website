@@ -22,27 +22,31 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for order in orders %}
                             <tr>
-                                <th scope="row">12345</th>
-                                <td>2025-06-20</td>
-                                <td><span class="badge bg-success">Shipped</span></td>
-                                <td>$120.00</td>
+                                <th scope="row">#{{ order.id }}</th>
+                                <td>{{ order.createdAt|date('Y-m-d') }}</td>
+                                <td>
+                                    {% if order.status == 'paid' %}
+                                        <span class="badge bg-success">Paid</span>
+                                    {% elseif order.status == 'pending' %}
+                                        <span class="badge bg-warning text-dark">Pending</span>
+                                    {% elseif order.status == 'shipped' %}
+                                        <span class="badge bg-info text-dark">Shipped</span>
+                                    {% elseif order.status == 'cancelled' %}
+                                        <span class="badge bg-danger">Cancelled</span>
+                                    {% else %}
+                                        <span class="badge bg-secondary">{{ order.status|capitalize }}</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ order.totalAmount|number_format(0, ',', '.') }} VND</td>
                                 <td><a href="#" class="btn btn-sm btn-outline-primary">View Details</a></td>
                             </tr>
+                            {% else %}
                             <tr>
-                                <th scope="row">67890</th>
-                                <td>2025-06-15</td>
-                                <td><span class="badge bg-warning text-dark">Processing</span></td>
-                                <td>$85.50</td>
-                                <td><a href="#" class="btn btn-sm btn-outline-primary">View Details</a></td>
+                                <td colspan="5" class="text-center">You have no orders yet.</td>
                             </tr>
-                            <tr>
-                                <th scope="row">54321</th>
-                                <td>2025-06-10</td>
-                                <td><span class="badge bg-danger">Cancelled</span></td>
-                                <td>$200.00</td>
-                                <td><a href="#" class="btn btn-sm btn-outline-primary">View Details</a></td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

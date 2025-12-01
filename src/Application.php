@@ -8,6 +8,8 @@ use MyAwesomeWebsite\controller\CartController;
 use MyAwesomeWebsite\controller\UserController;
 use MyAwesomeWebsite\controller\OrderController;
 
+use MyAwesomeWebsite\controller\AdminController;
+
 class Application
 {
     private DefaultController $defaultController;
@@ -16,6 +18,8 @@ class Application
     private UserController $userController;
     private OrderController $orderController;
 
+    private AdminController $adminController;
+
     public function __construct()
     {
         $this->defaultController = new DefaultController();
@@ -23,6 +27,8 @@ class Application
         $this->userController = new UserController();
         $this->cartController = new CartController();
         $this->orderController = new OrderController();
+
+        $this->adminController = new AdminController();
     }
 
     public function run()
@@ -117,6 +123,53 @@ class Application
 
             case 'payment-result':
                 $this->orderController->paymentResult();
+                break;
+
+
+
+            // Admin routes
+            case 'admin':
+                $this->adminController->dashboard();
+                break;
+
+            case 'admin-users':
+                $this->adminController->users();
+                break;
+
+            case 'admin-toggle-role':
+                $this->adminController->toggleUserRole();
+                break;
+
+            case 'admin-update-role':
+                $this->adminController->updateUserRole();
+                break;
+
+            case 'admin-delete-user':
+                $this->adminController->deleteUser();
+                break;
+
+            case 'admin-orders':
+                $this->adminController->orders();
+                break;
+
+            case 'admin-update-order-status':
+                $this->adminController->updateOrderStatus();
+                break;
+
+            case 'admin-products':
+                $this->adminController->products();
+                break;
+
+            case 'admin-delete-product':
+                $this->adminController->deleteProduct();
+                break;
+
+            case 'admin-add-product':
+                $this->adminController->addProduct();
+                break;
+
+            case 'admin-edit-product':
+                $this->adminController->editProduct();
                 break;
 
             default:

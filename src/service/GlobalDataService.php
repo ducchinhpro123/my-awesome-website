@@ -57,6 +57,7 @@ class GlobalDataService
             $user = $this->userRepository->find($_SESSION['user_id']);
             if ($user) {
                 $data['user'] = $user;
+                $data['isAdmin'] = $user->isAdmin();
             }
         }
         return $data;

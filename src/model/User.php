@@ -10,6 +10,10 @@ use Doctrine\Common\Collections\Collection;
 #[ORM\Table(name: 'users')]
 class User
 {
+    // Role constants
+    public const ROLE_USER = 'ROLE_USER';
+    public const ROLE_ADMIN = 'ROLE_ADMIN';
+
     #[ORM\Id]
     #[ORM\Column(type: 'integer')]
     #[ORM\GeneratedValue]
@@ -129,5 +133,42 @@ class User
     public function getAvatar(): ?string
     {
         return $this->avatar;
+    }
+
+    public function getRole(): string
+    {
+        return $this->isAdmin ? self::ROLE_ADMIN : self::ROLE_USER;
+    }
+
+    public function setRole(string $role): self
+    {
+        $this->isAdmin = ($role === self::ROLE_ADMIN);
+        return $this;
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->isAdmin;
+    }
+
+    public function setIsAdmin(bool $isAdmin): self
+    {
+        $this->isAdmin = $isAdmin;
+        return $this;
+    }
+
+    public function getCreatedAt(): \DateTime
+    {
+        return $this->createdAt;
+    }
+
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function getFullName(): string
+    {
+        return $this->firstName . ' ' . $this->lastName;
     }
 }

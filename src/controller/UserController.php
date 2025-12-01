@@ -171,9 +171,18 @@ class UserController extends Controller
 
     public function orderPage(): void
     {
+        if (!isset($_SESSION['user_id'])) {
+            header("Location: /?action=login");
+            exit;
+        }
+
+        $userId = $_SESSION['user_id'];
+        $orderRepository = new \MyAwesomeWebsite\repository\OrderRepository();
+        $orders = $orderRepository->getUserOrders($userId);
+
+        $this->args['orders'] = $orders;
         $template = 'orders.html.twig';
         print $this->twig->render($template, $this->args);
-
     }
 
     public function wishlistPage(): void

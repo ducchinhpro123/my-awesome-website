@@ -1,0 +1,231 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Orders Management{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+        <h4 class="mb-1 fw-bold">Orders Management</h4>
+        <p class="text-secondary mb-0">Total: {{ total_orders }} orders</p>
+    </div>
+</div>
+
+<!-- Orders Table -->
+<div class="card">
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Items</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td><span class="fw-bold">#{{ order.id }}</span></td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="{{ order.user.avatar ?? 'https://ui-avatars.com/api/?name=' ~ order.user.fullName|url_encode ~ '&background=random' }}" 
+                                     class="rounded-circle me-3" width="36" height="36" style="object-fit: cover;">
+                                <div>
+                                    <div class="fw-bold text-dark">{{ order.user.fullName }}</div>
+                                    <small class="text-secondary">{{ order.user.username }}</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge bg-light text-dark border">
+                                {{ order.orderItems|length }} item(s)
+                            </span>
+                        </td>
+                        <td>
+                            <strong class="text-dark">{{ order.totalAmount|number_format(0, '.', ',') }}₫</strong>
+                        </td>
+                        <td>
+                            <span class="badge badge-{{ order.status }}">
+                                {{ order.status|capitalize }}
+                            </span>
+                        </td>
+                        <td class="text-secondary small">
+                            {{ order.createdAt|date('M d, Y H:i') }}
+                        </td>
+                        <td class="text-end">
+                            <div class="d-flex justify-content-end gap-2">
+                                <!-- View Order Details Button -->
+                                <button type="button" class="btn btn-sm btn-light text-primary" 
+                                        data-bs-toggle="modal" data-bs-target="#orderModal{{ order.id }}"
+                                        title="View Details">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+
+                                <!-- Change Status Dropdown -->
+                                <div class="dropdown">
+                                    <button class="btn btn-sm btn-light text-dark dropdown-toggle" 
+                                            type="button" data-bs-toggle="dropdown" title="Update Status">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
+                                        <li><h6 class="dropdown-header">Update Status</h6></li>
+                                        {% for status in ['pending', 'paid', 'processing', 'shipped', 'delivered', 'cancelled'] %}
+                                        <li>
+                                            <form action="/?action=admin-update-order-status" method="POST">
+                                                <input type="hidden" name="order_id" value="{{ order.id }}">
+                                                <input type="hidden" name="status" value="{{ status }}">
+                                                <button type="submit" class="dropdown-item d-flex align-items-center justify-content-between {% if order.status == status %}active{% endif %}">
+                                                    <span>{{ status|capitalize }}</span>
+                                                    {% if order.status == status %}
+                                                        <i class="fas fa-check small"></i>
+                                                    {% endif %}
+                                                </button>
+                                            </form>
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Order Details Modal -->
+                            <div class="modal fade" id="orderModal{{ order.id }}" tabindex="-1">
+                                <div class="modal-dialog modal-lg modal-dialog-centered">
+                                    <div class="modal-content border-0 shadow">
+                                        <div class="modal-header border-bottom-0 pb-0">
+                                            <h5 class="modal-title fw-bold">Order #{{ order.id }}</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                        </div>
+                                        <div class="modal-body pt-4">
+                                            <!-- Customer Info -->
+                                            <div class="row mb-4 g-4">
+                                                <div class="col-md-6">
+                                                    <div class="p-3 bg-light rounded-3 h-100">
+                                                        <h6 class="text-secondary text-uppercase small fw-bold mb-3">Customer Details</h6>
+                                                        <div class="d-flex align-items-center mb-3">
+                                                            <img src="{{ order.user.avatar ?? 'https://ui-avatars.com/api/?name=' ~ order.user.fullName|url_encode }}" 
+                                                                 class="rounded-circle me-3" width="48" height="48">
+                                                            <div>
+                                                                <div class="fw-bold">{{ order.user.fullName }}</div>
+                                                                <div class="text-muted small">{{ order.user.email }}</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex align-items-center text-muted small">
+                                                            <i class="fas fa-phone me-2"></i> {{ order.user.phoneNumber ?: 'N/A' }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="p-3 bg-light rounded-3 h-100">
+                                                        <h6 class="text-secondary text-uppercase small fw-bold mb-3">Order Info</h6>
+                                                        <div class="d-flex justify-content-between mb-2">
+                                                            <span class="text-muted">Status:</span>
+                                                            <span class="badge badge-{{ order.status }}">{{ order.status|capitalize }}</span>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between mb-2">
+                                                            <span class="text-muted">Date:</span>
+                                                            <span class="fw-medium">{{ order.createdAt|date('M d, Y H:i') }}</span>
+                                                        </div>
+                                                        <div class="d-flex justify-content-between">
+                                                            <span class="text-muted">Payment Method:</span>
+                                                            <span class="fw-medium">{{ order.paymentMethod|default('COD')|upper }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Order Items -->
+                                            <h6 class="text-secondary text-uppercase small fw-bold mb-3">Order Items</h6>
+                                            <div class="table-responsive border rounded-3 mb-3">
+                                                <table class="table table-borderless mb-0">
+                                                    <thead class="bg-light">
+                                                        <tr>
+                                                            <th class="ps-4">Product</th>
+                                                            <th class="text-center">Qty</th>
+                                                            <th class="text-end">Price</th>
+                                                            <th class="text-end pe-4">Total</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {% for item in order.orderItems %}
+                                                        <tr>
+                                                            <td class="ps-4">
+                                                                <div class="fw-medium">{{ item.product.name }}</div>
+                                                            </td>
+                                                            <td class="text-center">{{ item.quantity }}</td>
+                                                            <td class="text-end">{{ item.price|number_format(0, '.', ',') }}₫</td>
+                                                            <td class="text-end pe-4 fw-medium">{{ (item.price * item.quantity)|number_format(0, '.', ',') }}₫</td>
+                                                        </tr>
+                                                        {% endfor %}
+                                                    </tbody>
+                                                    <tfoot class="border-top">
+                                                        <tr>
+                                                            <td colspan="3" class="text-end pt-3 pb-3"><strong>Total Amount:</strong></td>
+                                                            <td class="text-end pe-4 pt-3 pb-3"><strong class="text-primary fs-5">{{ order.totalAmount|number_format(0, '.', ',') }}₫</strong></td>
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer border-top-0">
+                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                            <a href="/?action=admin-print-order&id={{ order.id }}" target="_blank" class="btn btn-primary">
+                                                <i class="fas fa-print me-2"></i>Print Invoice
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="7" class="text-center py-5">
+                            <div class="text-muted mb-3">
+                                <i class="fas fa-shopping-cart fa-3x opacity-25"></i>
+                            </div>
+                            <h6 class="text-muted fw-bold">No orders found</h6>
+                            <p class="text-secondary small mb-0">New orders will appear here when customers make a purchase.</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Pagination -->
+{% if total_orders > 20 %}
+<nav class="mt-4">
+    <ul class="pagination justify-content-center">
+        {% if current_page > 0 %}
+            <li class="page-item">
+                <a class="page-link" href="/?action=admin-orders&page={{ current_page - 1 }}">
+                    <i class="fas fa-chevron-left"></i>
+                </a>
+            </li>
+        {% endif %}
+        
+        {% set total_pages = (total_orders / 20)|round(0, 'ceil') %}
+        {% for i in 0..total_pages - 1 %}
+            <li class="page-item {% if i == current_page %}active{% endif %}">
+                <a class="page-link" href="/?action=admin-orders&page={{ i }}">{{ i + 1 }}</a>
+            </li>
+        {% endfor %}
+        
+        {% if current_page < total_pages - 1 %}
+            <li class="page-item">
+                <a class="page-link" href="/?action=admin-orders&page={{ current_page + 1 }}">
+                    <i class="fas fa-chevron-right"></i>
+                </a>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
+{% endblock %}
