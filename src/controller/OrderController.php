@@ -151,6 +151,47 @@ class OrderController extends Controller
     }
 
     /**
+     * Confirm order received by customer
+     */
+    public function confirmReceived()
+    {
+        if (!isset($_SESSION['user_id'])) {
+            header("Location: /?action=login");
+            exit;
+        }
+
+        $orderId = $_GET['order_id'] ?? null;
+        
+        if (!$orderId) {
+            $_SESSION['error'] = 'Invalid order';
+            header("Location: /?action=orders");
+            exit;
+        }
+
+        $order = $this->orderRepository->find($orderId);
+        
+        if (!$order || $order->getUser()->getId() !== $_SESSION['user_id']) {
+            $_SESSION['error'] = 'Order not found';
+            header("Location: /?action=orders");
+            exit;
+        }
+
+        // Only allow confirming shipped orders
+        if ($order->getStatus() !== Order::STATUS_SHIPPED) {
+            $_SESSION['error'] = 'Đơn hàng chưa được giao';
+            header("Location: /?action=orders");
+            exit;
+        }
+
+        $order->setStatus(Order::STATUS_DELIVERED);
+        $this->orderRepository->save($order);
+
+        $_SESSION['success'] = 'Xác nhận đã nhận hàng thành công!';
+        header("Location: /?action=orders");
+        exit;
+    }
+
+    /**
      * Display payment result page
      */
     public function paymentResult()

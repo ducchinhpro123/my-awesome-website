@@ -125,6 +125,10 @@ class Application
                 $this->orderController->paymentResult();
                 break;
 
+            case 'confirm-received':
+                $this->orderController->confirmReceived();
+                break;
+
 
 
             // Admin routes

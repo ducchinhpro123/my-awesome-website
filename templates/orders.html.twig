@@ -28,19 +28,30 @@
                                 <td>{{ order.createdAt|date('Y-m-d') }}</td>
                                 <td>
                                     {% if order.status == 'paid' %}
-                                        <span class="badge bg-success">Paid</span>
+                                        <span class="badge bg-success">Đã Thanh Toán</span>
                                     {% elseif order.status == 'pending' %}
-                                        <span class="badge bg-warning text-dark">Pending</span>
+                                        <span class="badge bg-warning text-dark">Chờ Xử Lý</span>
                                     {% elseif order.status == 'shipped' %}
-                                        <span class="badge bg-info text-dark">Shipped</span>
+                                        <span class="badge bg-info text-dark">Đang Giao</span>
+                                    {% elseif order.status == 'delivered' %}
+                                        <span class="badge bg-success">Đã Nhận Hàng</span>
                                     {% elseif order.status == 'cancelled' %}
-                                        <span class="badge bg-danger">Cancelled</span>
+                                        <span class="badge bg-danger">Đã Hủy</span>
                                     {% else %}
                                         <span class="badge bg-secondary">{{ order.status|capitalize }}</span>
                                     {% endif %}
                                 </td>
                                 <td>{{ order.totalAmount|number_format(0, ',', '.') }} VND</td>
-                                <td><a href="#" class="btn btn-sm btn-outline-primary">View Details</a></td>
+                                <td>
+                                    <a href="#" class="btn btn-sm btn-outline-primary">View Details</a>
+                                    {% if order.status == 'shipped' %}
+                                        <a href="/?action=confirm-received&order_id={{ order.id }}" 
+                                           class="btn btn-sm btn-success mt-1"
+                                           onclick="return confirm('Xác nhận bạn đã nhận được hàng?')">
+                                            <i class="bi bi-check-circle"></i> Đã Nhận Hàng
+                                        </a>
+                                    {% endif %}
+                                </td>
                             </tr>
                             {% else %}
                             <tr>
